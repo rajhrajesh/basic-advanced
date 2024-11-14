@@ -61,7 +61,7 @@ const List = ({list}) => (
 const Item = ({item}) => (
   <li>
     <span>
-      <a href={item.url}>{item.title}</a>
+      <a href={item.url}>{props.item.title}</a>
     </span>
     <span>{item.author}</span>
     <span>{item.num_comments}</span>
