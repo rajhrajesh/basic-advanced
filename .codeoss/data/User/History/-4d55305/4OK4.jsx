@@ -1,5 +1,18 @@
 import * as React from 'react';
 
+const useStorageState = (key, initialState) => {
+  const [value, setValue] = React.useState(
+    localStorage.getItem(key) || initialState
+  )
+
+  React.useEffect(() => {
+    localStorage.setItem(key, value)
+  }, [value, key])
+
+  return [value, setValue]
+}
+
+
 const App = () => {
   const stories = [
     {
@@ -20,7 +33,7 @@ const App = () => {
     },
   ];
 
-  const [searchTerm, setSearchTerm] = React.useState('');
+  const [searchTerm, setSearchTerm] = useStorageState('search', '');
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -31,7 +44,7 @@ const App = () => {
   );
 
   return (
-    <div>
+    <React.Fragment>
       <h1>My Hacker Stories</h1>
 
       <Search search={searchTerm} onSearch={handleSearch} />
@@ -39,23 +52,26 @@ const App = () => {
       <hr />
 
       <List list={searchedStories} />
-    </div>
+
+      <hr />
+
+      <InputWithLabel id="search" label="Search" value={searchTerm} onInputChange={handleSearch} />
+
+    </React.Fragment>
   );
 };
 
 const Search = ({ onSearch, search }) => (
-  <div>
+  <>
     <label htmlFor="search">Search: </label>
     <input value={search} id="search" type="text" onChange={onSearch} />
-  </div>
+  </>
 );
 
-// Variation 2: step:2 Spread and Rest Operators
-// Final Step
 const List = ({ list }) => (
   <ul>
-    {list.map(({ objectID, ...item }) => (
-      <Item key={objectID} {...item} />
+    {list.map((item) => (
+      <Item key={item.objectID} fine="rajesh" love="rajh_" {...item} />
     ))}
   </ul>
 );
@@ -74,5 +90,9 @@ const Item = ({
   </li>
 );
 
+// Reusable React Component
+const InputWithLabel = () => (
+
+)
 
 export default App;
