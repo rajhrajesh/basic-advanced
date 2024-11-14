@@ -33,7 +33,7 @@ const App = () => {
     },
   ];
 
-  const [searchTerm, setSearchTerm] = useStorageState('search', 'React');
+  const [searchTerm, setSearchTerm] = useStorageState('search', '');
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -44,7 +44,7 @@ const App = () => {
   );
 
   return (
-    <div>
+    <React.Fragment>
       <h1>My Hacker Stories</h1>
 
       <Search search={searchTerm} onSearch={handleSearch} />
@@ -52,15 +52,15 @@ const App = () => {
       <hr />
 
       <List list={searchedStories} />
-    </div>
+    </React.Fragment>
   );
 };
 
 const Search = ({ onSearch, search }) => (
-  <div>
+  <>
     <label htmlFor="search">Search: </label>
     <input value={search} id="search" type="text" onChange={onSearch} />
-  </div>
+  </>
 );
 
 const List = ({ list }) => (
