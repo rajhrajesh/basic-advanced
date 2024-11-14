@@ -43,25 +43,27 @@ const App = () => {
   );
 };
 
-const Search = ({ onSearch, search }) => (
+const Search = ({onSearch, search}) => (
   <div>
     <label htmlFor="search">Search: </label>
     <input value={search} id="search" type="text" onChange={onSearch} />
   </div>
 );
 
-// Variation 2: Spread and Rest Operators
-const List = ({ list }) => (
+const List = ({list}) => (
   <ul>
     {list.map((item) => (
-      <Item key={item.objectID} title={item.title} url={item.url} author={item.author} num_comments={item.num_comments} points={item.points} />
+      <Item key={item.objectID} item={item} />
     ))}
   </ul>
 );
 
+// Variation 2: Spread and Rest Operators
 const Item = ({
-  url, title, author, num_comments, points }
-) => (
+  item:{
+    url, title, author, num_comments, points
+  }
+}) => (
   <li>
     <span>
       <a href={url}>{title}</a>
