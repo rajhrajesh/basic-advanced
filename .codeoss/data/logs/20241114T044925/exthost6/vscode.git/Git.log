@@ -59,3 +59,167 @@ warning: There are too many unreachable loose objects; run 'git prune' to remove
 2024-11-14 07:44:30.548 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
 2024-11-14 07:44:30.548 [warning] No such branch: main.
 2024-11-14 07:44:30.940 [info] > git status -z -uall [370ms]
+2024-11-14 07:44:32.345 [info] > git add -A -- . [797ms]
+2024-11-14 07:44:32.345 [info] warning: adding embedded git repository: blog_/Full-Stack-React-Projects-Second-Edition
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint: 
+hint: 	git submodule add <url> blog_/Full-Stack-React-Projects-Second-Edition
+hint: 
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint: 
+hint: 	git rm --cached blog_/Full-Stack-React-Projects-Second-Edition
+hint: 
+hint: See "git help submodule" for more information.
+2024-11-14 07:44:32.498 [info] > git -c user.useConfigOnly=true commit --quiet --allow-empty-message --file - [113ms]
+2024-11-14 07:44:32.498 [info] Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: no email was given and auto-detection is disabled
+2024-11-14 07:44:32.524 [info] > git config --get-all user.name [2ms]
+2024-11-14 07:44:32.573 [info] > git config --get commit.template [26ms]
+2024-11-14 07:44:32.574 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2024-11-14 07:44:32.574 [warning] No such branch: main.
+2024-11-14 07:44:33.957 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-14 07:44:33.995 [info] > git cat-file -s 6d9cfd6b9ff6d95633a44515d4d04c1ceacb327f [3ms]
+2024-11-14 07:44:34.092 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [4ms]
+2024-11-14 07:44:35.151 [info] > git status -z -uall [2555ms]
+2024-11-14 07:44:36.027 [info] > git config --get commit.template [34ms]
+2024-11-14 07:44:36.027 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2024-11-14 07:44:36.028 [warning] No such branch: main.
+2024-11-14 07:44:36.388 [info] > git status -z -uall [329ms]
+2024-11-14 07:44:41.482 [info] > git config --get commit.template [45ms]
+2024-11-14 07:44:41.486 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [15ms]
+2024-11-14 07:44:41.486 [warning] No such branch: main.
+2024-11-14 07:44:41.881 [info] > git status -z -uall [361ms]
+2024-11-14 07:44:46.954 [info] > git config --get commit.template [2ms]
+2024-11-14 07:44:46.990 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2024-11-14 07:44:46.991 [warning] No such branch: main.
+2024-11-14 07:44:47.358 [info] > git status -z -uall [332ms]
+2024-11-14 07:44:52.429 [info] > git config --get commit.template [28ms]
+2024-11-14 07:44:52.429 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2024-11-14 07:44:52.430 [warning] No such branch: main.
+2024-11-14 07:44:52.773 [info] > git status -z -uall [319ms]
+2024-11-14 07:44:53.557 [info] > git check-ignore -v -z --stdin [3ms]
+2024-11-14 07:44:57.866 [info] > git config --get commit.template [36ms]
+2024-11-14 07:44:57.868 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2024-11-14 07:44:57.869 [warning] No such branch: main.
+2024-11-14 07:44:58.221 [info] > git status -z -uall [319ms]
+2024-11-14 07:45:03.289 [info] > git config --get commit.template [27ms]
+2024-11-14 07:45:03.290 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2024-11-14 07:45:03.290 [warning] No such branch: main.
+2024-11-14 07:45:03.627 [info] > git status -z -uall [312ms]
+2024-11-14 07:45:08.714 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2024-11-14 07:45:08.715 [warning] No such branch: main.
+2024-11-14 07:45:08.719 [info] > git config --get commit.template [42ms]
+2024-11-14 07:45:09.072 [info] > git status -z -uall [319ms]
+2024-11-14 07:45:14.165 [info] > git config --get commit.template [37ms]
+2024-11-14 07:45:14.168 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2024-11-14 07:45:14.168 [warning] No such branch: main.
+2024-11-14 07:45:14.529 [info] > git status -z -uall [329ms]
+2024-11-14 07:45:19.570 [info] > git config --get commit.template [3ms]
+2024-11-14 07:45:19.597 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2024-11-14 07:45:19.597 [warning] No such branch: main.
+2024-11-14 07:45:19.933 [info] > git status -z -uall [312ms]
+2024-11-14 07:45:25.021 [info] > git config --get commit.template [40ms]
+2024-11-14 07:45:25.023 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2024-11-14 07:45:25.023 [warning] No such branch: main.
+2024-11-14 07:45:25.404 [info] > git status -z -uall [347ms]
+2024-11-14 07:45:30.494 [info] > git config --get commit.template [39ms]
+2024-11-14 07:45:30.495 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2024-11-14 07:45:30.495 [warning] No such branch: main.
+2024-11-14 07:45:30.848 [info] > git status -z -uall [318ms]
+2024-11-14 07:45:35.935 [info] > git config --get commit.template [35ms]
+2024-11-14 07:45:35.938 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2024-11-14 07:45:35.938 [warning] No such branch: main.
+2024-11-14 07:45:36.289 [info] > git status -z -uall [318ms]
+2024-11-14 07:45:41.375 [info] > git config --get commit.template [35ms]
+2024-11-14 07:45:41.377 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2024-11-14 07:45:41.377 [warning] No such branch: main.
+2024-11-14 07:45:41.747 [info] > git status -z -uall [338ms]
+2024-11-14 07:45:46.801 [info] > git config --get commit.template [2ms]
+2024-11-14 07:45:46.835 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2024-11-14 07:45:46.835 [warning] No such branch: main.
+2024-11-14 07:45:47.196 [info] > git status -z -uall [327ms]
+2024-11-14 07:45:52.261 [info] > git config --get commit.template [3ms]
+2024-11-14 07:45:52.296 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2024-11-14 07:45:52.297 [warning] No such branch: main.
+2024-11-14 07:45:52.650 [info] > git status -z -uall [320ms]
+2024-11-14 07:45:57.740 [info] > git config --get commit.template [35ms]
+2024-11-14 07:45:57.741 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2024-11-14 07:45:57.741 [warning] No such branch: main.
+2024-11-14 07:45:58.087 [info] > git status -z -uall [312ms]
+2024-11-14 07:46:03.148 [info] > git config --get commit.template [2ms]
+2024-11-14 07:46:03.183 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2024-11-14 07:46:03.184 [warning] No such branch: main.
+2024-11-14 07:46:03.548 [info] > git status -z -uall [331ms]
+2024-11-14 07:46:08.120 [info] > git -c user.useConfigOnly=true commit --quiet --allow-empty-message --file - [22ms]
+2024-11-14 07:46:08.120 [info] warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-14 07:46:08.158 [info] > git config --get commit.template [2ms]
+2024-11-14 07:46:08.230 [info] > git config --get commit.template [36ms]
+2024-11-14 07:46:08.231 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2024-11-14 07:46:08.599 [info] > git status -z -uall [335ms]
+2024-11-14 07:46:08.649 [info] > git config --get commit.template [2ms]
+2024-11-14 07:46:08.685 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2024-11-14 07:46:08.913 [info] > git status -z -uall [196ms] (cancelled)
+2024-11-14 07:46:08.913 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main [51ms]
+2024-11-14 07:46:08.941 [info] > git config --get commit.template [32ms]
+2024-11-14 07:46:08.942 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main [3ms]
+2024-11-14 07:46:08.994 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2024-11-14 07:46:09.019 [info] > git config --local branch.main.vscode-merge-base [53ms]
+2024-11-14 07:46:09.019 [warning] git config failed: Failed to execute git
+2024-11-14 07:46:09.059 [info] > git reflog refs/heads/main --grep-reflog=branch: Created from *. [5ms]
+2024-11-14 07:46:09.098 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [5ms]
+2024-11-14 07:46:09.098 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-11-14 07:46:09.098 [info] GitHistoryProvider:resolveHistoryItemGroupBase - Failed to resolve history item group base for 'refs/heads/main'
+2024-11-14 07:46:09.098 [info] GitHistoryProvider:resolveHistoryItemGroupCommonAncestor - Failed to resolve history item group base for 'refs/heads/main'
+2024-11-14 07:46:09.211 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main [4ms]
+2024-11-14 07:46:09.254 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main [5ms]
+2024-11-14 07:46:09.299 [info] > git config --local branch.main.vscode-merge-base [6ms]
+2024-11-14 07:46:09.299 [warning] git config failed: Failed to execute git
+2024-11-14 07:46:09.338 [info] > git reflog refs/heads/main --grep-reflog=branch: Created from *. [6ms]
+2024-11-14 07:46:09.381 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [6ms]
+2024-11-14 07:46:09.381 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-11-14 07:46:09.381 [info] GitHistoryProvider:resolveHistoryItemGroupBase - Failed to resolve history item group base for 'refs/heads/main'
+2024-11-14 07:46:09.381 [info] GitHistoryProvider:resolveHistoryItemGroupCommonAncestor - Failed to resolve history item group base for 'refs/heads/main'
+2024-11-14 07:46:09.420 [info] > git status -z -uall [402ms]
+2024-11-14 07:46:09.505 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main [3ms]
+2024-11-14 07:46:09.533 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main [3ms]
+2024-11-14 07:46:09.560 [info] > git config --local branch.main.vscode-merge-base [2ms]
+2024-11-14 07:46:09.560 [warning] git config failed: Failed to execute git
+2024-11-14 07:46:09.587 [info] > git reflog refs/heads/main --grep-reflog=branch: Created from *. [3ms]
+2024-11-14 07:46:09.613 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [2ms]
+2024-11-14 07:46:09.613 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-11-14 07:46:09.613 [info] GitHistoryProvider:resolveHistoryItemGroupBase - Failed to resolve history item group base for 'refs/heads/main'
+2024-11-14 07:46:09.613 [info] GitHistoryProvider:resolveHistoryItemGroupCommonAncestor - Failed to resolve history item group base for 'refs/heads/main'
+2024-11-14 07:46:09.640 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [2ms]
+2024-11-14 07:46:09.670 [info] > git cat-file -s 6d9cfd6b9ff6d95633a44515d4d04c1ceacb327f [4ms]
+2024-11-14 07:46:09.752 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [2ms]
+2024-11-14 07:46:13.913 [info] > git config --get commit.template [2ms]
+2024-11-14 07:46:13.951 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2024-11-14 07:46:14.314 [info] > git status -z -uall [330ms]
+2024-11-14 07:46:15.856 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main [9ms]
+2024-11-14 07:46:15.915 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main [9ms]
+2024-11-14 07:46:15.961 [info] > git config --local branch.main.vscode-merge-base [6ms]
+2024-11-14 07:46:15.961 [warning] git config failed: Failed to execute git
+2024-11-14 07:46:16.002 [info] > git reflog refs/heads/main --grep-reflog=branch: Created from *. [6ms]
+2024-11-14 07:46:16.043 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [5ms]
+2024-11-14 07:46:16.043 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-11-14 07:46:16.043 [info] GitHistoryProvider:resolveHistoryItemGroupBase - Failed to resolve history item group base for 'refs/heads/main'
+2024-11-14 07:46:16.043 [info] GitHistoryProvider:resolveHistoryItemGroupCommonAncestor - Failed to resolve history item group base for 'refs/heads/main'
