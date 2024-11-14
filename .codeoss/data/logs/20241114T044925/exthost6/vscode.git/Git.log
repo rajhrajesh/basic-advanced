@@ -1,0 +1,61 @@
+2024-11-14 07:43:23.232 [info] Log level: Info
+2024-11-14 07:43:23.233 [info] Validating found git in: "git"
+2024-11-14 07:43:23.233 [info] Using git "2.43.0" from "git"
+2024-11-14 07:43:23.233 [info] > git rev-parse --show-toplevel [8ms]
+2024-11-14 07:43:23.233 [info] > git rev-parse --git-dir --git-common-dir [6ms]
+2024-11-14 07:43:23.233 [info] Open repository: /home/penurajeshitsd
+2024-11-14 07:43:23.233 [info] > git config --get commit.template [12ms]
+2024-11-14 07:43:23.233 [info] > git rev-parse --show-toplevel [5ms]
+2024-11-14 07:43:23.233 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [20ms]
+2024-11-14 07:43:23.233 [warning] No such branch: main.
+2024-11-14 07:43:23.233 [info] > git rev-parse --show-toplevel [23ms]
+2024-11-14 07:43:23.382 [info] > git status -z -uall [168ms]
+2024-11-14 07:43:23.433 [info] > git config --get commit.template [5ms]
+2024-11-14 07:43:23.444 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2024-11-14 07:43:23.444 [warning] No such branch: main.
+2024-11-14 07:43:23.705 [info] > git status -z -uall [252ms]
+2024-11-14 07:43:23.772 [info] > git fetch [639ms]
+2024-11-14 07:43:23.772 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-14 07:43:23.793 [info] > git config --get commit.template [10ms]
+2024-11-14 07:43:23.793 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2024-11-14 07:43:23.793 [warning] No such branch: main.
+2024-11-14 07:43:24.188 [info] > git status -z -uall [386ms]
+2024-11-14 07:43:24.189 [info] > git check-ignore -v -z --stdin [12ms]
+2024-11-14 07:43:29.638 [info] > git check-ignore -v -z --stdin [605ms]
+2024-11-14 07:43:29.639 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [567ms]
+2024-11-14 07:43:29.640 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [542ms]
+2024-11-14 07:43:41.458 [info] > git config --get commit.template [53ms]
+2024-11-14 07:43:41.698 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [32ms]
+2024-11-14 07:43:41.714 [warning] No such branch: main.
+2024-11-14 07:43:43.168 [info] > git status -z -uall [1232ms]
+2024-11-14 07:43:53.083 [info] > git config --get commit.template [30ms]
+2024-11-14 07:43:53.084 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2024-11-14 07:43:53.084 [warning] No such branch: main.
+2024-11-14 07:43:53.329 [info] > git status -z -uall [208ms]
+2024-11-14 07:44:09.399 [info] > git config --get commit.template [4ms]
+2024-11-14 07:44:09.431 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2024-11-14 07:44:09.431 [warning] No such branch: main.
+2024-11-14 07:44:09.619 [info] > git status -z -uall [157ms]
+2024-11-14 07:44:14.709 [info] > git config --get commit.template [32ms]
+2024-11-14 07:44:14.710 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2024-11-14 07:44:14.710 [warning] No such branch: main.
+2024-11-14 07:44:14.856 [info] > git check-ignore -v -z --stdin [6ms]
+2024-11-14 07:44:14.914 [info] > git status -z -uall [173ms]
+2024-11-14 07:44:19.967 [info] > git config --get commit.template [2ms]
+2024-11-14 07:44:20.002 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2024-11-14 07:44:20.002 [warning] No such branch: main.
+2024-11-14 07:44:20.199 [info] > git status -z -uall [165ms]
+2024-11-14 07:44:25.292 [info] > git config --get commit.template [34ms]
+2024-11-14 07:44:25.293 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2024-11-14 07:44:25.293 [warning] No such branch: main.
+2024-11-14 07:44:25.479 [info] > git status -z -uall [155ms]
+2024-11-14 07:44:30.547 [info] > git config --get commit.template [24ms]
+2024-11-14 07:44:30.548 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2024-11-14 07:44:30.548 [warning] No such branch: main.
+2024-11-14 07:44:30.940 [info] > git status -z -uall [370ms]

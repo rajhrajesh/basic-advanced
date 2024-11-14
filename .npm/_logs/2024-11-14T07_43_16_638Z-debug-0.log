@@ -1,0 +1,19 @@
+0 verbose cli /usr/local/nvm/versions/node/v22.11.0/bin/node /usr/local/nvm/versions/node/v22.11.0/bin/npm
+1 info using npm@10.9.0
+2 info using node@v22.11.0
+3 silly config load:file:/usr/local/nvm/versions/node/v22.11.0/lib/node_modules/npm/npmrc
+4 silly config load:file:/tmp/exhort_jiOFs2/.npmrc
+5 silly config load:file:/home/penurajeshitsd/.npmrc
+6 silly config load:file:/tmp/exhort_jiOFs2/etc/npmrc
+7 verbose title npm ls
+8 verbose argv "ls" "--omit" "dev" "--package-lock-only" "--json" "--prefix" "/tmp/exhort_jiOFs2"
+9 verbose logfile logs-max:10 dir:/home/penurajeshitsd/.npm/_logs/2024-11-14T07_43_16_638Z-
+10 verbose logfile /home/penurajeshitsd/.npm/_logs/2024-11-14T07_43_16_638Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+13 verbose cwd /home/penurajeshitsd/react_18
+14 verbose os Linux 6.1.112+
+15 verbose node v22.11.0
+16 verbose npm  v10.9.0
+17 verbose exit 0
+18 info ok

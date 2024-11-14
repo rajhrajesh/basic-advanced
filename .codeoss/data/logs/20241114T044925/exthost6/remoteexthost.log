@@ -1,0 +1,28 @@
+2024-11-14 07:43:21.750 [info] Extension host with pid 36631 started
+2024-11-14 07:43:21.789 [info] Lock '/home/penurajeshitsd/.codeoss/data/User/workspaceStorage/65e53f53/vscode.lock': Lock acquired.
+2024-11-14 07:43:21.973 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-11-14 07:43:21.999 [info] ExtensionService#_doActivateExtension vscode.npm, startup: true, activationEvent: 'workspaceContains:package.json'
+2024-11-14 07:43:22.071 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-11-14 07:43:22.072 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-11-14 07:43:23.404 [warning] [Decorations] CAPPING events from decorations provider vscode.git 413
+2024-11-14 07:43:23.711 [warning] [Decorations] CAPPING events from decorations provider vscode.git 413
+2024-11-14 07:43:24.115 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2024-11-14 07:43:24.199 [warning] [Decorations] CAPPING events from decorations provider vscode.git 413
+2024-11-14 07:43:24.542 [info] ExtensionService#_doActivateExtension redhat.fabric8-analytics, startup: true, activationEvent: 'workspaceContains:**/package.json,**/pom.xml,**/go.mod,**/requirements.txt'
+2024-11-14 07:43:24.871 [info] Eager extensions activated
+2024-11-14 07:43:24.871 [info] ExtensionService#_doActivateExtension EditorConfig.EditorConfig, startup: false, activationEvent: 'onStartupFinished'
+2024-11-14 07:43:24.872 [info] ExtensionService#_doActivateExtension google.cloud-shell, startup: false, activationEvent: 'onStartupFinished'
+2024-11-14 07:43:24.872 [info] ExtensionService#_doActivateExtension googlecloudtools.cloudcode, startup: false, activationEvent: 'onStartupFinished'
+2024-11-14 07:43:24.873 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-11-14 07:43:24.873 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-11-14 07:43:28.431 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:javascriptreact'
+2024-11-14 07:43:28.432 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-11-14 07:43:29.449 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2024-11-14 07:43:43.205 [warning] [Decorations] CAPPING events from decorations provider vscode.git 427
+2024-11-14 07:43:53.349 [warning] [Decorations] CAPPING events from decorations provider vscode.git 608
+2024-11-14 07:43:53.668 [info] ExtensionService#_doActivateExtension vscode.simple-browser, startup: false, activationEvent: 'onOpenExternalUri:https'
+2024-11-14 07:44:09.636 [warning] [Decorations] CAPPING events from decorations provider vscode.git 608
+2024-11-14 07:44:14.927 [warning] [Decorations] CAPPING events from decorations provider vscode.git 608
+2024-11-14 07:44:20.214 [warning] [Decorations] CAPPING events from decorations provider vscode.git 608
+2024-11-14 07:44:25.488 [warning] [Decorations] CAPPING events from decorations provider vscode.git 608
+2024-11-14 07:44:30.953 [warning] [Decorations] CAPPING events from decorations provider vscode.git 608
