@@ -1,5 +1,17 @@
 import * as React from 'react';
 
+
+const useStorageState = () => {
+  const [searchTerm, setSearchTerm] = React.useState(
+    localStorage.getItem('search') || ''
+  )
+
+  React.useEffect(()=>{
+    localStorage.setItem('search', searchTerm)
+  },[searchTerm])
+}
+
+
 const App = () => {
   const stories = [
     {
@@ -20,7 +32,7 @@ const App = () => {
     },
   ];
 
-  const [searchTerm, setSearchTerm] = React.useState('');
+  const [searchTerm, setSearchTerm] = React.useStorageState('React');
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -34,7 +46,7 @@ const App = () => {
     <div>
       <h1>My Hacker Stories</h1>
 
-      <Search onSearch={handleSearch} />
+      <Search search={searchTerm} onSearch={handleSearch} />
 
       <hr />
 
@@ -43,30 +55,34 @@ const App = () => {
   );
 };
 
-const Search = (props) => (
+const Search = ({ onSearch, search }) => (
   <div>
     <label htmlFor="search">Search: </label>
-    <input id="search" type="text" onChange={props.onSearch} />
+    <input value={search} id="search" type="text" onChange={onSearch} />
   </div>
 );
 
-const List = (props) => (
+const List = ({ list }) => (
   <ul>
-    {props.list.map((item) => (
-      <Item key={item.objectID} item={item} />
+    {list.map((item) => (
+      <Item key={item.objectID} fine="rajesh" love="rajh_" {...item} />
     ))}
   </ul>
 );
 
-const Item = (props) => (
+const Item = ({
+  url, title, author, num_comments, points, love ,fine }
+) => (
   <li>
     <span>
-      <a href={props.item.url}>{props.item.title}</a>
+      <a href={url}>{title}</a>
     </span>
-    <span>{props.item.author}</span>
-    <span>{props.item.num_comments}</span>
-    <span>{props.item.points}</span>
+    <span>{author}</span>
+    <span>{num_comments}</span>
+    <span>{points}</span>
+    <span>{love}{fine}</span> {/* Display the custom property if needed */}
   </li>
 );
+
 
 export default App;

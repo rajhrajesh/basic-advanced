@@ -20,7 +20,20 @@ const App = () => {
     },
   ];
 
-  const [searchTerm, setSearchTerm] = React.useState('');
+  const [searchTerm, setSearchTerm] = useStorageState('React');
+
+  const useStorageState = (initialState) => {
+    const [value, setValue] = React.useState(
+      localStorage.getItem('value') || initialState
+    )
+
+    React.useEffect(()=>{
+      localStorage.setItem('value', value)
+    },[value])
+
+    return [value, setValue];
+  }
+
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -51,10 +64,11 @@ const Search = ({ onSearch, search }) => (
 );
 
 // Variation 2: step:2 Spread and Rest Operators
+// Final Step
 const List = ({ list }) => (
   <ul>
-    {list.map((item) => (
-      <Item key={item.objectID}{item.love} {...item} />
+    {list.map(({ objectID, ...item }) => (
+      <Item key={objectID} {...item} />
     ))}
   </ul>
 );
@@ -71,5 +85,6 @@ const Item = ({
     <span>{points}</span>
   </li>
 );
+
 
 export default App;

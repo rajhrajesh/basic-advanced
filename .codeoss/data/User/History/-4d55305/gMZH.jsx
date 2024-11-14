@@ -1,18 +1,5 @@
 import * as React from 'react';
 
-const useStorageState = (key, initialState) => {
-  const [value, setValue] = React.useState(
-    localStorage.getItem(key) || initialState
-  )
-
-  React.useEffect(() => {
-    localStorage.setItem(key, value)
-  }, [value, key])
-
-  return [value, setValue]
-}
-
-
 const App = () => {
   const stories = [
     {
@@ -33,7 +20,8 @@ const App = () => {
     },
   ];
 
-  const [searchTerm, setSearchTerm] = useStorageState('search', 'React');
+  const [searchTerm, setSearchTerm] = useStorageState('React');
+
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -63,16 +51,18 @@ const Search = ({ onSearch, search }) => (
   </div>
 );
 
+// Variation 2: step:2 Spread and Rest Operators
+// Final Step
 const List = ({ list }) => (
   <ul>
-    {list.map((item) => (
-      <Item key={item.objectID} fine="rajesh" love="rajh_" {...item} />
+    {list.map(({ objectID, ...item }) => (
+      <Item key={objectID} {...item} />
     ))}
   </ul>
 );
 
 const Item = ({
-  url, title, author, num_comments, points, love, fine }
+  url, title, author, num_comments, points }
 ) => (
   <li>
     <span>
@@ -81,7 +71,6 @@ const Item = ({
     <span>{author}</span>
     <span>{num_comments}</span>
     <span>{points}</span>
-    <span>{love}{fine}</span> {/* Display the custom property if needed */}
   </li>
 );
 

@@ -1,5 +1,18 @@
 import * as React from 'react';
 
+const useStorageState = (key, initialState) => {
+  const [value, setValue] = React.useState(
+    localStorage.getItem(key) || initialState
+  )
+
+  React.useEffect(() => {
+    localStorage.setItem(key, value)
+  }, [value, key])
+
+  return [value, setValue]
+}
+
+
 const App = () => {
   const stories = [
     {
@@ -20,7 +33,7 @@ const App = () => {
     },
   ];
 
-  const [searchTerm, setSearchTerm] = React.useState('');
+  const [searchTerm, setSearchTerm] = useStorageState('search', 'React');
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -43,32 +56,34 @@ const App = () => {
   );
 };
 
-const Search = ({onSearch, search}) => (
+const Search = ({ onSearch, search }) => (
   <div>
     <label htmlFor="search">Search: </label>
     <input value={search} id="search" type="text" onChange={onSearch} />
   </div>
 );
 
-const List = ({list}) => (
+const List = ({ list }) => (
   <ul>
     {list.map((item) => (
-      <Item key={item.objectID} item={item} />
+      <Item key={item.objectID} fine="rajesh" love="rajh_" {...item} />
     ))}
   </ul>
 );
 
-// Variation 1: Nested Destructuring
-
-const Item = ({item}) => (
+const Item = ({
+  url, title, author, num_comments, points, love, fine }
+) => (
   <li>
     <span>
-      <a href={item.url}>{item.title}</a>
+      <a href={url}>{title}</a>
     </span>
-    <span>{item.author}</span>
-    <span>{item.num_comments}</span>
-    <span>{item.points}</span>
+    <span>{author}</span>
+    <span>{num_comments}</span>
+    <span>{points}</span>
+    <span>{love}{fine}</span> {/* Display the custom property if needed */}
   </li>
 );
+
 
 export default App;
