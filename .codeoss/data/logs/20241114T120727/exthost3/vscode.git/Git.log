@@ -1,0 +1,25 @@
+2024-11-14 12:09:13.606 [info] Log level: Info
+2024-11-14 12:09:13.606 [info] Validating found git in: "git"
+2024-11-14 12:09:13.606 [info] Using git "2.43.0" from "git"
+2024-11-14 12:09:13.606 [info] > git rev-parse --show-toplevel [27ms]
+2024-11-14 12:09:13.606 [info] > git rev-parse --git-dir --git-common-dir [2ms]
+2024-11-14 12:09:13.606 [info] Open repository: /home/penurajeshitsd
+2024-11-14 12:09:13.606 [info] > git config --get commit.template [10ms]
+2024-11-14 12:09:13.606 [info] > git rev-parse --show-toplevel [4ms]
+2024-11-14 12:09:13.606 [info] > git rev-parse --show-toplevel [2ms]
+2024-11-14 12:09:13.682 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/props refs/remotes/props [113ms]
+2024-11-14 12:09:14.530 [info] > git check-ignore -v -z --stdin [28ms]
+2024-11-14 12:09:14.592 [info] > git fetch [1056ms]
+2024-11-14 12:09:14.592 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-14 12:09:14.621 [info] > git status -z -uall [929ms] (cancelled)
+2024-11-14 12:09:14.622 [info] > git config --get commit.template [14ms]
+2024-11-14 12:09:14.623 [info] > git config --get commit.template [4ms]
+2024-11-14 12:09:14.644 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/props refs/remotes/props [11ms]
+2024-11-14 12:09:14.645 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/props refs/remotes/props [3ms]
+2024-11-14 12:09:15.715 [info] > git check-ignore -v -z --stdin [4ms]

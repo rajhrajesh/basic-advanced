@@ -1,0 +1,32 @@
+2024-11-14 12:09:38.277 [info] Log level: Info
+2024-11-14 12:09:38.277 [info] Validating found git in: "git"
+2024-11-14 12:09:38.277 [info] Using git "2.43.0" from "git"
+2024-11-14 12:09:38.277 [info] > git rev-parse --show-toplevel [21ms]
+2024-11-14 12:09:38.277 [info] > git rev-parse --git-dir --git-common-dir [10ms]
+2024-11-14 12:09:38.277 [info] Open repository: /home/penurajeshitsd
+2024-11-14 12:09:38.277 [info] > git rev-parse --show-toplevel [60ms]
+2024-11-14 12:09:38.277 [info] > git config --get commit.template [116ms]
+2024-11-14 12:09:38.277 [info] > git rev-parse --show-toplevel [95ms]
+2024-11-14 12:09:38.278 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/props refs/remotes/props [67ms]
+2024-11-14 12:09:38.278 [info] > git rev-parse --show-toplevel [99ms]
+2024-11-14 12:09:39.046 [info] > git fetch [1446ms]
+2024-11-14 12:09:39.046 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-14 12:09:39.077 [info] > git status -z -uall [988ms] (cancelled)
+2024-11-14 12:09:39.082 [info] > git config --get commit.template [7ms]
+2024-11-14 12:09:39.083 [info] > git config --get commit.template [18ms]
+2024-11-14 12:09:39.104 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/props refs/remotes/props [11ms]
+2024-11-14 12:09:39.116 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/props refs/remotes/props [13ms]
+2024-11-14 12:09:39.252 [info] > git check-ignore -v -z --stdin [13ms]
+2024-11-14 12:09:40.237 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [166ms]
+2024-11-14 12:09:40.250 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [152ms]
+2024-11-14 12:09:40.272 [info] > git cat-file -s c7a6e8f7ea4890d12faa0127c7d9abc77ef49288 [9ms]
+2024-11-14 12:09:55.386 [info] > git status -z -uall [16261ms]
+2024-11-14 12:09:55.476 [info] > git merge-base refs/heads/props refs/remotes/react-18/props [27ms]
+2024-11-14 12:09:55.533 [info] > git rev-list --count --left-right refs/heads/props...refs/remotes/react-18/props [25ms]
+2024-11-14 12:09:55.557 [info] > git diff --name-status -z --diff-filter=ADMR 2fb9b6aafd1ae4a3bba3586af82e447f7fcb8451...refs/remotes/react-18/props [5ms]
