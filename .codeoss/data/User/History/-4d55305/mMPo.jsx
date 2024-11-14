@@ -54,7 +54,7 @@ const Search = ({ onSearch, search }) => (
 const List = ({ list }) => (
   <ul>
     {list.map((item) => (
-      <Item key={item.objectID} fine="rajesh" love="rajh_" {...item} />
+      <Item key={item.objectID} fine="rajesh" love="rajh" {...item} />
     ))}
   </ul>
 );
@@ -69,7 +69,8 @@ const Item = ({
     <span>{author}</span>
     <span>{num_comments}</span>
     <span>{points}</span>
-    <span>{love}{fine}</span> {/* Display the custom property if needed */}
+    <span>{love}{fine
+    }</span> {/* Display the custom property if needed */}
   </li>
 );
 

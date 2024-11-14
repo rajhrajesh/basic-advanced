@@ -54,7 +54,7 @@ const Search = ({ onSearch, search }) => (
 const List = ({ list }) => (
   <ul>
     {list.map((item) => (
-      <Item key={item.objectID} fine="rajesh" love="rajh_" {...item} />
+      <Item key={item.objectID} fine="rajesh" love="rajh" {...item} />
     ))}
   </ul>
 );
