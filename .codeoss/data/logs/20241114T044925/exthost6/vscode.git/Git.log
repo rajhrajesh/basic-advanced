@@ -2437,3 +2437,31 @@ warning: There are too many unreachable loose objects; run 'git prune' to remove
 2024-11-14 10:17:44.311 [info] > git config --get commit.template [30ms]
 2024-11-14 10:17:44.312 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/props refs/remotes/props [3ms]
 2024-11-14 10:17:44.499 [info] > git status -z -uall [160ms]
+2024-11-14 10:17:46.657 [info] > git add -A -- . [180ms]
+2024-11-14 10:17:46.717 [info] > git -c user.useConfigOnly=true commit --quiet --allow-empty-message --file - [23ms]
+2024-11-14 10:17:46.717 [info] warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-14 10:17:46.758 [info] > git config --get commit.template [2ms]
+2024-11-14 10:17:46.837 [info] > git config --get commit.template [39ms]
+2024-11-14 10:17:46.838 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/props refs/remotes/props [3ms]
+2024-11-14 10:17:47.054 [info] > git status -z -uall [179ms]
+2024-11-14 10:17:47.090 [info] > git merge-base refs/heads/props refs/remotes/react-18/props [8ms]
+2024-11-14 10:17:47.120 [info] > git rev-list --count --left-right refs/heads/props...refs/remotes/react-18/props [3ms]
+2024-11-14 10:17:47.149 [info] > git diff --name-status -z --diff-filter=ADMR 27f5b9d4d6d1f644ce4eab60b3d26b11338c8679...refs/remotes/react-18/props [2ms]
+2024-11-14 10:17:47.195 [info] > git merge-base refs/heads/props refs/remotes/react-18/props [3ms]
+2024-11-14 10:17:47.254 [info] > git rev-list --count --left-right refs/heads/props...refs/remotes/react-18/props [32ms]
+2024-11-14 10:17:47.256 [info] > git config --get commit.template [3ms]
+2024-11-14 10:17:47.285 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/props refs/remotes/props [3ms]
+2024-11-14 10:17:47.490 [info] > git status -z -uall [175ms]
+2024-11-14 10:17:48.136 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-14 10:17:48.182 [info] > git cat-file -s 5e8a9517516ff26297fb1640bf85f50e02841ddf [20ms]
+2024-11-14 10:17:48.281 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-14 10:17:49.579 [info] > git config --get commit.template [40ms]
+2024-11-14 10:17:49.580 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/props refs/remotes/props [4ms]
+2024-11-14 10:17:49.807 [info] > git status -z -uall [186ms]
+2024-11-14 10:18:04.911 [info] > git config --get commit.template [39ms]
+2024-11-14 10:18:04.911 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/props refs/remotes/props [5ms]
+2024-11-14 10:18:05.118 [info] > git status -z -uall [171ms]
