@@ -48,8 +48,8 @@ const App = () => {
       <h1>My Hacker Stories</h1>
 
       {/* <Search search={searchTerm} onSearch={handleSearch} /> */}
-      <InputWithLabel id="search" type="text" value={searchTerm} onInputChange={handleSearch}>
-        Search:!
+      <InputWithLabel id="search" label="Search" type="text" value={searchTerm} onInputChange={handleSearch}>
+        Search:
       </InputWithLabel>
 
       <hr />
@@ -69,9 +69,9 @@ const App = () => {
 // );
 
 // React Component Composition
-const InputWithLabel = ({ id, value, onInputChange, type, children}) => (
+const InputWithLabel = ({ id, label, value, onInputChange, type}) => (
   <>
-    <label htmlFor={id}>{children}</label>
+    <label htmlFor={id}>{label}</label>
     &nbsp;
     <input id={id} value={value} type={type} onChange={onInputChange} />
 
