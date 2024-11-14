@@ -50,7 +50,7 @@ const Search = ({ onSearch, search }) => (
   </div>
 );
 
-// Variation 2: step:2 Spread and Rest Operators
+// Variation 3: Spread and Rest Operators
 const List = ({ list }) => (
   <ul>
     {list.map((item) => (
