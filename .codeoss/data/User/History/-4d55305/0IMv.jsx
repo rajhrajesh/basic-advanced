@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
 const App = () => {
   const stories = [
@@ -34,10 +34,10 @@ const App = () => {
 };
 
 const Search = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+
+  const [searchTerm, setSearchTerm] = useState("")
 
   const handleChange = (event) => {
-    console.log(searchTerm)
     setSearchTerm(event.target.value);
   };
 
@@ -46,30 +46,39 @@ const Search = () => {
       <label htmlFor="search">Search: </label>
       <input id="search" type="text" onChange={handleChange} />
       <p>
-        Searching for <strong>{searchTerm}</strong>
+        Searching for <strong>
+          {searchTerm}
+        </strong>
       </p>
-    </div>
+    </div >
   );
 };
 
-const List = ({ list }) => (
-  <ul>
-    {list.map((item) => (
-      <Item key={item.objectID} item={item} />
-    ))}
-  </ul>
-);
+const List = ({ props }) => {
+  const { list } = props
 
+  return (
+    <ul>
+      {list.map((item) => (
+        <Item key={item.objectID} item={item} />
+      ))}
+    </ul>
+  )
+};
 
-const Item = ({ item }) => (
-  <li>
-    <span>
-      <a href={item.url}>{item.title}</a>
-    </span>
-    <span>{item.author}</span>
-    <span>{item.num_comments}</span>
-    <span>{item.points}</span>
-  </li>
-);
+const Item = ({ props }) => {
+  const {item} = props
+  return (
+
+    <li>
+      <span>
+        <a href={item.url}>{props.item.title}</a>
+      </span>
+      <span>{item.author}</span>
+      <span>{item.num_comments}</span>
+      <span>{item.points}</span>
+    </li>
+  )
+};
 
 export default App;

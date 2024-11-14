@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const App = () => {
   const stories = [
@@ -37,7 +38,6 @@ const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleChange = (event) => {
-    console.log(searchTerm)
     setSearchTerm(event.target.value);
   };
 

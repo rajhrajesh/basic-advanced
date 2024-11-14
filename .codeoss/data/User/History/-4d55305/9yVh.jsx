@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-
 const App = () => {
   const stories = [
     {
@@ -34,41 +32,37 @@ const App = () => {
 };
 
 const Search = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-
   const handleChange = (event) => {
-    console.log(searchTerm)
-    setSearchTerm(event.target.value);
+    // synthetic event
+    console.log(event);
+    // value of target (here: input HTML element)
+    console.log(event.target.value);
   };
 
   return (
     <div>
       <label htmlFor="search">Search: </label>
       <input id="search" type="text" onChange={handleChange} />
-      <p>
-        Searching for <strong>{searchTerm}</strong>
-      </p>
     </div>
   );
 };
 
-const List = ({ list }) => (
+const List = (props) => (
   <ul>
-    {list.map((item) => (
+    {props.list.map((item) => (
       <Item key={item.objectID} item={item} />
     ))}
   </ul>
 );
 
-
-const Item = ({ item }) => (
+const Item = (props) => (
   <li>
     <span>
-      <a href={item.url}>{item.title}</a>
+      <a href={props.item.url}>{props.item.title}</a>
     </span>
-    <span>{item.author}</span>
-    <span>{item.num_comments}</span>
-    <span>{item.points}</span>
+    <span>{props.item.author}</span>
+    <span>{props.item.num_comments}</span>
+    <span>{props.item.points}</span>
   </li>
 );
 

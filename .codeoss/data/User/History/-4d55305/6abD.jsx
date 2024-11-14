@@ -37,7 +37,6 @@ const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleChange = (event) => {
-    console.log(searchTerm)
     setSearchTerm(event.target.value);
   };
 

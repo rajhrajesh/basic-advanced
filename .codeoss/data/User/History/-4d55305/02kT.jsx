@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const App = () => {
   const stories = [
@@ -37,7 +38,6 @@ const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleChange = (event) => {
-    console.log(searchTerm)
     setSearchTerm(event.target.value);
   };
 
@@ -60,6 +60,18 @@ const List = ({ list }) => (
   </ul>
 );
 
+List.propTypes = {
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      objectID: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      num_comments: PropTypes.number.isRequired,
+      points: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+};
 
 const Item = ({ item }) => (
   <li>
@@ -71,5 +83,15 @@ const Item = ({ item }) => (
     <span>{item.points}</span>
   </li>
 );
+
+Item.propTypes = {
+  item: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    num_comments: PropTypes.number.isRequired,
+    points: PropTypes.number.isRequired,
+  }).isRequired,
+};
 
 export default App;
