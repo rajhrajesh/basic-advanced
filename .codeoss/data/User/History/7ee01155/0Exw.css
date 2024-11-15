@@ -1,11 +1,9 @@
 .container {
   height: 100vw;
   padding: 20px;
-
   background: #83a4d4;
   /* fallback for old browsers */
   background: linear-gradient(to left, #b6fbff, #83a4d4);
-
   color: #171212;
 }
 
@@ -21,7 +19,7 @@
   padding-bottom: 5px;
 }
 
-.item > span {
+.item>span {
   padding: 0 5px;
   white-space: nowrap;
   overflow: hidden;
@@ -29,7 +27,7 @@
   text-overflow: ellipsis;
 }
 
-.item > span > a {
+.item>span>a {
   color: inherit;
 }
 
@@ -38,7 +36,6 @@
   border: 1px solid #171212;
   padding: 5px;
   cursor: pointer;
-
   transition: all 0.1s ease-in;
 }
 
@@ -53,25 +50,4 @@
 
 .buttonLarge {
   padding: 10px;
-}
-
-.searchForm {
-  padding: 10px 0 20px 0;
-  display: flex;
-  align-items: baseline;
-}
-
-.label {
-  border-top: 1px solid #171212;
-  border-left: 1px solid #171212;
-  padding-left: 5px;
-  font-size: 24px;
-}
-
-.input {
-  border: none;
-  border-bottom: 1px solid #171212;
-  background-color: transparent;
-
-  font-size: 24px;
 }

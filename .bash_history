@@ -11,3 +11,4 @@ npm run dev
 npm install axios
 npm run dev
 npm run dev
+mv src/App.css src/App.module.css
