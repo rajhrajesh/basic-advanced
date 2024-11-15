@@ -1,29 +1,33 @@
 import * as React from 'react';
-
-const API_ENDPOINT = 'https://hn.algolia.com/api/v1/search?query=';
-
-const getAsyncStories = () =>
-  new Promise((resolve, reject) =>
-    setTimeout(resolve, 2000)
-  );
+import axios from 'axios';
 
 const storiesReducer = (state, action) => {
   switch (action.type) {
     case 'STORIES_FETCH_INIT':
       return {
-        ...state, isLoading: true, isError: false
+        ...state,
+        isLoading: true,
+        isError: false,
       };
     case 'STORIES_FETCH_SUCCESS':
       return {
-        ...state, isLoading: false, isError: false, data: action.payload
+        ...state,
+        isLoading: false,
+        isError: false,
+        data: action.payload,
       };
     case 'STORIES_FETCH_FAILURE':
       return {
-        ...state, isLoading: false, isError: true
+        ...state,
+        isLoading: false,
+        isError: true,
       };
     case 'REMOVE_STORY':
       return {
-        ...state, data: state.data.filter((story) => action.payload.objectID !== story.objectID)
+        ...state,
+        data: state.data.filter(
+          (story) => action.payload.objectID !== story.objectID
+        ),
       };
     default:
       throw new Error();
@@ -42,31 +46,52 @@ const useStorageState = (key, initialState) => {
   return [value, setValue];
 };
 
+const API_ENDPOINT = 'https://hn.algolia.com/api/v1/search?query=';
+
 const App = () => {
   const [searchTerm, setSearchTerm] = useStorageState(
     'search',
     'React'
   );
 
+  const [url, setUrl] = React.useState(`${API_ENDPOINT}${searchTerm}`)
+
+  const handleSearchInput = (event) => {
+    setSearchTerm(event.target.value)
+  }
+
+  const handleSearchSubmit = () => {
+    setUrl(`${API_ENDPOINT}${searchTerm}`)
+  }
+
   const [stories, dispatchStories] = React.useReducer(
     storiesReducer,
-    { data: [ini], isLoading: false, isError: false }
+    { data: [], isLoading: false, isError: false }
   );
 
-  React.useEffect(() => {
-    dispatchStories({ type: "STORIES_FETCH_INIT" });
+  const handleFetchStories = React.useCallback(async () => {
+    if (!searchTerm) return;
 
-    fetch(`${API_ENDPOINT}react`)
+    dispatchStories({ type: 'STORIES_FETCH_INIT' });
 
-    getAsyncStories()
+    const result = await axios.get(url)
+
+    axios
+      .get(url)
       .then((result) => {
         dispatchStories({
           type: 'STORIES_FETCH_SUCCESS',
-          payload: result.data.stories,
+          payload: result.data.hits,
         });
       })
-      .catch(() => dispatchStories({ type: "STORIES_FETCH_FAILURE" }));
-  }, []);
+      .catch(() =>
+        dispatchStories({ type: 'STORIES_FETCH_FAILURE' })
+      );
+  }, [url]);
+
+  React.useEffect(() => {
+    handleFetchStories();
+  }, [handleFetchStories]);
 
   const handleRemoveStory = (item) => {
     dispatchStories({
@@ -74,14 +99,6 @@ const App = () => {
       payload: item,
     });
   };
-
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const searchedStories = stories.data.filter((story) =>
-    story.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
   return (
     <div>
@@ -91,10 +108,11 @@ const App = () => {
         id="search"
         value={searchTerm}
         isFocused
-        onInputChange={handleSearch}
+        onInputChange={handleSearchInput}
       >
         <strong>Search:</strong>
       </InputWithLabel>
+      <button type='button' disabled={!searchTerm} onClick={handleSearchSubmit}>Submit</button>
 
       <hr />
 
@@ -103,10 +121,7 @@ const App = () => {
       {stories.isLoading ? (
         <p>Loading ...</p>
       ) : (
-        <List
-          list={searchedStories}
-          onRemoveItem={handleRemoveStory}
-        />
+        <List list={stories.data} onRemoveItem={handleRemoveStory} />
       )}
     </div>
   );
