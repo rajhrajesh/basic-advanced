@@ -20,10 +20,11 @@ const initialStories = [
 // Add delay 
 const getAsyncStories = () =>
   new Promise((resolve) =>
-    setTimeout(() => resolve({ data: { stories: initialStories } }), 2000))
+    setTimeout((),2000)
+     resolve({ data: { stories: initialStories } }))
 
 // const getAsyncStories = () =>
-// Promise.resolve({ data: { stories: initialStories } });
+  // Promise.resolve({ data: { stories: initialStories } });
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useStorageState('search', '');

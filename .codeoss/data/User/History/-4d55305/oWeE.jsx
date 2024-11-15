@@ -17,13 +17,11 @@ const initialStories = [
   { title: 'Redux', url: 'https://redux.js.org/', author: 'Dan Abramov, Andrew Clark', num_comments: 2, points: 5, objectID: 1 },
 ];
 
-// Add delay 
 const getAsyncStories = () =>
-  new Promise((resolve) =>
-    setTimeout(() => resolve({ data: { stories: initialStories } }), 2000))
+  new Promise((resolve) => resolve({ data: { stories: initialStories } }))
 
 // const getAsyncStories = () =>
-// Promise.resolve({ data: { stories: initialStories } });
+  // Promise.resolve({ data: { stories: initialStories } });
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useStorageState('search', '');

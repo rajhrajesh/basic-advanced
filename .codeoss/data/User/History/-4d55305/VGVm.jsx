@@ -17,25 +17,13 @@ const initialStories = [
   { title: 'Redux', url: 'https://redux.js.org/', author: 'Dan Abramov, Andrew Clark', num_comments: 2, points: 5, objectID: 1 },
 ];
 
-// Add delay 
-const getAsyncStories = () =>
-  new Promise((resolve) =>
-    setTimeout(() => resolve({ data: { stories: initialStories } }), 2000))
-
-// const getAsyncStories = () =>
-// Promise.resolve({ data: { stories: initialStories } });
+const getAsyncStories = () => {
+  Promise.resolve({data: {stories: initialStories}})
+}
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useStorageState('search', '');
-
-  const [stories, setStories] = React.useState([]);
-
-  React.useEffect(() => {
-    getAsyncStories().then(result => {
-      setStories(result.data.stories)
-    })
-  }, [])
-
+  const [stories, setStories] = React.useState(initialStories);
 
   const handleRemoveStory = (item) => {
     const newStories = stories.filter(
