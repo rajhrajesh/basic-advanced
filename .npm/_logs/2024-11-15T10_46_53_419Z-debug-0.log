@@ -1,0 +1,50 @@
+0 verbose cli /usr/local/nvm/versions/node/v22.11.0/bin/node /usr/local/nvm/versions/node/v22.11.0/bin/npm
+1 info using npm@10.9.0
+2 info using node@v22.11.0
+3 silly config load:file:/usr/local/nvm/versions/node/v22.11.0/lib/node_modules/npm/npmrc
+4 silly config load:file:/home/penurajeshitsd/.cache/typescript/5.4/.npmrc
+5 silly config load:file:/home/penurajeshitsd/.npmrc
+6 silly config load:file:/usr/local/nvm/versions/node/v22.11.0/etc/npmrc
+7 verbose title npm install @types/react@ts5.4 @types/react-dom@ts5.4
+8 verbose argv "install" "--ignore-scripts" "@types/react@ts5.4" "@types/react-dom@ts5.4" "--save-dev" "--user-agent" "typesInstaller/5.4.5"
+9 verbose logfile logs-max:10 dir:/home/penurajeshitsd/.npm/_logs/2024-11-15T10_46_53_419Z-
+10 verbose logfile /home/penurajeshitsd/.npm/_logs/2024-11-15T10_46_53_419Z-debug-0.log
+11 silly logfile start cleaning logs, removing 1 files
+12 silly logfile done cleaning log files
+13 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+14 silly packumentCache corgi:https://registry.npmjs.org/@types%2freact cache-miss
+15 silly packumentCache corgi:https://registry.npmjs.org/@types%2freact-dom cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/@types%2freact-dom 481ms (cache revalidated)
+17 silly packumentCache corgi:https://registry.npmjs.org/@types%2freact-dom set size:156762 disposed:false
+18 http fetch GET 200 https://registry.npmjs.org/@types%2freact 533ms (cache revalidated)
+19 silly packumentCache corgi:https://registry.npmjs.org/@types%2freact set size:611052 disposed:false
+20 silly idealTree buildDeps
+21 silly fetch manifest @types/react@18.3.12
+22 silly packumentCache full:https://registry.npmjs.org/@types%2freact cache-miss
+23 http fetch GET 200 https://registry.npmjs.org/@types%2freact 160ms (cache revalidated)
+24 silly packumentCache full:https://registry.npmjs.org/@types%2freact set size:2224167 disposed:false
+25 silly fetch manifest @types/react-dom@18.3.1
+26 silly packumentCache full:https://registry.npmjs.org/@types%2freact-dom cache-miss
+27 http fetch GET 200 https://registry.npmjs.org/@types%2freact-dom 64ms (cache revalidated)
+28 silly packumentCache full:https://registry.npmjs.org/@types%2freact-dom set size:350546 disposed:false
+29 silly placeDep ROOT @types/react@18.3.12 REPLACE for:  want: 18.3.12
+30 silly placeDep ROOT @types/react-dom@18.3.1 REPLACE for:  want: 18.3.1
+31 silly reify moves {}
+32 silly audit bulk request {
+32 silly audit   '@types/node': [ '22.9.0' ],
+32 silly audit   '@types/picomatch': [ '3.0.1' ],
+32 silly audit   '@types/prop-types': [ '15.7.13' ],
+32 silly audit   csstype: [ '3.1.3' ],
+32 silly audit   'types-registry': [ '0.1.694' ],
+32 silly audit   'undici-types': [ '6.19.8' ],
+32 silly audit   '@types/react': [ '18.3.12' ],
+32 silly audit   '@types/react-dom': [ '18.3.1' ]
+32 silly audit }
+33 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 230ms
+34 silly audit report {}
+35 verbose cwd /home/penurajeshitsd/.cache/typescript/5.4
+36 verbose os Linux 6.1.112+
+37 verbose node v22.11.0
+38 verbose npm  v10.9.0
+39 verbose exit 0
+40 info ok
