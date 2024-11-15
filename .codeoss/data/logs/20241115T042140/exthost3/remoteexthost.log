@@ -16,3 +16,34 @@
 2024-11-15 04:22:30.366 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
 2024-11-15 04:22:30.992 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
 2024-11-15 04:23:55.198 [info] ExtensionService#_doActivateExtension vscode.simple-browser, startup: false, activationEvent: 'onOpenExternalUri:https'
+2024-11-15 07:40:19.884 [error] [vscode.typescript-language-features] provider FAILED
+2024-11-15 07:40:19.904 [error] Error: <semantic> TypeScript Server Error (5.4.5)
+Debug Failure. Token and statement should start at the same point. {"statementKind":"ReturnStatement","tokenKind":"CloseBraceToken","errorCode":7027,"start":692,"length":19}
+Error: Debug Failure. Token and statement should start at the same point. {"statementKind":"ReturnStatement","tokenKind":"CloseBraceToken","errorCode":7027,"start":692,"length":19}
+    at doChange27 (/google/devshell/editor/code-oss-for-cloud-shell/extensions/node_modules/typescript/lib/tsserver.js:155650:11)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/node_modules/typescript/lib/tsserver.js:155633:79
+    at _ChangeTracker.with (/google/devshell/editor/code-oss-for-cloud-shell/extensions/node_modules/typescript/lib/tsserver.js:170624:5)
+    at Object.getCodeActions (/google/devshell/editor/code-oss-for-cloud-shell/extensions/node_modules/typescript/lib/tsserver.js:155633:62)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/node_modules/typescript/lib/tsserver.js:148588:46
+    at flatMap (/google/devshell/editor/code-oss-for-cloud-shell/extensions/node_modules/typescript/lib/tsserver.js:2609:17)
+    at Object.getFixes (/google/devshell/editor/code-oss-for-cloud-shell/extensions/node_modules/typescript/lib/tsserver.js:148588:10)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/node_modules/typescript/lib/tsserver.js:146859:33
+    at flatMap (/google/devshell/editor/code-oss-for-cloud-shell/extensions/node_modules/typescript/lib/tsserver.js:2609:17)
+    at Object.getCodeFixesAtPosition (/google/devshell/editor/code-oss-for-cloud-shell/extensions/node_modules/typescript/lib/tsserver.js:146857:12)
+    at IpcIOSession.getCodeFixes (/google/devshell/editor/code-oss-for-cloud-shell/extensions/node_modules/typescript/lib/tsserver.js:187265:50)
+    at getCodeFixes (/google/devshell/editor/code-oss-for-cloud-shell/extensions/node_modules/typescript/lib/tsserver.js:185371:43)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/node_modules/typescript/lib/tsserver.js:187569:69
+    at IpcIOSession.executeWithRequestId (/google/devshell/editor/code-oss-for-cloud-shell/extensions/node_modules/typescript/lib/tsserver.js:187561:14)
+    at IpcIOSession.executeCommand (/google/devshell/editor/code-oss-for-cloud-shell/extensions/node_modules/typescript/lib/tsserver.js:187569:29)
+    at IpcIOSession.onMessage (/google/devshell/editor/code-oss-for-cloud-shell/extensions/node_modules/typescript/lib/tsserver.js:187611:51)
+    at process.<anonymous> (/google/devshell/editor/code-oss-for-cloud-shell/extensions/node_modules/typescript/lib/tsserver.js:189220:14)
+    at process.emit (node:events:517:28)
+    at emit (node:internal/child_process:944:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+    at Function.create (/google/devshell/editor/code-oss-for-cloud-shell/extensions/typescript-language-features/dist/extension.js:1:227906)
+    at v.dispatchResponse (/google/devshell/editor/code-oss-for-cloud-shell/extensions/typescript-language-features/dist/extension.js:1:221876)
+    at v.dispatchMessage (/google/devshell/editor/code-oss-for-cloud-shell/extensions/typescript-language-features/dist/extension.js:1:220720)
+    at ChildProcess.<anonymous> (/google/devshell/editor/code-oss-for-cloud-shell/extensions/typescript-language-features/dist/extension.js:1:220213)
+    at ChildProcess.emit (node:events:517:28)
+    at emit (node:internal/child_process:944:14)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)
