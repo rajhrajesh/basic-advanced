@@ -96,3 +96,5 @@
 2024-11-15 05:08:19.029 [warning] [File Watcher (node.js)] Watcher shutdown because watched path got deleted
 2024-11-15 06:35:33.694 [info] [127.0.0.1][a5d0d1b7][ExtensionHostConnection] The client has reconnected.
 2024-11-15 06:35:34.132 [info] [127.0.0.1][d762879d][ManagementConnection] The client has reconnected.
+2024-11-15 07:01:25.492 [info] [127.0.0.1][a5d0d1b7][ExtensionHostConnection] The client has reconnected.
+2024-11-15 07:01:26.060 [info] [127.0.0.1][d762879d][ManagementConnection] The client has reconnected.
