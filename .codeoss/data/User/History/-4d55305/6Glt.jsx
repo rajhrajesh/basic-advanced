@@ -59,8 +59,7 @@ const App = () => {
   );
 
   React.useEffect(() => {
-    if (!searchTerm) return;
-
+    if(!searchTerm) return;
     dispatchStories({ type: 'STORIES_FETCH_INIT' });
 
     fetch(`${API_ENDPOINT}${searchTerm}`)
@@ -87,6 +86,10 @@ const App = () => {
     setSearchTerm(event.target.value);
   };
 
+  // const searchedStories = stories.data.filter((story) =>
+  //   story.title.toLowerCase().includes(searchTerm.toLowerCase())
+  // );
+
   return (
     <div>
       <h1>My Hacker Stories</h1>
@@ -107,7 +110,10 @@ const App = () => {
       {stories.isLoading ? (
         <p>Loading ...</p>
       ) : (
-        <List list={stories.data} onRemoveItem={handleRemoveStory} />
+        <List
+          list={stories.data}
+          onRemoveItem={handleRemoveStory}
+        />
       )}
     </div>
   );
