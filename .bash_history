@@ -13,3 +13,8 @@ npm run dev
 npm run dev
 mv src/App.css src/App.module.css
 npm install styled-components
+npm install vite-plugin-svgr --save-dev
+npm run dev
+npm run dev
+npm i
+npm run dev
