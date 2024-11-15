@@ -3101,3 +3101,173 @@ warning: There are too many unreachable loose objects; run 'git prune' to remove
 2024-11-15 07:05:22.005 [info] > git config --get commit.template [23ms]
 2024-11-15 07:05:22.007 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [3ms]
 2024-11-15 07:05:22.185 [info] > git status -z -uall [156ms]
+2024-11-15 07:05:23.064 [info] > git add -A -- . [155ms]
+2024-11-15 07:05:23.102 [info] > git -c user.useConfigOnly=true commit --quiet --allow-empty-message --file - [17ms]
+2024-11-15 07:05:23.102 [info] warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-15 07:05:23.127 [info] > git config --get commit.template [2ms]
+2024-11-15 07:05:23.174 [info] > git config --get commit.template [23ms]
+2024-11-15 07:05:23.175 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [3ms]
+2024-11-15 07:05:23.349 [info] > git status -z -uall [152ms]
+2024-11-15 07:05:23.380 [info] > git merge-base refs/heads/React-Asynchronous-Data refs/remotes/react-18/React-Asynchronous-Data [9ms]
+2024-11-15 07:05:23.403 [info] > git rev-list --count --left-right refs/heads/React-Asynchronous-Data...refs/remotes/react-18/React-Asynchronous-Data [3ms]
+2024-11-15 07:05:23.427 [info] > git diff --name-status -z --diff-filter=ADMR a2a618a916d1811be1c269a91b99b0123e1b789a...refs/remotes/react-18/React-Asynchronous-Data [3ms]
+2024-11-15 07:05:26.289 [info] > git merge-base refs/heads/React-Asynchronous-Data refs/remotes/react-18/React-Asynchronous-Data [4ms]
+2024-11-15 07:05:26.337 [info] > git rev-list --count --left-right refs/heads/React-Asynchronous-Data...refs/remotes/react-18/React-Asynchronous-Data [26ms]
+2024-11-15 07:05:26.339 [info] > git config --get commit.template [3ms]
+2024-11-15 07:05:26.362 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [2ms]
+2024-11-15 07:05:26.551 [info] > git status -z -uall [166ms]
+2024-11-15 07:05:27.219 [info] > git config --get commit.template [4ms]
+2024-11-15 07:05:27.249 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [3ms]
+2024-11-15 07:05:27.475 [info] > git status -z -uall [198ms]
+2024-11-15 07:05:27.479 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [7ms]
+2024-11-15 07:05:27.509 [info] > git cat-file -s 2ddde22c9d63f34964683ef34f4ecd7f74240532 [2ms]
+2024-11-15 07:05:27.830 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [4ms]
+2024-11-15 07:05:32.930 [info] > git push react-18 React-Asynchronous-Data:React-Asynchronous-Data [3919ms]
+2024-11-15 07:05:32.930 [info] To https://github.com/rajhrajesh/basic-advanced.git
+   a2a618a..7ed119f  React-Asynchronous-Data -> React-Asynchronous-Data
+2024-11-15 07:05:32.976 [info] > git config --get commit.template [22ms]
+2024-11-15 07:05:32.977 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [3ms]
+2024-11-15 07:05:33.159 [info] > git status -z -uall [161ms]
+2024-11-15 07:05:33.190 [info] > git merge-base refs/heads/React-Asynchronous-Data refs/remotes/react-18/React-Asynchronous-Data [8ms]
+2024-11-15 07:05:33.214 [info] > git rev-list --count --left-right refs/heads/React-Asynchronous-Data...refs/remotes/react-18/React-Asynchronous-Data [2ms]
+2024-11-15 07:05:33.237 [info] > git diff --name-status -z --diff-filter=ADMR 7ed119f590a2c948c9a28c2c7522aaf582bb91cf...refs/remotes/react-18/React-Asynchronous-Data [3ms]
+2024-11-15 07:05:33.301 [info] > git merge-base refs/heads/React-Asynchronous-Data refs/remotes/react-18/React-Asynchronous-Data [3ms]
+2024-11-15 07:05:33.325 [info] > git rev-list --count --left-right refs/heads/React-Asynchronous-Data...refs/remotes/react-18/React-Asynchronous-Data [2ms]
+2024-11-15 07:10:47.815 [info] > git config --get commit.template [33ms]
+2024-11-15 07:10:47.819 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [5ms]
+2024-11-15 07:10:47.910 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [6ms]
+2024-11-15 07:10:47.949 [info] > git cat-file -s 2ddde22c9d63f34964683ef34f4ecd7f74240532 [7ms]
+2024-11-15 07:10:48.027 [info] > git status -z -uall [176ms]
+2024-11-15 07:10:48.090 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-15 07:10:48.367 [info] > git fetch [619ms]
+2024-11-15 07:10:48.367 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-15 07:10:48.412 [info] > git config --get commit.template [23ms]
+2024-11-15 07:10:48.417 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [5ms]
+2024-11-15 07:10:48.591 [info] > git status -z -uall [151ms]
+2024-11-15 07:10:49.906 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-15 07:10:49.929 [info] > git cat-file -s 2ddde22c9d63f34964683ef34f4ecd7f74240532 [3ms]
+2024-11-15 07:10:50.203 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [4ms]
+2024-11-15 07:10:53.077 [info] > git config --get commit.template [23ms]
+2024-11-15 07:10:53.078 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [3ms]
+2024-11-15 07:10:53.251 [info] > git status -z -uall [152ms]
+2024-11-15 07:10:58.320 [info] > git config --get commit.template [36ms]
+2024-11-15 07:10:58.321 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [4ms]
+2024-11-15 07:10:58.513 [info] > git status -z -uall [162ms]
+2024-11-15 07:11:03.576 [info] > git config --get commit.template [30ms]
+2024-11-15 07:11:03.577 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [3ms]
+2024-11-15 07:11:03.770 [info] > git status -z -uall [164ms]
+2024-11-15 07:13:04.118 [info] > git config --get commit.template [30ms]
+2024-11-15 07:13:04.119 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [3ms]
+2024-11-15 07:13:04.313 [info] > git status -z -uall [165ms]
+2024-11-15 07:13:09.363 [info] > git config --get commit.template [22ms]
+2024-11-15 07:13:09.364 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [3ms]
+2024-11-15 07:13:09.538 [info] > git status -z -uall [150ms]
+2024-11-15 07:13:14.587 [info] > git config --get commit.template [23ms]
+2024-11-15 07:13:14.588 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [3ms]
+2024-11-15 07:13:14.760 [info] > git status -z -uall [149ms]
+2024-11-15 07:13:27.797 [info] > git config --get commit.template [25ms]
+2024-11-15 07:13:27.797 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [3ms]
+2024-11-15 07:13:27.976 [info] > git status -z -uall [156ms]
+2024-11-15 07:13:43.540 [info] > git config --get commit.template [22ms]
+2024-11-15 07:13:43.541 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [2ms]
+2024-11-15 07:13:43.712 [info] > git status -z -uall [150ms]
+2024-11-15 07:13:49.188 [info] > git fetch [572ms]
+2024-11-15 07:13:49.188 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-15 07:13:49.237 [info] > git config --get commit.template [23ms]
+2024-11-15 07:13:49.238 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [2ms]
+2024-11-15 07:13:49.411 [info] > git status -z -uall [151ms]
+2024-11-15 07:13:49.457 [info] > git config --get commit.template [22ms]
+2024-11-15 07:13:49.459 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [2ms]
+2024-11-15 07:13:49.635 [info] > git status -z -uall [153ms]
+2024-11-15 07:13:50.652 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-15 07:13:50.675 [info] > git cat-file -s 2ddde22c9d63f34964683ef34f4ecd7f74240532 [2ms]
+2024-11-15 07:13:50.834 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-15 07:13:54.543 [info] > git ls-tree -l HEAD -- /home/penurajeshitsd/.codeoss/data/logs/20241115T042140/exthost3/vscode.git/Git.log [5ms]
+2024-11-15 07:13:54.547 [info] > git show --textconv HEAD:.codeoss/data/logs/20241115T042140/exthost3/vscode.git/Git.log [30ms]
+2024-11-15 07:13:54.686 [info] > git config --get commit.template [27ms]
+2024-11-15 07:13:54.688 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [3ms]
+2024-11-15 07:13:54.860 [info] > git status -z -uall [151ms]
+2024-11-15 07:13:55.020 [info] > git check-ignore -v -z --stdin [2ms]
+2024-11-15 07:13:59.156 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [31ms]
+2024-11-15 07:13:59.158 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-15 07:13:59.189 [info] > git cat-file -s 2ddde22c9d63f34964683ef34f4ecd7f74240532 [3ms]
+2024-11-15 07:13:59.911 [info] > git config --get commit.template [25ms]
+2024-11-15 07:13:59.912 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [3ms]
+2024-11-15 07:14:00.086 [info] > git status -z -uall [152ms]
+2024-11-15 07:14:05.133 [info] > git config --get commit.template [23ms]
+2024-11-15 07:14:05.134 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [2ms]
+2024-11-15 07:14:05.315 [info] > git status -z -uall [158ms]
+2024-11-15 07:14:10.363 [info] > git config --get commit.template [23ms]
+2024-11-15 07:14:10.364 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [2ms]
+2024-11-15 07:14:10.541 [info] > git status -z -uall [154ms]
+2024-11-15 07:14:15.568 [info] > git config --get commit.template [3ms]
+2024-11-15 07:14:15.591 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [2ms]
+2024-11-15 07:14:15.766 [info] > git status -z -uall [153ms]
+2024-11-15 07:14:20.828 [info] > git config --get commit.template [30ms]
+2024-11-15 07:14:20.829 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [3ms]
+2024-11-15 07:14:21.014 [info] > git status -z -uall [157ms]
+2024-11-15 07:14:26.063 [info] > git config --get commit.template [24ms]
+2024-11-15 07:14:26.065 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [3ms]
+2024-11-15 07:14:26.252 [info] > git status -z -uall [165ms]
+2024-11-15 07:14:31.320 [info] > git config --get commit.template [35ms]
+2024-11-15 07:14:31.322 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [3ms]
+2024-11-15 07:14:31.517 [info] > git status -z -uall [163ms]
+2024-11-15 07:14:36.587 [info] > git config --get commit.template [37ms]
+2024-11-15 07:14:36.588 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [2ms]
+2024-11-15 07:14:36.778 [info] > git status -z -uall [160ms]
+2024-11-15 07:28:26.939 [info] > git config --get commit.template [46ms]
+2024-11-15 07:28:26.944 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [6ms]
+2024-11-15 07:28:27.152 [info] > git status -z -uall [174ms]
+2024-11-15 07:28:27.469 [info] > git fetch [621ms]
+2024-11-15 07:28:27.469 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-15 07:28:27.530 [info] > git config --get commit.template [33ms]
+2024-11-15 07:28:27.531 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [3ms]
+2024-11-15 07:28:27.726 [info] > git status -z -uall [166ms]
+2024-11-15 07:28:29.422 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [2ms]
+2024-11-15 07:28:29.454 [info] > git cat-file -s 2ddde22c9d63f34964683ef34f4ecd7f74240532 [3ms]
+2024-11-15 07:28:29.575 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [4ms]
+2024-11-15 07:34:01.855 [info] > git config --get commit.template [46ms]
+2024-11-15 07:34:01.860 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [7ms]
+2024-11-15 07:34:02.061 [info] > git status -z -uall [169ms]
+2024-11-15 07:34:02.415 [info] > git fetch [649ms]
+2024-11-15 07:34:02.415 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-15 07:34:02.478 [info] > git config --get commit.template [31ms]
+2024-11-15 07:34:02.479 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [3ms]
+2024-11-15 07:34:02.675 [info] > git status -z -uall [164ms]
+2024-11-15 07:34:03.824 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-15 07:34:03.856 [info] > git cat-file -s 2ddde22c9d63f34964683ef34f4ecd7f74240532 [2ms]
+2024-11-15 07:34:03.956 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [4ms]
+2024-11-15 07:34:07.116 [info] > git config --get commit.template [26ms]
+2024-11-15 07:34:07.117 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [2ms]
+2024-11-15 07:34:07.301 [info] > git status -z -uall [161ms]
+2024-11-15 07:34:12.362 [info] > git config --get commit.template [30ms]
+2024-11-15 07:34:12.364 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/React-Asynchronous-Data refs/remotes/React-Asynchronous-Data [3ms]
+2024-11-15 07:34:12.557 [info] > git status -z -uall [165ms]
