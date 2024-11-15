@@ -30,17 +30,13 @@ const App = () => {
 
   const [stories, setStories] = React.useState([]);
 
-  const [isLoading, setIsLoading] = React.useState(false)
-
-  const [isError, setIsError] = React.useState(false)
+  const [isLoading , setIsLoading] = React.useState(false)
 
   React.useEffect(() => {
     setIsLoading(true)
     getAsyncStories().then(result => {
       setStories(result.data.stories);
-      setIsLoading(false).catch(
-        () => setIsError(true)
-      )
+      setIsLoading(fa)
     })
   }, [])
 
@@ -76,14 +72,7 @@ const App = () => {
 
       <hr />
 
-      {isError && <p>Something went worong!</p>}
-
-      {isLoading ? (
-        <p>Loading..</p>
-      ) : (
-        <List list={searchedStories} onRemoveItem={handleRemoveStory} />
-      )}
-
+      <List list={searchedStories} onRemoveItem={handleRemoveStory} />
     </React.Fragment>
   );
 };

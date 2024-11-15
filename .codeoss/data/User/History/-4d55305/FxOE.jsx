@@ -76,8 +76,6 @@ const App = () => {
 
       <hr />
 
-      {isError && <p>Something went worong!</p>}
-
       {isLoading ? (
         <p>Loading..</p>
       ) : (

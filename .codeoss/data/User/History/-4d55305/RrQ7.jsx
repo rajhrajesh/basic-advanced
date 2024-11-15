@@ -38,9 +38,7 @@ const App = () => {
     setIsLoading(true)
     getAsyncStories().then(result => {
       setStories(result.data.stories);
-      setIsLoading(false).catch(
-        () => setIsError(true)
-      )
+      setIsLoading(false)
     })
   }, [])
 
@@ -75,8 +73,6 @@ const App = () => {
       </InputWithLabel>
 
       <hr />
-
-      {isError && <p>Something went worong!</p>}
 
       {isLoading ? (
         <p>Loading..</p>
