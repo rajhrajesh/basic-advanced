@@ -1,0 +1,507 @@
+2024-11-15 04:22:30.050 [info] Log level: Info
+2024-11-15 04:22:30.050 [info] Validating found git in: "git"
+2024-11-15 04:22:30.050 [info] Using git "2.43.0" from "git"
+2024-11-15 04:22:30.050 [info] > git rev-parse --show-toplevel [79ms]
+2024-11-15 04:22:30.050 [info] > git rev-parse --git-dir --git-common-dir [958ms]
+2024-11-15 04:22:30.050 [info] Open repository: /home/penurajeshitsd
+2024-11-15 04:22:30.050 [info] > git rev-parse --show-toplevel [6014ms]
+2024-11-15 04:22:30.050 [info] > git config --get commit.template [6078ms]
+2024-11-15 04:22:30.050 [info] > git fetch [6182ms]
+2024-11-15 04:22:30.050 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-15 04:22:30.050 [info] > git config --get commit.template [210ms]
+2024-11-15 04:22:30.050 [info] > git rev-parse --show-toplevel [239ms]
+2024-11-15 04:22:30.050 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [114ms]
+2024-11-15 04:22:30.160 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [64ms]
+2024-11-15 04:22:30.163 [info] > git rev-parse --show-toplevel [115ms]
+2024-11-15 04:22:30.504 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [285ms]
+2024-11-15 04:22:30.505 [info] > git check-ignore -v -z --stdin [210ms]
+2024-11-15 04:22:30.507 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [248ms]
+2024-11-15 04:22:30.597 [info] > git cat-file -s 27df6f96b330cf7daaf83d9a3c1a45f5f1b15ef5 [68ms]
+2024-11-15 04:22:31.234 [info] > git config --get commit.template [502ms]
+2024-11-15 04:22:31.399 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [82ms]
+2024-11-15 04:22:31.523 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [135ms]
+2024-11-15 04:22:31.608 [info] > git cat-file -s 27df6f96b330cf7daaf83d9a3c1a45f5f1b15ef5 [69ms]
+2024-11-15 04:22:32.354 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [426ms]
+2024-11-15 04:23:06.100 [info] > git status -z -uall [34459ms]
+2024-11-15 04:23:06.151 [info] > git merge-base refs/heads/custom-hooks refs/remotes/react-18/custom-hooks [20ms]
+2024-11-15 04:23:06.192 [info] > git rev-list --count --left-right refs/heads/custom-hooks...refs/remotes/react-18/custom-hooks [6ms]
+2024-11-15 04:23:06.248 [info] > git diff --name-status -z --diff-filter=ADMR a7e59eafb2c76561aaade7cc0cd6a11d9a2670c0...refs/remotes/react-18/custom-hooks [27ms]
+2024-11-15 04:23:08.055 [info] > git config --get commit.template [3ms]
+2024-11-15 04:23:08.083 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 04:23:08.271 [info] > git status -z -uall [161ms]
+2024-11-15 04:23:13.315 [info] > git config --get commit.template [20ms]
+2024-11-15 04:23:13.316 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 04:23:13.502 [info] > git status -z -uall [163ms]
+2024-11-15 04:23:18.560 [info] > git config --get commit.template [28ms]
+2024-11-15 04:23:18.561 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 04:23:18.756 [info] > git status -z -uall [166ms]
+2024-11-15 04:23:23.803 [info] > git config --get commit.template [20ms]
+2024-11-15 04:23:23.804 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 04:23:23.987 [info] > git status -z -uall [164ms]
+2024-11-15 04:23:29.040 [info] > git config --get commit.template [26ms]
+2024-11-15 04:23:29.043 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [6ms]
+2024-11-15 04:23:29.247 [info] > git status -z -uall [185ms]
+2024-11-15 04:23:34.285 [info] > git config --get commit.template [2ms]
+2024-11-15 04:23:34.309 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 04:23:34.491 [info] > git status -z -uall [160ms]
+2024-11-15 04:23:39.526 [info] > git config --get commit.template [3ms]
+2024-11-15 04:23:39.550 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [2ms]
+2024-11-15 04:23:39.741 [info] > git status -z -uall [166ms]
+2024-11-15 04:23:44.788 [info] > git config --get commit.template [20ms]
+2024-11-15 04:23:44.788 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-15 04:23:45.142 [info] > git status -z -uall [334ms]
+2024-11-15 04:23:50.199 [info] > git config --get commit.template [21ms]
+2024-11-15 04:23:50.200 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 04:23:50.370 [info] > git status -z -uall [152ms]
+2024-11-15 04:23:55.421 [info] > git config --get commit.template [23ms]
+2024-11-15 04:23:55.423 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [2ms]
+2024-11-15 04:23:55.608 [info] > git status -z -uall [162ms]
+2024-11-15 04:53:41.520 [info] > git config --get commit.template [1ms]
+2024-11-15 04:53:41.555 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [6ms]
+2024-11-15 04:53:41.762 [info] > git status -z -uall [177ms]
+2024-11-15 04:53:42.169 [info] > git fetch [679ms]
+2024-11-15 04:53:42.169 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-15 04:53:42.204 [info] > git config --get commit.template [18ms]
+2024-11-15 04:53:42.205 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [2ms]
+2024-11-15 04:53:42.372 [info] > git status -z -uall [149ms]
+2024-11-15 04:54:15.929 [info] > git config --get commit.template [19ms]
+2024-11-15 04:54:15.930 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 04:54:16.049 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [10ms]
+2024-11-15 04:54:16.090 [info] > git cat-file -s 27df6f96b330cf7daaf83d9a3c1a45f5f1b15ef5 [5ms]
+2024-11-15 04:54:16.145 [info] > git status -z -uall [197ms]
+2024-11-15 04:54:16.177 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [5ms]
+2024-11-15 04:54:40.120 [info] > git config --get commit.template [25ms]
+2024-11-15 04:54:40.125 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [6ms]
+2024-11-15 04:54:40.342 [info] > git status -z -uall [187ms]
+2024-11-15 04:55:03.608 [info] > git config --get commit.template [19ms]
+2024-11-15 04:55:03.609 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [2ms]
+2024-11-15 04:55:03.782 [info] > git status -z -uall [156ms]
+2024-11-15 05:08:18.271 [info] > git config --get commit.template [30ms]
+2024-11-15 05:08:18.272 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [5ms]
+2024-11-15 05:08:18.548 [info] > git status -z -uall [246ms]
+2024-11-15 05:08:19.323 [info] > git fetch [1116ms]
+2024-11-15 05:08:19.323 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+2024-11-15 05:08:19.373 [info] > git config --get commit.template [25ms]
+2024-11-15 05:08:19.374 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:08:19.397 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:08:19.399 [info] > git rev-parse refs/remotes/react-18/custom-hooks [3ms]
+2024-11-15 05:08:19.590 [info] > git status -z -uall [170ms]
+2024-11-15 05:08:20.774 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [4ms]
+2024-11-15 05:08:20.796 [info] > git cat-file -s 27df6f96b330cf7daaf83d9a3c1a45f5f1b15ef5 [3ms]
+2024-11-15 05:08:20.879 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-15 05:08:23.609 [info] > git config --get commit.template [24ms]
+2024-11-15 05:08:23.610 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:08:23.632 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:08:23.634 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:08:23.828 [info] > git status -z -uall [173ms]
+2024-11-15 05:08:28.863 [info] > git config --get commit.template [4ms]
+2024-11-15 05:08:28.887 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:08:28.908 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:08:28.910 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:08:29.092 [info] > git status -z -uall [161ms]
+2024-11-15 05:08:34.432 [info] > git config --get commit.template [17ms]
+2024-11-15 05:08:34.433 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:08:34.449 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:08:34.451 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:08:34.631 [info] > git status -z -uall [163ms]
+2024-11-15 05:08:39.666 [info] > git config --get commit.template [3ms]
+2024-11-15 05:08:39.691 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:08:39.716 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:08:39.719 [info] > git rev-parse refs/remotes/react-18/custom-hooks [3ms]
+2024-11-15 05:08:39.911 [info] > git status -z -uall [171ms]
+2024-11-15 05:08:44.954 [info] > git config --get commit.template [19ms]
+2024-11-15 05:08:44.955 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:08:44.972 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:08:44.974 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:08:45.160 [info] > git status -z -uall [169ms]
+2024-11-15 05:08:50.222 [info] > git config --get commit.template [24ms]
+2024-11-15 05:08:50.223 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:08:50.244 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:08:50.246 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:08:50.437 [info] > git status -z -uall [169ms]
+2024-11-15 05:08:55.491 [info] > git config --get commit.template [23ms]
+2024-11-15 05:08:55.492 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:08:55.516 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:08:55.518 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:08:55.708 [info] > git status -z -uall [167ms]
+2024-11-15 05:09:00.772 [info] > git config --get commit.template [28ms]
+2024-11-15 05:09:00.777 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [6ms]
+2024-11-15 05:09:00.801 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:09:00.805 [info] > git rev-parse refs/remotes/react-18/custom-hooks [4ms]
+2024-11-15 05:09:01.016 [info] > git status -z -uall [187ms]
+2024-11-15 05:09:06.074 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [7ms]
+2024-11-15 05:09:06.075 [info] > git config --get commit.template [31ms]
+2024-11-15 05:09:06.107 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:09:06.116 [info] > git rev-parse refs/remotes/react-18/custom-hooks [9ms]
+2024-11-15 05:09:06.481 [info] > git status -z -uall [333ms]
+2024-11-15 05:09:12.864 [info] > git config --get commit.template [3ms]
+2024-11-15 05:09:12.884 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:09:12.904 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:09:12.906 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:09:13.092 [info] > git status -z -uall [168ms]
+2024-11-15 05:09:18.179 [info] > git config --get commit.template [5ms]
+2024-11-15 05:09:18.204 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:09:18.229 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:09:18.231 [info] > git rev-parse refs/remotes/react-18/custom-hooks [3ms]
+2024-11-15 05:09:18.445 [info] > git status -z -uall [191ms]
+2024-11-15 05:09:33.492 [info] > git config --get commit.template [2ms]
+2024-11-15 05:09:33.512 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [2ms]
+2024-11-15 05:09:33.530 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:09:33.531 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:09:33.718 [info] > git status -z -uall [168ms]
+2024-11-15 05:09:38.762 [info] > git config --get commit.template [19ms]
+2024-11-15 05:09:38.764 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:09:38.782 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:09:38.784 [info] > git rev-parse refs/remotes/react-18/custom-hooks [3ms]
+2024-11-15 05:09:38.950 [info] > git status -z -uall [150ms]
+2024-11-15 05:09:39.201 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-15 05:09:39.221 [info] > git cat-file -s 27df6f96b330cf7daaf83d9a3c1a45f5f1b15ef5 [2ms]
+2024-11-15 05:09:39.329 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-15 05:09:47.219 [info] > git config --get commit.template [19ms]
+2024-11-15 05:09:47.221 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:09:47.238 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:09:47.240 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:09:47.415 [info] > git status -z -uall [156ms]
+2024-11-15 05:09:52.472 [info] > git config --get commit.template [26ms]
+2024-11-15 05:09:52.474 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-15 05:09:52.496 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:09:52.499 [info] > git rev-parse refs/remotes/react-18/custom-hooks [3ms]
+2024-11-15 05:09:52.685 [info] > git status -z -uall [163ms]
+2024-11-15 05:10:03.176 [info] > git config --get commit.template [26ms]
+2024-11-15 05:10:03.178 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:10:03.205 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:10:03.208 [info] > git rev-parse refs/remotes/react-18/custom-hooks [3ms]
+2024-11-15 05:10:03.519 [info] > git status -z -uall [288ms]
+2024-11-15 05:10:08.581 [info] > git config --get commit.template [25ms]
+2024-11-15 05:10:08.583 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-15 05:10:08.606 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:10:08.608 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:10:08.791 [info] > git status -z -uall [160ms]
+2024-11-15 05:10:13.822 [info] > git config --get commit.template [2ms]
+2024-11-15 05:10:13.843 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:10:13.861 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:10:13.862 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:10:14.047 [info] > git status -z -uall [165ms]
+2024-11-15 05:10:19.092 [info] > git config --get commit.template [21ms]
+2024-11-15 05:10:19.093 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:10:19.111 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:10:19.113 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:10:19.283 [info] > git status -z -uall [152ms]
+2024-11-15 05:10:30.128 [info] > git config --get commit.template [31ms]
+2024-11-15 05:10:30.136 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [12ms]
+2024-11-15 05:10:30.172 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:10:30.174 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:10:30.347 [info] > git status -z -uall [153ms]
+2024-11-15 05:10:35.379 [info] > git config --get commit.template [3ms]
+2024-11-15 05:10:35.406 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:10:35.430 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:10:35.432 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:10:35.681 [info] > git status -z -uall [225ms]
+2024-11-15 05:10:40.718 [info] > git config --get commit.template [5ms]
+2024-11-15 05:10:40.769 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [14ms]
+2024-11-15 05:10:40.795 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:10:40.799 [info] > git rev-parse refs/remotes/react-18/custom-hooks [4ms]
+2024-11-15 05:10:41.071 [info] > git status -z -uall [249ms]
+2024-11-15 05:10:46.905 [info] > git config --get commit.template [3ms]
+2024-11-15 05:10:46.932 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:10:46.957 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:10:46.959 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:10:47.161 [info] > git status -z -uall [178ms]
+2024-11-15 05:10:52.210 [info] > git config --get commit.template [23ms]
+2024-11-15 05:10:52.211 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-15 05:10:52.228 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:10:52.230 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:10:52.483 [info] > git status -z -uall [235ms]
+2024-11-15 05:10:57.529 [info] > git config --get commit.template [4ms]
+2024-11-15 05:10:57.564 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [11ms]
+2024-11-15 05:10:57.595 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:10:57.606 [info] > git rev-parse refs/remotes/react-18/custom-hooks [12ms]
+2024-11-15 05:10:57.816 [info] > git status -z -uall [186ms]
+2024-11-15 05:11:02.873 [info] > git config --get commit.template [27ms]
+2024-11-15 05:11:02.875 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:11:02.902 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:11:02.908 [info] > git rev-parse refs/remotes/react-18/custom-hooks [7ms]
+2024-11-15 05:11:03.160 [info] > git status -z -uall [221ms]
+2024-11-15 05:11:08.208 [info] > git config --get commit.template [20ms]
+2024-11-15 05:11:08.210 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:11:08.227 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:11:08.229 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:11:08.419 [info] > git status -z -uall [171ms]
+2024-11-15 05:11:13.486 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [12ms]
+2024-11-15 05:11:13.487 [info] > git config --get commit.template [39ms]
+2024-11-15 05:11:13.510 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:11:13.513 [info] > git rev-parse refs/remotes/react-18/custom-hooks [3ms]
+2024-11-15 05:11:13.810 [info] > git status -z -uall [271ms]
+2024-11-15 05:11:20.096 [info] > git config --get commit.template [41ms]
+2024-11-15 05:11:20.103 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [10ms]
+2024-11-15 05:11:20.166 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:11:20.173 [info] > git rev-parse refs/remotes/react-18/custom-hooks [7ms]
+2024-11-15 05:11:20.377 [info] > git status -z -uall [171ms]
+2024-11-15 05:11:20.670 [info] > git fetch [652ms]
+2024-11-15 05:11:20.670 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-15 05:11:20.722 [info] > git config --get commit.template [27ms]
+2024-11-15 05:11:20.723 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-15 05:11:20.747 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:11:20.749 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:11:20.940 [info] > git status -z -uall [165ms]
+2024-11-15 05:11:22.080 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [2ms]
+2024-11-15 05:11:22.101 [info] > git cat-file -s 27df6f96b330cf7daaf83d9a3c1a45f5f1b15ef5 [2ms]
+2024-11-15 05:11:22.185 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-15 05:11:25.422 [info] > git config --get commit.template [19ms]
+2024-11-15 05:11:25.424 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [2ms]
+2024-11-15 05:11:25.442 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:11:25.444 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:11:25.629 [info] > git status -z -uall [164ms]
+2024-11-15 05:11:30.654 [info] > git config --get commit.template [2ms]
+2024-11-15 05:11:30.691 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [9ms]
+2024-11-15 05:11:30.718 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:11:30.725 [info] > git rev-parse refs/remotes/react-18/custom-hooks [6ms]
+2024-11-15 05:11:30.979 [info] > git status -z -uall [227ms]
+2024-11-15 05:11:36.949 [info] > git config --get commit.template [26ms]
+2024-11-15 05:11:36.950 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:11:36.975 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:11:36.979 [info] > git rev-parse refs/remotes/react-18/custom-hooks [3ms]
+2024-11-15 05:11:37.170 [info] > git status -z -uall [168ms]
+2024-11-15 05:11:42.333 [info] > git config --get commit.template [74ms]
+2024-11-15 05:11:42.340 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [9ms]
+2024-11-15 05:11:42.367 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:11:42.371 [info] > git rev-parse refs/remotes/react-18/custom-hooks [4ms]
+2024-11-15 05:11:42.565 [info] > git status -z -uall [169ms]
+2024-11-15 05:11:47.603 [info] > git config --get commit.template [4ms]
+2024-11-15 05:11:47.630 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:11:47.654 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:11:47.660 [info] > git rev-parse refs/remotes/react-18/custom-hooks [6ms]
+2024-11-15 05:11:47.870 [info] > git status -z -uall [187ms]
+2024-11-15 05:11:54.307 [info] > git config --get commit.template [24ms]
+2024-11-15 05:11:54.310 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-15 05:11:54.328 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:11:54.330 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:11:54.511 [info] > git status -z -uall [163ms]
+2024-11-15 05:11:59.559 [info] > git config --get commit.template [22ms]
+2024-11-15 05:11:59.560 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-15 05:11:59.587 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:11:59.592 [info] > git rev-parse refs/remotes/react-18/custom-hooks [4ms]
+2024-11-15 05:11:59.864 [info] > git status -z -uall [245ms]
+2024-11-15 05:12:04.930 [info] > git config --get commit.template [27ms]
+2024-11-15 05:12:04.931 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-15 05:12:04.956 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:12:04.958 [info] > git rev-parse refs/remotes/react-18/custom-hooks [3ms]
+2024-11-15 05:12:05.214 [info] > git status -z -uall [231ms]
+2024-11-15 05:12:10.285 [info] > git config --get commit.template [34ms]
+2024-11-15 05:12:10.290 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [7ms]
+2024-11-15 05:12:10.318 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:12:10.322 [info] > git rev-parse refs/remotes/react-18/custom-hooks [5ms]
+2024-11-15 05:12:10.625 [info] > git status -z -uall [266ms]
+2024-11-15 05:12:16.362 [info] > git config --get commit.template [29ms]
+2024-11-15 05:12:16.364 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-15 05:12:16.392 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:12:16.394 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:12:16.590 [info] > git status -z -uall [171ms]
+2024-11-15 05:12:21.628 [info] > git config --get commit.template [7ms]
+2024-11-15 05:12:21.657 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-15 05:12:21.682 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:12:21.684 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:12:21.880 [info] > git status -z -uall [171ms]
+2024-11-15 05:12:28.047 [info] > git config --get commit.template [38ms]
+2024-11-15 05:12:28.053 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [8ms]
+2024-11-15 05:12:28.096 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:12:28.101 [info] > git rev-parse refs/remotes/react-18/custom-hooks [4ms]
+2024-11-15 05:12:28.395 [info] > git status -z -uall [259ms]
+2024-11-15 05:12:33.571 [info] > git config --get commit.template [22ms]
+2024-11-15 05:12:33.573 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:12:33.592 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:12:33.594 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:12:33.776 [info] > git status -z -uall [164ms]
+2024-11-15 05:12:48.133 [info] > git config --get commit.template [27ms]
+2024-11-15 05:12:48.135 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-15 05:12:48.163 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:12:48.165 [info] > git rev-parse refs/remotes/react-18/custom-hooks [3ms]
+2024-11-15 05:12:48.357 [info] > git status -z -uall [167ms]
+2024-11-15 05:12:53.416 [info] > git config --get commit.template [28ms]
+2024-11-15 05:12:53.417 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:12:53.442 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:12:53.444 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:12:53.631 [info] > git status -z -uall [163ms]
+2024-11-15 05:12:58.677 [info] > git config --get commit.template [20ms]
+2024-11-15 05:12:58.679 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:12:58.697 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:12:58.698 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:12:58.882 [info] > git status -z -uall [164ms]
+2024-11-15 05:13:04.553 [info] > git config --get commit.template [3ms]
+2024-11-15 05:13:04.580 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:13:04.603 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:13:04.605 [info] > git rev-parse refs/remotes/react-18/custom-hooks [3ms]
+2024-11-15 05:13:04.792 [info] > git status -z -uall [165ms]
+2024-11-15 05:13:09.882 [info] > git config --get commit.template [35ms]
+2024-11-15 05:13:09.888 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [8ms]
+2024-11-15 05:13:09.922 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:13:09.926 [info] > git rev-parse refs/remotes/react-18/custom-hooks [5ms]
+2024-11-15 05:13:10.151 [info] > git status -z -uall [192ms]
+2024-11-15 05:13:15.182 [info] > git config --get commit.template [2ms]
+2024-11-15 05:13:15.204 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:13:15.222 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:13:15.224 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:13:15.431 [info] > git status -z -uall [189ms]
+2024-11-15 05:13:20.467 [info] > git config --get commit.template [5ms]
+2024-11-15 05:13:20.494 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:13:20.518 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:13:20.520 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:13:20.705 [info] > git status -z -uall [162ms]
+2024-11-15 05:13:25.755 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-15 05:13:25.756 [info] > git config --get commit.template [24ms]
+2024-11-15 05:13:25.776 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:13:25.778 [info] > git rev-parse refs/remotes/react-18/custom-hooks [1ms]
+2024-11-15 05:13:25.965 [info] > git status -z -uall [170ms]
+2024-11-15 05:13:33.473 [info] > git config --get commit.template [25ms]
+2024-11-15 05:13:33.475 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:13:33.498 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:13:33.500 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:13:33.689 [info] > git status -z -uall [166ms]
+2024-11-15 05:13:38.737 [info] > git config --get commit.template [3ms]
+2024-11-15 05:13:38.772 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:13:38.795 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:13:38.797 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:13:38.992 [info] > git status -z -uall [167ms]
+2024-11-15 05:13:44.699 [info] > git config --get commit.template [20ms]
+2024-11-15 05:13:44.701 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:13:44.719 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:13:44.720 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:13:44.911 [info] > git status -z -uall [172ms]
+2024-11-15 05:13:56.258 [info] > git config --get commit.template [27ms]
+2024-11-15 05:13:56.260 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:13:56.287 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:13:56.288 [info] > git rev-parse refs/remotes/react-18/custom-hooks [1ms]
+2024-11-15 05:13:56.480 [info] > git status -z -uall [168ms]
+2024-11-15 05:14:01.529 [info] > git config --get commit.template [21ms]
+2024-11-15 05:14:01.530 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:14:01.551 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:14:01.552 [info] > git rev-parse refs/remotes/react-18/custom-hooks [3ms]
+2024-11-15 05:14:01.736 [info] > git status -z -uall [166ms]
+2024-11-15 05:14:06.791 [info] > git config --get commit.template [26ms]
+2024-11-15 05:14:06.793 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:14:06.816 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:14:06.818 [info] > git rev-parse refs/remotes/react-18/custom-hooks [3ms]
+2024-11-15 05:14:07.001 [info] > git status -z -uall [161ms]
+2024-11-15 05:14:12.057 [info] > git config --get commit.template [25ms]
+2024-11-15 05:14:12.059 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-15 05:14:12.081 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:14:12.083 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:14:12.275 [info] > git status -z -uall [167ms]
+2024-11-15 05:14:17.323 [info] > git config --get commit.template [21ms]
+2024-11-15 05:14:17.325 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:14:17.343 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:14:17.344 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:14:17.523 [info] > git status -z -uall [161ms]
+2024-11-15 05:14:21.563 [info] > git fetch [595ms]
+2024-11-15 05:14:21.564 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-15 05:14:21.612 [info] > git config --get commit.template [25ms]
+2024-11-15 05:14:21.614 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:14:21.638 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:14:21.640 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:14:21.831 [info] > git status -z -uall [164ms]
+2024-11-15 05:14:22.572 [info] > git config --get commit.template [20ms]
+2024-11-15 05:14:22.574 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:14:22.594 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:14:22.595 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:14:22.775 [info] > git status -z -uall [162ms]
+2024-11-15 05:14:23.004 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-15 05:14:23.025 [info] > git cat-file -s 27df6f96b330cf7daaf83d9a3c1a45f5f1b15ef5 [2ms]
+2024-11-15 05:14:23.103 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [2ms]
+2024-11-15 05:14:27.821 [info] > git config --get commit.template [20ms]
+2024-11-15 05:14:27.822 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:14:27.840 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:14:27.842 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:14:28.014 [info] > git status -z -uall [153ms]
+2024-11-15 05:14:33.049 [info] > git config --get commit.template [1ms]
+2024-11-15 05:14:33.083 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [5ms]
+2024-11-15 05:14:33.106 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:14:33.109 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:14:33.299 [info] > git status -z -uall [167ms]
+2024-11-15 05:14:38.357 [info] > git config --get commit.template [28ms]
+2024-11-15 05:14:38.359 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:14:38.382 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:14:38.384 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:14:38.571 [info] > git status -z -uall [165ms]
+2024-11-15 05:14:43.617 [info] > git config --get commit.template [20ms]
+2024-11-15 05:14:43.619 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:14:43.637 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:14:43.639 [info] > git rev-parse refs/remotes/react-18/custom-hooks [3ms]
+2024-11-15 05:14:43.817 [info] > git status -z -uall [161ms]
+2024-11-15 05:14:48.865 [info] > git config --get commit.template [22ms]
+2024-11-15 05:14:48.867 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:14:48.886 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:14:48.888 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:14:49.060 [info] > git status -z -uall [154ms]
+2024-11-15 05:14:54.116 [info] > git config --get commit.template [26ms]
+2024-11-15 05:14:54.118 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:14:54.141 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:14:54.143 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:14:54.337 [info] > git status -z -uall [172ms]
+2024-11-15 05:14:59.398 [info] > git config --get commit.template [26ms]
+2024-11-15 05:14:59.400 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-15 05:14:59.423 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:14:59.425 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:14:59.612 [info] > git status -z -uall [164ms]
+2024-11-15 05:15:04.668 [info] > git config --get commit.template [25ms]
+2024-11-15 05:15:04.670 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:15:04.693 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:15:04.697 [info] > git rev-parse refs/remotes/react-18/custom-hooks [3ms]
+2024-11-15 05:15:04.885 [info] > git status -z -uall [165ms]
+2024-11-15 05:15:09.911 [info] > git config --get commit.template [3ms]
+2024-11-15 05:15:09.932 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:15:09.950 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:15:09.952 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:15:10.151 [info] > git status -z -uall [180ms]
+2024-11-15 05:15:15.113 [info] > git merge-base refs/heads/custom-hooks refs/remotes/react-18/custom-hooks [3ms]
+2024-11-15 05:15:15.135 [info] > git rev-list --count --left-right refs/heads/custom-hooks...refs/remotes/react-18/custom-hooks [3ms]
+2024-11-15 05:15:15.200 [info] > git config --get commit.template [22ms]
+2024-11-15 05:15:15.202 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:15:15.219 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:15:15.221 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:15:15.390 [info] > git status -z -uall [152ms]
+2024-11-15 05:15:16.840 [info] > git check-ignore -v -z --stdin [4ms]
+2024-11-15 05:15:20.449 [info] > git config --get commit.template [27ms]
+2024-11-15 05:15:20.450 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-15 05:15:20.475 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:15:20.477 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:15:20.663 [info] > git status -z -uall [163ms]
+2024-11-15 05:15:25.710 [info] > git config --get commit.template [20ms]
+2024-11-15 05:15:25.712 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:15:25.730 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:15:25.732 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:15:25.916 [info] > git status -z -uall [162ms]
+2024-11-15 05:15:33.802 [info] > git config --get commit.template [27ms]
+2024-11-15 05:15:33.803 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-15 05:15:33.827 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:15:33.829 [info] > git rev-parse refs/remotes/react-18/custom-hooks [3ms]
+2024-11-15 05:15:34.015 [info] > git status -z -uall [163ms]
+2024-11-15 05:15:39.068 [info] > git config --get commit.template [22ms]
+2024-11-15 05:15:39.070 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-15 05:15:39.089 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/custom-hooks'
+2024-11-15 05:15:39.091 [info] > git rev-parse refs/remotes/react-18/custom-hooks [2ms]
+2024-11-15 05:15:39.269 [info] > git status -z -uall [160ms]

@@ -70,9 +70,9 @@ const App = () => {
 // );
 
 // React Component Composition
-const InputWithLabel = ({ id, value, onInputChange, type, children , isFocused}) => {
+const InputWithLabel = ({ id, value, onInputChange, type, children}) => {
   
-  const inputRef = React.useRef();
+  // const inputRef = React.useRef();
 
   React.useEffect(()=>{
 
@@ -86,7 +86,7 @@ const InputWithLabel = ({ id, value, onInputChange, type, children , isFocused})
   <>
     <label htmlFor={id}>{children}</label>
     &nbsp;
-    <input ref={inputRef} id={id} value={value} type={type} onChange={onInputChange} />
+    <input id={id} value={value} type={type} onChange={onInputChange} />
 
   </>
   )

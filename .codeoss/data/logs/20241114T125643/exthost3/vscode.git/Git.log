@@ -2249,3 +2249,149 @@ warning: There are too many unreachable loose objects; run 'git prune' to remove
 2024-11-14 15:26:42.788 [info] > git config --get commit.template [24ms]
 2024-11-14 15:26:42.789 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
 2024-11-14 15:26:42.990 [info] > git status -z -uall [179ms]
+2024-11-14 15:26:46.656 [info] > git add -A -- . [187ms]
+2024-11-14 15:26:46.700 [info] > git -c user.useConfigOnly=true commit --quiet --allow-empty-message --file - [22ms]
+2024-11-14 15:26:46.700 [info] warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-14 15:26:46.725 [info] > git config --get commit.template [2ms]
+2024-11-14 15:26:46.778 [info] > git config --get commit.template [27ms]
+2024-11-14 15:26:46.779 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [5ms]
+2024-11-14 15:26:46.986 [info] > git status -z -uall [185ms]
+2024-11-14 15:26:47.041 [info] > git merge-base refs/heads/custom-hooks refs/remotes/react-18/custom-hooks [31ms]
+2024-11-14 15:26:47.074 [info] > git rev-list --count --left-right refs/heads/custom-hooks...refs/remotes/react-18/custom-hooks [4ms]
+2024-11-14 15:26:47.115 [info] > git diff --name-status -z --diff-filter=ADMR b80a082845c623d52c48639398d47e8b9fec6b68...refs/remotes/react-18/custom-hooks [7ms]
+2024-11-14 15:26:47.365 [info] > git merge-base refs/heads/custom-hooks refs/remotes/react-18/custom-hooks [3ms]
+2024-11-14 15:26:47.391 [info] > git rev-list --count --left-right refs/heads/custom-hooks...refs/remotes/react-18/custom-hooks [3ms]
+2024-11-14 15:26:48.331 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-14 15:26:48.355 [info] > git cat-file -s 27df6f96b330cf7daaf83d9a3c1a45f5f1b15ef5 [2ms]
+2024-11-14 15:26:48.435 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-14 15:26:48.936 [info] > git push react-18 custom-hooks:custom-hooks [1896ms]
+2024-11-14 15:26:48.936 [info] To https://github.com/rajhrajesh/basic-advanced.git
+   b80a082..a7e59ea  custom-hooks -> custom-hooks
+2024-11-14 15:26:48.982 [info] > git config --get commit.template [24ms]
+2024-11-14 15:26:48.984 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-14 15:26:49.189 [info] > git status -z -uall [181ms]
+2024-11-14 15:26:49.221 [info] > git merge-base refs/heads/custom-hooks refs/remotes/react-18/custom-hooks [7ms]
+2024-11-14 15:26:49.247 [info] > git rev-list --count --left-right refs/heads/custom-hooks...refs/remotes/react-18/custom-hooks [3ms]
+2024-11-14 15:26:49.280 [info] > git diff --name-status -z --diff-filter=ADMR a7e59eafb2c76561aaade7cc0cd6a11d9a2670c0...refs/remotes/react-18/custom-hooks [7ms]
+2024-11-14 15:26:49.377 [info] > git merge-base refs/heads/custom-hooks refs/remotes/react-18/custom-hooks [41ms]
+2024-11-14 15:26:49.407 [info] > git config --get commit.template [32ms]
+2024-11-14 15:26:49.430 [info] > git rev-list --count --left-right refs/heads/custom-hooks...refs/remotes/react-18/custom-hooks [27ms]
+2024-11-14 15:26:49.433 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-14 15:26:49.638 [info] > git status -z -uall [183ms]
+2024-11-14 15:26:49.667 [info] > git config --get commit.template [3ms]
+2024-11-14 15:26:49.692 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [2ms]
+2024-11-14 15:26:49.900 [info] > git status -z -uall [185ms]
+2024-11-14 15:26:50.353 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-14 15:26:50.378 [info] > git cat-file -s 27df6f96b330cf7daaf83d9a3c1a45f5f1b15ef5 [3ms]
+2024-11-14 15:26:50.458 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [4ms]
+2024-11-14 15:26:54.960 [info] > git config --get commit.template [28ms]
+2024-11-14 15:26:54.962 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-14 15:26:55.171 [info] > git status -z -uall [181ms]
+2024-11-14 15:27:12.644 [info] > git config --get commit.template [24ms]
+2024-11-14 15:27:12.646 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-14 15:27:12.850 [info] > git status -z -uall [181ms]
+2024-11-14 15:27:17.911 [info] > git config --get commit.template [31ms]
+2024-11-14 15:27:17.913 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-14 15:27:18.138 [info] > git status -z -uall [197ms]
+2024-11-14 15:27:23.202 [info] > git config --get commit.template [30ms]
+2024-11-14 15:27:23.203 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-14 15:27:23.425 [info] > git status -z -uall [193ms]
+2024-11-14 15:27:28.477 [info] > git config --get commit.template [26ms]
+2024-11-14 15:27:28.478 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [5ms]
+2024-11-14 15:27:28.697 [info] > git status -z -uall [191ms]
+2024-11-14 15:27:33.758 [info] > git config --get commit.template [31ms]
+2024-11-14 15:27:33.760 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-14 15:27:33.980 [info] > git status -z -uall [193ms]
+2024-11-14 15:27:39.033 [info] > git config --get commit.template [26ms]
+2024-11-14 15:27:39.035 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-14 15:27:39.243 [info] > git status -z -uall [186ms]
+2024-11-14 15:28:12.563 [info] > git config --get commit.template [22ms]
+2024-11-14 15:28:12.565 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-14 15:28:12.767 [info] > git status -z -uall [181ms]
+2024-11-14 15:28:58.061 [info] > git config --get commit.template [23ms]
+2024-11-14 15:28:58.062 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [2ms]
+2024-11-14 15:28:58.266 [info] > git status -z -uall [180ms]
+2024-11-14 15:43:52.315 [info] > git config --get commit.template [30ms]
+2024-11-14 15:43:52.319 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [6ms]
+2024-11-14 15:43:52.564 [info] > git status -z -uall [213ms]
+2024-11-14 15:43:52.956 [info] > git fetch [700ms]
+2024-11-14 15:43:52.956 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-14 15:43:53.005 [info] > git config --get commit.template [24ms]
+2024-11-14 15:43:53.006 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-14 15:43:53.208 [info] > git status -z -uall [180ms]
+2024-11-14 15:43:54.374 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-14 15:43:54.399 [info] > git cat-file -s 27df6f96b330cf7daaf83d9a3c1a45f5f1b15ef5 [2ms]
+2024-11-14 15:43:54.497 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [4ms]
+2024-11-14 15:48:21.389 [info] > git config --get commit.template [31ms]
+2024-11-14 15:48:21.393 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [6ms]
+2024-11-14 15:48:21.627 [info] > git status -z -uall [202ms]
+2024-11-14 15:48:22.067 [info] > git fetch [744ms]
+2024-11-14 15:48:22.067 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-14 15:48:22.116 [info] > git config --get commit.template [24ms]
+2024-11-14 15:48:22.118 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-14 15:48:22.324 [info] > git status -z -uall [183ms]
+2024-11-14 15:48:23.826 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-14 15:48:23.850 [info] > git cat-file -s 27df6f96b330cf7daaf83d9a3c1a45f5f1b15ef5 [2ms]
+2024-11-14 15:48:24.158 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-14 15:48:26.682 [info] > git config --get commit.template [27ms]
+2024-11-14 15:48:26.682 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-14 15:48:26.884 [info] > git status -z -uall [177ms]
+2024-11-14 15:55:41.863 [info] > git config --get commit.template [3ms]
+2024-11-14 15:55:41.900 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [4ms]
+2024-11-14 15:55:42.124 [info] > git status -z -uall [192ms]
+2024-11-14 15:55:42.510 [info] > git fetch [685ms]
+2024-11-14 15:55:42.510 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-14 15:55:42.558 [info] > git config --get commit.template [23ms]
+2024-11-14 15:55:42.559 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-14 15:55:42.763 [info] > git status -z -uall [180ms]
+2024-11-14 15:55:43.925 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-14 15:55:43.951 [info] > git cat-file -s 27df6f96b330cf7daaf83d9a3c1a45f5f1b15ef5 [4ms]
+2024-11-14 15:55:44.030 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-14 15:55:47.180 [info] > git config --get commit.template [29ms]
+2024-11-14 15:55:47.184 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [6ms]
+2024-11-14 15:55:47.391 [info] > git status -z -uall [181ms]
+2024-11-14 15:55:52.440 [info] > git config --get commit.template [24ms]
+2024-11-14 15:55:52.442 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [2ms]
+2024-11-14 15:55:52.645 [info] > git status -z -uall [180ms]
+2024-11-14 16:16:44.808 [info] > git config --get commit.template [1ms]
+2024-11-14 16:16:44.847 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [6ms]
+2024-11-14 16:16:45.075 [info] > git status -z -uall [195ms]
+2024-11-14 16:16:45.458 [info] > git fetch [685ms]
+2024-11-14 16:16:45.458 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-14 16:16:45.505 [info] > git config --get commit.template [24ms]
+2024-11-14 16:16:45.507 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-14 16:16:45.713 [info] > git status -z -uall [183ms]
+2024-11-14 16:16:46.986 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-14 16:16:47.014 [info] > git cat-file -s 27df6f96b330cf7daaf83d9a3c1a45f5f1b15ef5 [2ms]
+2024-11-14 16:16:47.122 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [4ms]
+2024-11-14 16:19:10.547 [info] > git config --get commit.template [23ms]
+2024-11-14 16:19:10.548 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/custom-hooks refs/remotes/custom-hooks [3ms]
+2024-11-14 16:19:10.798 [info] > git status -z -uall [228ms]

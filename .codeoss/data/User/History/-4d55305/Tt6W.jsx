@@ -48,8 +48,8 @@ const App = () => {
       <h1>My Hacker Stories</h1>
 
       {/* <Search search={searchTerm} onSearch={handleSearch} /> */}
-      <InputWithLabel id="search" type="text" value={searchTerm} onInputChange={handleSearch}
-      >
+      <InputWithLabel id="search" type="text" value={searchTerm} onInputChange={handleSearch} 
+       isFocused >
         <strong>Search:!</strong>
       </InputWithLabel>
 
@@ -70,28 +70,15 @@ const App = () => {
 // );
 
 // React Component Composition
-const InputWithLabel = ({ id, value, onInputChange, type, children , isFocused}) => {
-  
-  const inputRef = React.useRef();
-
-  React.useEffect(()=>{
-
-    if(isFocused && inputRef.current){
-      inputRef.current.focus();
-    }
-
-  },[isFocused])
-
-  return(
+const InputWithLabel = ({ id, value, onInputChange, type, children}) => (
   <>
     <label htmlFor={id}>{children}</label>
     &nbsp;
-    <input ref={inputRef} id={id} value={value} type={type} onChange={onInputChange} />
+    <input id={id} value={value} type={type} onChange={onInputChange} />
 
   </>
-  )
 
-}
+)
 const List = ({ list }) => (
   <ul>
     {list.map((item) => (

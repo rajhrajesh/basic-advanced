@@ -72,7 +72,7 @@ const App = () => {
 // React Component Composition
 const InputWithLabel = ({ id, value, onInputChange, type, children , isFocused}) => {
   
-  const inputRef = React.useRef();
+  // const inputRef = React.useRef();
 
   React.useEffect(()=>{
 
