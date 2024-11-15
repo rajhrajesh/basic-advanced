@@ -33,7 +33,7 @@ const App = () => {
     },
   ];
 
-  const [searchTerm, setSearchTerm] = useStorageState('search', '');
+  const [searchTerm, setSearchTerm] = useStorageState('', '');
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -47,27 +47,56 @@ const App = () => {
     <React.Fragment>
       <h1>My Hacker Stories</h1>
 
-      <Search search={searchTerm} onSearch={handleSearch} />
+      {/* <Search search={searchTerm} onSearch={handleSearch} /> */}
+      <InputWithLabel id="search" type="text" value={searchTerm} onInputChange={handleSearch}
+      >
+        <strong>Search:!</strong>
+      </InputWithLabel>
 
       <hr />
 
       <List list={searchedStories} />
 
-      <hr />
-
-      <InputWithLabel id="search" label="Search" value={searchTerm} />
 
     </React.Fragment>
   );
 };
 
-const Search = ({ onSearch, search }) => (
-  <>
-    <label htmlFor="search">Search: </label>
-    <input value={search} id="search" type="text" onChange={onSearch} />
-  </>
-);
+// const Search = ({ onSearch, search }) => (
+//   <>
+//     <label htmlFor="search">Search: </label>
+//     <input value={search} id="search" type="text" onChange={onSearch} />
+//   </>
+// );
 
+// React Component Composition
+const InputWithLabel = ({ id, value, onInputChange, type, children , isFocused}) => {
+  
+  const inputRef = React.useRef();
+
+  React.useEffect(()=>{
+
+    if(isFocused && inputRef.current){
+      inputRef.current.focus();
+    }
+
+  },[isFocused])
+
+  return(
+  <>
+    <label htmlFor={id}>{children}</label>
+    &nbsp;
+    <input autoFocus ref={inputRef} id={id} value={value} type={type} onChange={onInputChange} />
+
+    <br/>
+    
+    <label htmlFor='love'>Love!</label>
+    <input autoFocus id="love"/>
+
+  </>
+  )
+
+}
 const List = ({ list }) => (
   <ul>
     {list.map((item) => (
@@ -90,9 +119,5 @@ const Item = ({
   </li>
 );
 
-// Reusable React Component
-const InputWithLabel = () => (
-
-)
 
 export default App;

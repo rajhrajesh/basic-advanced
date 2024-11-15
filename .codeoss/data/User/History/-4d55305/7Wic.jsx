@@ -1,14 +1,13 @@
 import * as React from 'react';
 
-
 const useStorageState = (key, initialState) => {
   const [value, setValue] = React.useState(
-    localStorage.getItem('value') || initialState
+    localStorage.getItem(key) || initialState
   )
 
-  React.useEffect(()=>{
-    localStorage.setItem('value', value)
-  },[value])
+  React.useEffect(() => {
+    localStorage.setItem(key, value)
+  }, [value, key])
 
   return [value, setValue]
 }
@@ -34,7 +33,7 @@ const App = () => {
     },
   ];
 
-  const [searchTerm, setSearchTerm] = React.useStorageState('React');
+  const [searchTerm, setSearchTerm] = useStorageState('', '');
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -45,25 +44,59 @@ const App = () => {
   );
 
   return (
-    <div>
+    <React.Fragment>
       <h1>My Hacker Stories</h1>
 
-      <Search search={searchTerm} onSearch={handleSearch} />
+      {/* <Search search={searchTerm} onSearch={handleSearch} /> */}
+      <InputWithLabel id="search" type="text" value={searchTerm} onInputChange={handleSearch}
+      >
+        <strong>Search:!</strong>
+      </InputWithLabel>
 
       <hr />
 
       <List list={searchedStories} />
-    </div>
+
+
+    </React.Fragment>
   );
 };
 
-const Search = ({ onSearch, search }) => (
-  <div>
-    <label htmlFor="search">Search: </label>
-    <input value={search} id="search" type="text" onChange={onSearch} />
-  </div>
-);
+// const Search = ({ onSearch, search }) => (
+//   <>
+//     <label htmlFor="search">Search: </label>
+//     <input value={search} id="search" type="text" onChange={onSearch} />
+//   </>
+// );
 
+// React Component Composition
+const InputWithLabel = ({ id, value, onInputChange, type, children , isFocused}) => {
+  
+  const inputRef = React.useRef();
+
+  React.useEffect(()=>{
+
+    if(isFocused && inputRef.current){
+      inputRef.current.focus();
+    }
+
+  },[isFocused])
+
+  return(
+  <>
+    <label htmlFor={id}>{children}</label>
+    &nbsp;
+    <input ref={inputRef} id={id} value={value} type={type} onChange={onInputChange} />
+
+    <br/>
+    
+    <label htmlFor='love'>Love!</label>
+    <input autoFocus id="love"/>
+
+  </>
+  )
+
+}
 const List = ({ list }) => (
   <ul>
     {list.map((item) => (
@@ -73,7 +106,7 @@ const List = ({ list }) => (
 );
 
 const Item = ({
-  url, title, author, num_comments, points, love ,fine }
+  url, title, author, num_comments, points, love, fine }
 ) => (
   <li>
     <span>
