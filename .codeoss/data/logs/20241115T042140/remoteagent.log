@@ -120,3 +120,5 @@
 2024-11-15 11:36:48.179 [info] [127.0.0.1][a5d0d1b7][ExtensionHostConnection] <3043> Extension Host Process exited with code: 0, signal: null.
 2024-11-15 11:55:39.527 [info] [127.0.0.1][89802c2d][ExtensionHostConnection] The client has reconnected.
 2024-11-15 11:55:39.744 [info] [127.0.0.1][7a42fc6a][ManagementConnection] The client has reconnected.
+2024-11-15 12:05:07.132 [info] [127.0.0.1][7a42fc6a][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2024-11-15 12:05:07.408 [info] [127.0.0.1][89802c2d][ExtensionHostConnection] <43985> Extension Host Process exited with code: 0, signal: null.

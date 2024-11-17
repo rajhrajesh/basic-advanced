@@ -4919,43 +4919,6 @@ if __name__ == ""__main__"":
     return bounds
 
 "
-"2","Cloud Vision","v1","1007295","vision_text_detection","GO","Detect text in a local file","Perform text detection on a local file.","https://github.com/GoogleCloudPlatform/golang-samples/blob/cbb11e4c23ca054429e32cec902362ddf7d92df3/vision/detect/detect.go#L155-L193","GoogleCloudPlatform/golang-samples","vision/detect/detect.go","cbb11e4c23ca054429e32cec902362ddf7d92df3","L155-L193","
-// detectText gets text from the Vision API for an image at the given file path.
-func detectText(w io.Writer, file string) error {
-	ctx := context.Background()
-
-	client, err := vision.NewImageAnnotatorClient(ctx)
-	if err != nil {
-		return err
-	}
-
-	f, err := os.Open(file)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-
-	image, err := vision.NewImageFromReader(f)
-	if err != nil {
-		return err
-	}
-	annotations, err := client.DetectTexts(ctx, image, nil, 10)
-	if err != nil {
-		return err
-	}
-
-	if len(annotations) == 0 {
-		fmt.Fprintln(w, ""No text found."")
-	} else {
-		fmt.Fprintln(w, ""Text:"")
-		for _, annotation := range annotations {
-			fmt.Fprintf(w, ""%q\n"", annotation.Description)
-		}
-	}
-
-	return nil
-}
-"
 "2","Cloud Vision","v1","1023218","vision_fulltext_detection","GO","Detect text in a local file","Perform text detection on a local file.","https://github.com/GoogleCloudPlatform/golang-samples/blob/cbb11e4c23ca054429e32cec902362ddf7d92df3/vision/detect/detect.go#L195-L253","GoogleCloudPlatform/golang-samples","vision/detect/detect.go","cbb11e4c23ca054429e32cec902362ddf7d92df3","L195-L253","
 // detectDocumentText gets the full document text from the Vision API for an image at the given file path.
 func detectDocumentText(w io.Writer, file string) error {
@@ -5013,61 +4976,43 @@ func detectDocumentText(w io.Writer, file string) error {
 	return nil
 }
 "
-"2","Cloud Vision","v1","1126586","vision_text_detection","JAVA","Detect text in a local file","Perform text detection on a local file.","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/bc0bd72e7cd8baed000d75527dc5726cb8ee8e62/vision/snippets/src/main/java/com/example/vision/snippets/DetectText.java#L19-L75","GoogleCloudPlatform/java-docs-samples","vision/snippets/src/main/java/com/example/vision/snippets/DetectText.java","bc0bd72e7cd8baed000d75527dc5726cb8ee8e62","L19-L75","
-import com.google.cloud.vision.v1.AnnotateImageRequest;
-import com.google.cloud.vision.v1.AnnotateImageResponse;
-import com.google.cloud.vision.v1.BatchAnnotateImagesResponse;
-import com.google.cloud.vision.v1.EntityAnnotation;
-import com.google.cloud.vision.v1.Feature;
-import com.google.cloud.vision.v1.Image;
-import com.google.cloud.vision.v1.ImageAnnotatorClient;
-import com.google.protobuf.ByteString;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+"2","Cloud Vision","v1","1007295","vision_text_detection","GO","Detect text in a local file","Perform text detection on a local file.","https://github.com/GoogleCloudPlatform/golang-samples/blob/cbb11e4c23ca054429e32cec902362ddf7d92df3/vision/detect/detect.go#L155-L193","GoogleCloudPlatform/golang-samples","vision/detect/detect.go","cbb11e4c23ca054429e32cec902362ddf7d92df3","L155-L193","
+// detectText gets text from the Vision API for an image at the given file path.
+func detectText(w io.Writer, file string) error {
+	ctx := context.Background()
 
-public class DetectText {
-  public static void detectText() throws IOException {
-    // TODO(developer): Replace these variables before running the sample.
-    String filePath = ""path/to/your/image/file.jpg"";
-    detectText(filePath);
-  }
+	client, err := vision.NewImageAnnotatorClient(ctx)
+	if err != nil {
+		return err
+	}
 
-  // Detects text in the specified image.
-  public static void detectText(String filePath) throws IOException {
-    List<AnnotateImageRequest> requests = new ArrayList<>();
+	f, err := os.Open(file)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
 
-    ByteString imgBytes = ByteString.readFrom(new FileInputStream(filePath));
+	image, err := vision.NewImageFromReader(f)
+	if err != nil {
+		return err
+	}
+	annotations, err := client.DetectTexts(ctx, image, nil, 10)
+	if err != nil {
+		return err
+	}
 
-    Image img = Image.newBuilder().setContent(imgBytes).build();
-    Feature feat = Feature.newBuilder().setType(Feature.Type.TEXT_DETECTION).build();
-    AnnotateImageRequest request =
-        AnnotateImageRequest.newBuilder().addFeatures(feat).setImage(img).build();
-    requests.add(request);
+	if len(annotations) == 0 {
+		fmt.Fprintln(w, ""No text found."")
+	} else {
+		fmt.Fprintln(w, ""Text:"")
+		for _, annotation := range annotations {
+			fmt.Fprintf(w, ""%q\n"", annotation.Description)
+		}
+	}
 
-    // Initialize client that will be used to send requests. This client only needs to be created
-    // once, and can be reused for multiple requests. After completing all of your requests, call
-    // the ""close"" method on the client to safely clean up any remaining background resources.
-    try (ImageAnnotatorClient client = ImageAnnotatorClient.create()) {
-      BatchAnnotateImagesResponse response = client.batchAnnotateImages(requests);
-      List<AnnotateImageResponse> responses = response.getResponsesList();
-
-      for (AnnotateImageResponse res : responses) {
-        if (res.hasError()) {
-          System.out.format(""Error: %s%n"", res.getError().getMessage());
-          return;
-        }
-
-        // For full list of available annotations, see http://g.co/cloud/vision/docs
-        for (EntityAnnotation annotation : res.getTextAnnotationsList()) {
-          System.out.format(""Text: %s%n"", annotation.getDescription());
-          System.out.format(""Position : %s%n"", annotation.getBoundingPoly());
-        }
-      }
-    }
-  }
-}"
+	return nil
+}
+"
 "2","Cloud Vision","v1","1126583","vision_fulltext_detection","JAVA","Detect text in a local file","Perform text detection on a local file.","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/bc0bd72e7cd8baed000d75527dc5726cb8ee8e62/vision/snippets/src/main/java/com/example/vision/Detect.java#L68-L127","GoogleCloudPlatform/java-docs-samples","vision/snippets/src/main/java/com/example/vision/Detect.java","bc0bd72e7cd8baed000d75527dc5726cb8ee8e62","L68-L127","  public static void detectDocumentText(String filePath) throws IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
 
@@ -5126,6 +5071,61 @@ public class DetectText {
       }
     }
   }"
+"2","Cloud Vision","v1","1126586","vision_text_detection","JAVA","Detect text in a local file","Perform text detection on a local file.","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/bc0bd72e7cd8baed000d75527dc5726cb8ee8e62/vision/snippets/src/main/java/com/example/vision/snippets/DetectText.java#L19-L75","GoogleCloudPlatform/java-docs-samples","vision/snippets/src/main/java/com/example/vision/snippets/DetectText.java","bc0bd72e7cd8baed000d75527dc5726cb8ee8e62","L19-L75","
+import com.google.cloud.vision.v1.AnnotateImageRequest;
+import com.google.cloud.vision.v1.AnnotateImageResponse;
+import com.google.cloud.vision.v1.BatchAnnotateImagesResponse;
+import com.google.cloud.vision.v1.EntityAnnotation;
+import com.google.cloud.vision.v1.Feature;
+import com.google.cloud.vision.v1.Image;
+import com.google.cloud.vision.v1.ImageAnnotatorClient;
+import com.google.protobuf.ByteString;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class DetectText {
+  public static void detectText() throws IOException {
+    // TODO(developer): Replace these variables before running the sample.
+    String filePath = ""path/to/your/image/file.jpg"";
+    detectText(filePath);
+  }
+
+  // Detects text in the specified image.
+  public static void detectText(String filePath) throws IOException {
+    List<AnnotateImageRequest> requests = new ArrayList<>();
+
+    ByteString imgBytes = ByteString.readFrom(new FileInputStream(filePath));
+
+    Image img = Image.newBuilder().setContent(imgBytes).build();
+    Feature feat = Feature.newBuilder().setType(Feature.Type.TEXT_DETECTION).build();
+    AnnotateImageRequest request =
+        AnnotateImageRequest.newBuilder().addFeatures(feat).setImage(img).build();
+    requests.add(request);
+
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests. After completing all of your requests, call
+    // the ""close"" method on the client to safely clean up any remaining background resources.
+    try (ImageAnnotatorClient client = ImageAnnotatorClient.create()) {
+      BatchAnnotateImagesResponse response = client.batchAnnotateImages(requests);
+      List<AnnotateImageResponse> responses = response.getResponsesList();
+
+      for (AnnotateImageResponse res : responses) {
+        if (res.hasError()) {
+          System.out.format(""Error: %s%n"", res.getError().getMessage());
+          return;
+        }
+
+        // For full list of available annotations, see http://g.co/cloud/vision/docs
+        for (EntityAnnotation annotation : res.getTextAnnotationsList()) {
+          System.out.format(""Text: %s%n"", annotation.getDescription());
+          System.out.format(""Position : %s%n"", annotation.getBoundingPoly());
+        }
+      }
+    }
+  }
+}"
 "2","Cloud Vision","v1","1127437","vision_fulltext_detection","NODEJS","Detect text in a local file","Perform text detection on a local file.","https://github.com/GoogleCloudPlatform/nodejs-docs-samples/blob/c5118ddc1abe28e3b5312595c604cb7359899dcd/vision/detect.js#L576-L610","GoogleCloudPlatform/nodejs-docs-samples","vision/detect.js","c5118ddc1abe28e3b5312595c604cb7359899dcd","L576-L610","
   // Imports the Google Cloud client library
   const vision = require('@google-cloud/vision');
@@ -26253,27 +26253,31 @@ func addCommitTimestamp(ctx context.Context, w io.Writer, db string) error {
     // Close the database when finished.
     database.close();
   }"
-"9","Spanner","v1","1433873","spanner_add_timestamp_column","PHP","Add TIMESTAMP column","Update a schema by adding a TIMESTAMP column. ","https://github.com/GoogleCloudPlatform/php-docs-samples/blob/5ddf804faa8690e8ba16824c4ca3d6e0431ce4a8/spanner/src/admin/archived/add_timestamp_column.php#L26-L54","GoogleCloudPlatform/php-docs-samples","spanner/src/admin/archived/add_timestamp_column.php","5ddf804faa8690e8ba16824c4ca3d6e0431ce4a8","L26-L54","use Google\Cloud\Spanner\SpannerClient;
+"9","Spanner","v1","1433874","spanner_add_timestamp_column","PHP","Add TIMESTAMP column","Update a schema by adding a TIMESTAMP column. ","https://github.com/GoogleCloudPlatform/php-docs-samples/blob/5ddf804faa8690e8ba16824c4ca3d6e0431ce4a8/spanner/src/add_timestamp_column.php#L26-L58","GoogleCloudPlatform/php-docs-samples","spanner/src/add_timestamp_column.php","5ddf804faa8690e8ba16824c4ca3d6e0431ce4a8","L26-L58","use Google\Cloud\Spanner\Admin\Database\V1\Client\DatabaseAdminClient;
+use Google\Cloud\Spanner\Admin\Database\V1\UpdateDatabaseDdlRequest;
 
 /**
  * Adds a commit timestamp column to a table.
  * Example:
  * ```
- * add_timestamp_column($instanceId, $databaseId);
+ * add_timestamp_column($projectId, $instanceId, $databaseId);
  * ```
  *
+ * @param string $projectId The Google Cloud project ID.
  * @param string $instanceId The Spanner instance ID.
  * @param string $databaseId The Spanner database ID.
  */
-function add_timestamp_column(string $instanceId, string $databaseId): void
+function add_timestamp_column(string $projectId, string $instanceId, string $databaseId): void
 {
-    $spanner = new SpannerClient();
-    $instance = $spanner->instance($instanceId);
-    $database = $instance->database($databaseId);
+    $databaseAdminClient = new DatabaseAdminClient();
+    $databaseName = DatabaseAdminClient::databaseName($projectId, $instanceId, $databaseId);
+    $statement = 'ALTER TABLE Albums ADD COLUMN LastUpdateTime TIMESTAMP OPTIONS (allow_commit_timestamp=true)';
+    $request = new UpdateDatabaseDdlRequest([
+        'database' => $databaseName,
+        'statements' => [$statement]
+    ]);
 
-    $operation = $database->updateDdl(
-        'ALTER TABLE Albums ADD COLUMN LastUpdateTime TIMESTAMP OPTIONS (allow_commit_timestamp=true)'
-    );
+    $operation = $databaseAdminClient->updateDatabaseDdl($request);
 
     print('Waiting for operation to complete...' . PHP_EOL);
     $operation->pollUntilComplete();
@@ -29747,25 +29751,23 @@ func createTableWithTimestamp(w io.Writer, db string) error {
 	return nil
 }
 "
-"9","Spanner","v1","1434348","spanner_create_table_with_timestamp_column","JAVA","Create table with TIMESTAMP column","Create a table with a TIMESTAMP column.","https://github.com/googleapis/java-spanner/blob/ccb110ad6835557870933c95cfd76580fd317a16/samples/snippets/src/main/java/com/example/spanner/admin/archived/SpannerSample.java#L310-L339","googleapis/java-spanner","samples/snippets/src/main/java/com/example/spanner/admin/archived/SpannerSample.java","ccb110ad6835557870933c95cfd76580fd317a16","L310-L339","  static void createTableWithTimestamp(DatabaseAdminClient dbAdminClient, DatabaseId id) {
-    OperationFuture<Void, UpdateDatabaseDdlMetadata> op =
-        dbAdminClient.updateDatabaseDdl(
-            id.getInstanceId().getInstance(),
-            id.getDatabase(),
-            Arrays.asList(
-                ""CREATE TABLE Performances (""
-                    + ""  SingerId     INT64 NOT NULL,""
-                    + ""  VenueId      INT64 NOT NULL,""
-                    + ""  EventDate    Date,""
-                    + ""  Revenue      INT64, ""
-                    + ""  LastUpdateTime TIMESTAMP NOT NULL OPTIONS (allow_commit_timestamp=true)""
-                    + "") PRIMARY KEY (SingerId, VenueId, EventDate),""
-                    + ""  INTERLEAVE IN PARENT Singers ON DELETE CASCADE""),
-            null);
+"9","Spanner","v1","1434346","spanner_create_table_with_timestamp_column","JAVA","Create table with TIMESTAMP column","Create a table with a TIMESTAMP column.","https://github.com/googleapis/java-spanner/blob/ccb110ad6835557870933c95cfd76580fd317a16/samples/snippets/src/main/java/com/example/spanner/SpannerSample.java#L314-L341","googleapis/java-spanner","samples/snippets/src/main/java/com/example/spanner/SpannerSample.java","ccb110ad6835557870933c95cfd76580fd317a16","L314-L341","  static void createTableWithTimestamp(DatabaseAdminClient dbAdminClient,
+      DatabaseName databaseName) {
     try {
       // Initiate the request which returns an OperationFuture.
-      op.get();
-      System.out.println(""Created Performances table in database: ["" + id + ""]"");
+      dbAdminClient.updateDatabaseDdlAsync(
+          databaseName,
+          Arrays.asList(
+              ""CREATE TABLE Performances (""
+                  + ""  SingerId     INT64 NOT NULL,""
+                  + ""  VenueId      INT64 NOT NULL,""
+                  + ""  EventDate    Date,""
+                  + ""  Revenue      INT64, ""
+                  + ""  LastUpdateTime TIMESTAMP NOT NULL OPTIONS (allow_commit_timestamp=true)""
+                  + "") PRIMARY KEY (SingerId, VenueId, EventDate),""
+                  + ""  INTERLEAVE IN PARENT Singers ON DELETE CASCADE"")).get();
+      System.out.println(
+          ""Created Performances table in database: ["" + databaseName.toString() + ""]"");
     } catch (ExecutionException e) {
       // If the operation failed during execution, expose the cause.
       throw (SpannerException) e.getCause();
@@ -29775,7 +29777,7 @@ func createTableWithTimestamp(w io.Writer, db string) error {
       throw SpannerExceptionFactory.propagateInterrupt(e);
     }
   }"
-"9","Spanner","v1","1434347","spanner_create_table_with_timestamp_column","NODEJS","Create table with TIMESTAMP column","Create a table with a TIMESTAMP column.","https://github.com/googleapis/nodejs-spanner/blob/f12e2958460e40d9293e3bf1a69def509ccae16d/samples/archived/timestamp.js#L18-L59","googleapis/nodejs-spanner","samples/archived/timestamp.js","f12e2958460e40d9293e3bf1a69def509ccae16d","L18-L59","  // Imports the Google Cloud client library
+"9","Spanner","v1","1434349","spanner_create_table_with_timestamp_column","NODEJS","Create table with TIMESTAMP column","Create a table with a TIMESTAMP column.","https://github.com/googleapis/nodejs-spanner/blob/f12e2958460e40d9293e3bf1a69def509ccae16d/samples/timestamp.js#L18-L65","googleapis/nodejs-spanner","samples/timestamp.js","f12e2958460e40d9293e3bf1a69def509ccae16d","L18-L65","  // Imports the Google Cloud client library
   const {Spanner} = require('@google-cloud/spanner');
 
   /**
@@ -29790,9 +29792,8 @@ func createTableWithTimestamp(w io.Writer, db string) error {
     projectId: projectId,
   });
 
-  // Gets a reference to a Cloud Spanner instance
-  const instance = spanner.instance(instanceId);
-  const database = instance.database(databaseId);
+  // Gets a reference to a Cloud Spanner Database Admin Client object
+  const databaseAdminClient = spanner.getDatabaseAdminClient();
 
   // Note: Cloud Spanner interprets Node.js numbers as FLOAT64s, so they
   // must be converted to strings before being inserted as INT64s
@@ -29808,7 +29809,14 @@ func createTableWithTimestamp(w io.Writer, db string) error {
   ];
 
   // Creates a table in an existing database
-  const [operation] = await database.updateSchema(request);
+  const [operation] = await databaseAdminClient.updateDatabaseDdl({
+    database: databaseAdminClient.databasePath(
+      projectId,
+      instanceId,
+      databaseId
+    ),
+    statements: request,
+  });
 
   console.log(`Waiting for operation on ${databaseId} to complete...`);
 
@@ -30019,30 +30027,26 @@ func createTableWithDatatypes(ctx context.Context, w io.Writer, db string) error
 	return nil
 }
 "
-"9","Spanner","v1","1433962","spanner_create_table_with_datatypes","JAVA","Create table with data types","Create a table with example data types.","https://github.com/googleapis/java-spanner/blob/ccb110ad6835557870933c95cfd76580fd317a16/samples/snippets/src/main/java/com/example/spanner/admin/archived/SpannerSample.java#L1257-L1291","googleapis/java-spanner","samples/snippets/src/main/java/com/example/spanner/admin/archived/SpannerSample.java","ccb110ad6835557870933c95cfd76580fd317a16","L1257-L1291","  static void createTableWithDatatypes(DatabaseAdminClient dbAdminClient, DatabaseId id) {
-    OperationFuture<Void, UpdateDatabaseDdlMetadata> op =
-        dbAdminClient.updateDatabaseDdl(
-            id.getInstanceId().getInstance(),
-            id.getDatabase(),
-            Arrays.asList(
-                ""CREATE TABLE Venues (""
-                    + ""  VenueId         INT64 NOT NULL,""
-                    + ""  VenueName       STRING(100),""
-                    + ""  VenueInfo       BYTES(MAX),""
-                    + ""  Capacity        INT64,""
-                    + ""  AvailableDates  ARRAY<DATE>,""
-                    + ""  LastContactDate DATE,""
-                    + ""  OutdoorVenue    BOOL, ""
-                    + ""  PopularityScore FLOAT64, ""
-                    + ""  Revenue         NUMERIC, ""
-                    + ""  VenueDetails    JSON, ""
-                    + ""  LastUpdateTime  TIMESTAMP NOT NULL OPTIONS (allow_commit_timestamp=true)""
-                    + "") PRIMARY KEY (VenueId)""),
-            null);
+"9","Spanner","v1","1433957","spanner_create_table_with_datatypes","JAVA","Create table with data types","Create a table with example data types.","https://github.com/googleapis/java-spanner/blob/ccb110ad6835557870933c95cfd76580fd317a16/samples/snippets/src/main/java/com/example/spanner/SpannerSample.java#L1243-L1273","googleapis/java-spanner","samples/snippets/src/main/java/com/example/spanner/SpannerSample.java","ccb110ad6835557870933c95cfd76580fd317a16","L1243-L1273","  static void createTableWithDatatypes(DatabaseAdminClient dbAdminClient,
+      DatabaseName databaseName) {
     try {
       // Initiate the request which returns an OperationFuture.
-      op.get();
-      System.out.println(""Created Venues table in database: ["" + id + ""]"");
+      dbAdminClient.updateDatabaseDdlAsync(databaseName,
+          Arrays.asList(
+              ""CREATE TABLE Venues (""
+                  + ""  VenueId         INT64 NOT NULL,""
+                  + ""  VenueName       STRING(100),""
+                  + ""  VenueInfo       BYTES(MAX),""
+                  + ""  Capacity        INT64,""
+                  + ""  AvailableDates  ARRAY<DATE>,""
+                  + ""  LastContactDate DATE,""
+                  + ""  OutdoorVenue    BOOL, ""
+                  + ""  PopularityScore FLOAT64, ""
+                  + ""  Revenue         NUMERIC, ""
+                  + ""  VenueDetails    JSON, ""
+                  + ""  LastUpdateTime  TIMESTAMP NOT NULL OPTIONS (allow_commit_timestamp=true)""
+                  + "") PRIMARY KEY (VenueId)"")).get();
+      System.out.println(""Created Venues table in database: ["" + databaseName.toString() + ""]"");
     } catch (ExecutionException e) {
       // If the operation failed during execution, expose the cause.
       throw (SpannerException) e.getCause();
@@ -128006,6 +128010,22 @@ echo 'Saved ' . $task->key() . ': ' . $task['description'] . PHP_EOL;"
         }"
 "14","Firestore in Datastore mode","v1","620655","datastore_update","CSHARP","Update","Update an entity.","https://github.com/GoogleCloudPlatform/dotnet-docs-samples/blob/64e6e4a0d0ed75d4d474ce1e7cb02edbeb009408/datastore/api/TaskListTest/DatastoreTest.cs#L255-L258","GoogleCloudPlatform/dotnet-docs-samples","datastore/api/TaskListTest/DatastoreTest.cs","64e6e4a0d0ed75d4d474ce1e7cb02edbeb009408","L255-L258","            _sampleTask[""priority""] = 5;
             _db.Update(_sampleTask);"
+"14","Firestore in Datastore mode","v1","141206","datastore_update","GO","Update","Update an entity.","https://github.com/GoogleCloudPlatform/golang-samples/blob/cb5809cc565ef7a694d55d158d7f37bb60aa22f3/datastore/snippets/snippet_test.go#L201-L218","GoogleCloudPlatform/golang-samples","datastore/snippets/snippet_test.go","cb5809cc565ef7a694d55d158d7f37bb60aa22f3","L201-L218","	taskKey := datastore.NameKey(""Task"", ""sampleTask"", nil)
+	tx, err := client.NewTransaction(ctx)
+	if err != nil {
+		log.Fatalf(""client.NewTransaction: %v"", err)
+	}
+	var task Task
+	if err := tx.Get(taskKey, &task); err != nil {
+		log.Fatalf(""tx.Get: %v"", err)
+	}
+	task.Priority = 5
+	if _, err := tx.Put(taskKey, &task); err != nil {
+		log.Fatalf(""tx.Put: %v"", err)
+	}
+	if _, err := tx.Commit(); err != nil {
+		log.Fatalf(""tx.Commit: %v"", err)
+	}"
 "14","Firestore in Datastore mode","v1","1000154","datastore_transactional_update","GO","Update","Use an update in a transaction.","https://github.com/GoogleCloudPlatform/golang-samples/blob/091edbf963f5f73a98860c99ece760e3cb4cbeca/datastore/snippets/snippet_test.go#L554-L579","GoogleCloudPlatform/golang-samples","datastore/snippets/snippet_test.go","091edbf963f5f73a98860c99ece760e3cb4cbeca","L554-L579","	type BankAccount struct {
 		Balance int
 	}
@@ -128028,22 +128048,6 @@ echo 'Saved ' . $task->key() . ': ' . $task['description'] . PHP_EOL;"
 		log.Fatalf(""tx.PutMulti: %v"", err)
 	}
 	if _, err = tx.Commit(); err != nil {
-		log.Fatalf(""tx.Commit: %v"", err)
-	}"
-"14","Firestore in Datastore mode","v1","141206","datastore_update","GO","Update","Update an entity.","https://github.com/GoogleCloudPlatform/golang-samples/blob/cb5809cc565ef7a694d55d158d7f37bb60aa22f3/datastore/snippets/snippet_test.go#L201-L218","GoogleCloudPlatform/golang-samples","datastore/snippets/snippet_test.go","cb5809cc565ef7a694d55d158d7f37bb60aa22f3","L201-L218","	taskKey := datastore.NameKey(""Task"", ""sampleTask"", nil)
-	tx, err := client.NewTransaction(ctx)
-	if err != nil {
-		log.Fatalf(""client.NewTransaction: %v"", err)
-	}
-	var task Task
-	if err := tx.Get(taskKey, &task); err != nil {
-		log.Fatalf(""tx.Get: %v"", err)
-	}
-	task.Priority = 5
-	if _, err := tx.Put(taskKey, &task); err != nil {
-		log.Fatalf(""tx.Put: %v"", err)
-	}
-	if _, err := tx.Commit(); err != nil {
 		log.Fatalf(""tx.Commit: %v"", err)
 	}"
 "14","Firestore in Datastore mode","v1","1474197","datastore_update","JAVA","Update","Update an entity.","https://github.com/googleapis/java-datastore/blob/c44f17a7bb93d688367611ee2533c59c940ae61f/samples/snippets/src/test/java/com/google/datastore/snippets/ConceptsTest.java#L299-L311","googleapis/java-datastore","samples/snippets/src/test/java/com/google/datastore/snippets/ConceptsTest.java","c44f17a7bb93d688367611ee2533c59c940ae61f","L299-L311","    Entity task;
@@ -128075,21 +128079,6 @@ echo 'Saved ' . $task->key() . ': ' . $task['description'] . PHP_EOL;"
       }
     }
   }"
-"14","Firestore in Datastore mode","v1","141229","datastore_update","NODEJS","Update","Update an entity.","https://github.com/googleapis/nodejs-datastore/blob/03a8afbfeb373ccc0c7bd4fa829a6d4a318f6168/samples/concepts.js#L311-L327","googleapis/nodejs-datastore","samples/concepts.js","03a8afbfeb373ccc0c7bd4fa829a6d4a318f6168","L311-L327","    const taskKey = datastore.key('Task');
-    const task = {
-      category: 'Personal',
-      done: false,
-      priority: 4,
-      description: 'Learn Cloud Datastore',
-    };
-
-    const entity = {
-      key: taskKey,
-      data: task,
-    };
-
-    await datastore.update(entity);
-    // Task updated successfully."
 "14","Firestore in Datastore mode","v1","71956","datastore_transactional_update","NODEJS","Update","Use an update in a transaction.","https://github.com/googleapis/nodejs-datastore/blob/ac2fec51cf3de51b1293199f51a6d047c22cd0ce/samples/concepts.js#L960-L986","googleapis/nodejs-datastore","samples/concepts.js","ac2fec51cf3de51b1293199f51a6d047c22cd0ce","L960-L986","async function transferFunds(fromKey, toKey, amount) {
   const transaction = datastore.transaction();
   await transaction.run();
@@ -128115,6 +128104,21 @@ echo 'Saved ' . $task->key() . ': ' . $task['description'] . PHP_EOL;"
 
   return await transaction.commit();
 }"
+"14","Firestore in Datastore mode","v1","141229","datastore_update","NODEJS","Update","Update an entity.","https://github.com/googleapis/nodejs-datastore/blob/03a8afbfeb373ccc0c7bd4fa829a6d4a318f6168/samples/concepts.js#L311-L327","googleapis/nodejs-datastore","samples/concepts.js","03a8afbfeb373ccc0c7bd4fa829a6d4a318f6168","L311-L327","    const taskKey = datastore.key('Task');
+    const task = {
+      category: 'Personal',
+      done: false,
+      priority: 4,
+      description: 'Learn Cloud Datastore',
+    };
+
+    const entity = {
+      key: taskKey,
+      data: task,
+    };
+
+    await datastore.update(entity);
+    // Task updated successfully."
 "14","Firestore in Datastore mode","v1","1431524","datastore_update","PHP","Update","Update an entity.","https://github.com/GoogleCloudPlatform/php-docs-samples/blob/526cac5f2415b15907828f92a88391ae6afbacfb/datastore/api/src/update.php#L29-L36","GoogleCloudPlatform/php-docs-samples","datastore/api/src/update.php","526cac5f2415b15907828f92a88391ae6afbacfb","L29-L36","    $transaction = $datastore->transaction();
     $key = $datastore->key('Task', 'sampleTask');
     $task = $transaction->lookup($key);
@@ -128152,73 +128156,6 @@ function transfer_funds(
     $transaction->updateBatch([$fromAccount, $toAccount]);
     $transaction->commit();
 }"
-"14","Firestore in Datastore mode","v1","445315","datastore_update","PYTHON","Update","Update an entity.","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/ec3725bf123dda365ed1db62337ced199b4b7027/datastore/cloud-client/snippets.py#L34-L95,L289-L297","GoogleCloudPlatform/python-docs-samples","datastore/cloud-client/snippets.py","ec3725bf123dda365ed1db62337ced199b4b7027","L34-L95,L289-L297","    # [START datastore_lookup]
-    # [START datastore_delete]
-    # [START datastore_batch_upsert]
-    # [START datastore_batch_lookup]
-    # [START datastore_batch_delete]
-    # [START datastore_unindexed_property_query]
-    # [START datastore_basic_query]
-    # [START datastore_projection_query]
-    # [START datastore_ancestor_query]
-    # [START datastore_run_query]
-    # [START datastore_limit]
-    # [START datastore_cursor_paging]
-    # [START datastore_property_filter]
-    # [START datastore_composite_filter]
-    # [START datastore_key_filter]
-    # [START datastore_ascending_sort]
-    # [START datastore_descending_sort]
-    # [START datastore_multi_sort]
-    # [START datastore_keys_only_query]
-    # [START datastore_distinct_on_query]
-    # [START datastore_kindless_query]
-    # [START datastore_inequality_range]
-    # [START datastore_inequality_invalid]
-    # [START datastore_equal_and_inequality_range]
-    # [START datastore_inequality_sort]
-    # [START datastore_inequality_sort_invalid_not_same]
-    # [START datastore_inequality_sort_invalid_not_first]
-    # [START datastore_array_value_inequality_range]
-    # [START datastore_array_value_equality]
-    # [START datastore_exploding_properties]
-    # [START datastore_transactional_update]
-    # [START datastore_transactional_retry]
-    # [START datastore_transactional_get_or_create]
-    # [START datastore_transactional_single_entity_group_read_only]
-    # [START datastore_namespace_run_query]
-    # [START datastore_kind_run_query]
-    # [START datastore_property_run_query]
-    # [START datastore_property_by_kind_run_query]
-    # [START datastore_eventual_consistent_query]
-    # [START datastore_built_in_index_queries]
-    # [START datastore_merged_index_query]
-    # [START datastore_merged_index_tag_queries]
-    # [START datastore_owner_size_tag_query]
-    # [START datastore_size_coloration_query]
-    from google.cloud import datastore
-
-    # For help authenticating your client, visit
-    # https://cloud.google.com/docs/authentication/getting-started
-    client = datastore.Client()
-
-    # [END datastore_incomplete_key]
-    # [END datastore_named_key]
-    # [END datastore_key_with_parent]
-    # [END datastore_key_with_multilevel_parent]
-    # [END datastore_basic_entity]
-    # [END datastore_entity_with_parent]
-    # [END datastore_properties]
-    # [END datastore_array_value]
-    # [END datastore_upsert]
-    # [END datastore_insert]
-    with client.transaction():
-        key = client.key(""Task"", ""sampleTask"")
-        task = client.get(key)
-
-        task[""done""] = True
-
-        client.put(task)"
 "14","Firestore in Datastore mode","v1","71947","datastore_transactional_update","PYTHON","Update","Use an update in a transaction.","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/8b72c12d77fe68592552a36f673cb0d9d9806874/datastore/cloud-client/snippets.py#L65-L126,L740-L751","GoogleCloudPlatform/python-docs-samples","datastore/cloud-client/snippets.py","8b72c12d77fe68592552a36f673cb0d9d9806874","L65-L126,L740-L751","    # [START datastore_transactional_retry]
     # [START datastore_transactional_get_or_create]
     # [START datastore_transactional_single_entity_group_read_only]
@@ -128289,6 +128226,73 @@ function transfer_funds(
 
             client.put_multi([from_account, to_account])
 "
+"14","Firestore in Datastore mode","v1","445315","datastore_update","PYTHON","Update","Update an entity.","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/ec3725bf123dda365ed1db62337ced199b4b7027/datastore/cloud-client/snippets.py#L34-L95,L289-L297","GoogleCloudPlatform/python-docs-samples","datastore/cloud-client/snippets.py","ec3725bf123dda365ed1db62337ced199b4b7027","L34-L95,L289-L297","    # [START datastore_lookup]
+    # [START datastore_delete]
+    # [START datastore_batch_upsert]
+    # [START datastore_batch_lookup]
+    # [START datastore_batch_delete]
+    # [START datastore_unindexed_property_query]
+    # [START datastore_basic_query]
+    # [START datastore_projection_query]
+    # [START datastore_ancestor_query]
+    # [START datastore_run_query]
+    # [START datastore_limit]
+    # [START datastore_cursor_paging]
+    # [START datastore_property_filter]
+    # [START datastore_composite_filter]
+    # [START datastore_key_filter]
+    # [START datastore_ascending_sort]
+    # [START datastore_descending_sort]
+    # [START datastore_multi_sort]
+    # [START datastore_keys_only_query]
+    # [START datastore_distinct_on_query]
+    # [START datastore_kindless_query]
+    # [START datastore_inequality_range]
+    # [START datastore_inequality_invalid]
+    # [START datastore_equal_and_inequality_range]
+    # [START datastore_inequality_sort]
+    # [START datastore_inequality_sort_invalid_not_same]
+    # [START datastore_inequality_sort_invalid_not_first]
+    # [START datastore_array_value_inequality_range]
+    # [START datastore_array_value_equality]
+    # [START datastore_exploding_properties]
+    # [START datastore_transactional_update]
+    # [START datastore_transactional_retry]
+    # [START datastore_transactional_get_or_create]
+    # [START datastore_transactional_single_entity_group_read_only]
+    # [START datastore_namespace_run_query]
+    # [START datastore_kind_run_query]
+    # [START datastore_property_run_query]
+    # [START datastore_property_by_kind_run_query]
+    # [START datastore_eventual_consistent_query]
+    # [START datastore_built_in_index_queries]
+    # [START datastore_merged_index_query]
+    # [START datastore_merged_index_tag_queries]
+    # [START datastore_owner_size_tag_query]
+    # [START datastore_size_coloration_query]
+    from google.cloud import datastore
+
+    # For help authenticating your client, visit
+    # https://cloud.google.com/docs/authentication/getting-started
+    client = datastore.Client()
+
+    # [END datastore_incomplete_key]
+    # [END datastore_named_key]
+    # [END datastore_key_with_parent]
+    # [END datastore_key_with_multilevel_parent]
+    # [END datastore_basic_entity]
+    # [END datastore_entity_with_parent]
+    # [END datastore_properties]
+    # [END datastore_array_value]
+    # [END datastore_upsert]
+    # [END datastore_insert]
+    with client.transaction():
+        key = client.key(""Task"", ""sampleTask"")
+        task = client.get(key)
+
+        task[""done""] = True
+
+        client.put(task)"
 "14","Firestore in Datastore mode","v1","1000153","datastore_transactional_update","RUBY","Update","Use an update in a transaction.","https://github.com/googleapis/google-cloud-ruby/blob/319c99475a3734094553f854803a2b0cb60313ec/google-cloud-datastore/samples/sample.rb#L526-L536","googleapis/google-cloud-ruby","google-cloud-datastore/samples/sample.rb","319c99475a3734094553f854803a2b0cb60313ec","L526-L536","def transfer_funds from_key, to_key, amount
   datastore.transaction do |tx|
     from = tx.find from_key
@@ -128959,12 +128963,12 @@ func updateDocNested(ctx context.Context, client *firestore.Client) error {
 
     # Update age and favorite color
     await frank_ref.update({""age"": 13, ""favorites.color"": ""Red""})"
+"15","Firestore","v1","932560","firestore_setup_dataset_pt1_async","PYTHON","Add data to Firestore (async)","Add data to Firestore (async).","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/452d55965b4c890b6a015a147230da1a464615e8/firestore/cloud-async-client/snippets.py#L32-L35","GoogleCloudPlatform/python-docs-samples","firestore/cloud-async-client/snippets.py","452d55965b4c890b6a015a147230da1a464615e8","L32-L35","    doc_ref = db.collection(""users"").document(""alovelace"")
+    await doc_ref.set({""first"": ""Ada"", ""last"": ""Lovelace"", ""born"": 1815})"
 "15","Firestore","v1","962168","firestore_setup_dataset_pt2_async","PYTHON","Add data to Firestore (async)","Add data to Firestore (async).","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/93b6306ef3debc0445097ba6237c6451b06715cd/firestore/cloud-async-client/snippets.py#L45-L50","GoogleCloudPlatform/python-docs-samples","firestore/cloud-async-client/snippets.py","93b6306ef3debc0445097ba6237c6451b06715cd","L45-L50","    doc_ref = db.collection(""users"").document(""aturing"")
     await doc_ref.set(
         {""first"": ""Alan"", ""middle"": ""Mathison"", ""last"": ""Turing"", ""born"": 1912}
     )"
-"15","Firestore","v1","932560","firestore_setup_dataset_pt1_async","PYTHON","Add data to Firestore (async)","Add data to Firestore (async).","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/452d55965b4c890b6a015a147230da1a464615e8/firestore/cloud-async-client/snippets.py#L32-L35","GoogleCloudPlatform/python-docs-samples","firestore/cloud-async-client/snippets.py","452d55965b4c890b6a015a147230da1a464615e8","L32-L35","    doc_ref = db.collection(""users"").document(""alovelace"")
-    await doc_ref.set({""first"": ""Ada"", ""last"": ""Lovelace"", ""born"": 1815})"
 "15","Firestore","v1","1427353","firestore_query_filter_range_invalid","CSHARP","An example Firestore query with an invalid range","An example Firestore query with an invalid range","https://github.com/GoogleCloudPlatform/dotnet-docs-samples/blob/e3e6692bc88473fa40542f9df4f8e5603b110ecf/firestore/api/QueryData/Program.cs#L289-L294","GoogleCloudPlatform/dotnet-docs-samples","firestore/api/QueryData/Program.cs","e3e6692bc88473fa40542f9df4f8e5603b110ecf","L289-L294","            CollectionReference citiesRef = db.Collection(""cities"");
             Query invalidRangeQuery = citiesRef
                 .WhereGreaterThanOrEqualTo(""State"", ""CA"")
@@ -157196,7 +157200,7 @@ public class QueryPagination {
     }
   }
 }"
-"18","BigQuery","v2","933757","bigquery_query_pagination","NODEJS","Query pagination","Run a query and get rows using automatic pagination.","https://github.com/googleapis/nodejs-bigquery/blob/e8d354fe6e64f716c1e49278326d800916e12add/samples/queryPagination.js#L18-L44","googleapis/nodejs-bigquery","samples/queryPagination.js","e8d354fe6e64f716c1e49278326d800916e12add","L18-L44","  // Import the Google Cloud client library using default credentials
+"18","BigQuery","v2","1477850","bigquery_query_pagination","NODEJS","Query pagination","Run a query and get rows using automatic pagination.","https://github.com/googleapis/nodejs-bigquery/blob/04784d24ff297a5c3091aceab91ab5001aa23f2f/samples/queryPagination.js#L18-L48","googleapis/nodejs-bigquery","samples/queryPagination.js","04784d24ff297a5c3091aceab91ab5001aa23f2f","L18-L48","  // Import the Google Cloud client library using default credentials
   const {BigQuery} = require('@google-cloud/bigquery');
   const bigquery = new BigQuery();
 
@@ -157213,6 +157217,10 @@ public class QueryPagination {
     const [job] = await bigquery.createQueryJob(query);
 
     // Wait for job to complete and get rows.
+    // The client library automatically handles pagination.
+    // See more info on how to configure paging calls at:
+    //  * https://github.com/googleapis/gax-nodejs/blob/main/client-libraries.md#auto-pagination
+    //  * https://cloud.google.com/bigquery/docs/paging-results#iterate_through_client_libraries_results
     const [rows] = await job.getQueryResults();
 
     console.log('Query results:');
@@ -196451,6 +196459,25 @@ resource ""google_cloud_scheduler_job"" ""default"" {
     }
   }
 }"
+"32","Cloud Run","v1","1467146","cloudrun_service_direct_vpc","TERRAFORM","Configure VPC access","Configure VPC access for a Cloud Run service","https://github.com/terraform-google-modules/terraform-docs-samples/blob/93d1efa41d17e9e22e53a1ae262ae5fcbcf99bac/run/direct_vpc/main.tf#L19-L39","terraform-google-modules/terraform-docs-samples","run/direct_vpc/main.tf","93d1efa41d17e9e22e53a1ae262ae5fcbcf99bac","L19-L39","resource ""google_cloud_run_v2_service"" ""default"" {
+  name     = ""cloudrun-service""
+  location = ""us-central1""
+
+  deletion_protection = false # set to ""true"" in production
+
+  template {
+    containers {
+      image = ""us-docker.pkg.dev/cloudrun/container/hello""
+    }
+    vpc_access {
+      network_interfaces {
+        network    = ""default""
+        subnetwork = ""default""
+        tags       = [""tag1"", ""tag2"", ""tag3""]
+      }
+    }
+  }
+}"
 "32","Cloud Run","v1","1467081","cloudrun_vpc_access_connector_parent_tag","TERRAFORM","Configure VPC access","Use Terraform to configure a Cloud Run service to use VPC access connector","https://github.com/terraform-google-modules/terraform-docs-samples/blob/93d1efa41d17e9e22e53a1ae262ae5fcbcf99bac/run/vpc_access_connector/main.tf#L17-L95","terraform-google-modules/terraform-docs-samples","run/vpc_access_connector/main.tf","93d1efa41d17e9e22e53a1ae262ae5fcbcf99bac","L17-L95","# [START vpc_serverless_connector_enable_api]
 resource ""google_project_service"" ""vpcaccess_api"" {
   service            = ""vpcaccess.googleapis.com""
@@ -196528,25 +196555,6 @@ resource ""google_cloud_run_v2_service"" ""gcr_service"" {
   }
 }
 # [END cloudrun_vpc_serverless_connector]"
-"32","Cloud Run","v1","1467146","cloudrun_service_direct_vpc","TERRAFORM","Configure VPC access","Configure VPC access for a Cloud Run service","https://github.com/terraform-google-modules/terraform-docs-samples/blob/93d1efa41d17e9e22e53a1ae262ae5fcbcf99bac/run/direct_vpc/main.tf#L19-L39","terraform-google-modules/terraform-docs-samples","run/direct_vpc/main.tf","93d1efa41d17e9e22e53a1ae262ae5fcbcf99bac","L19-L39","resource ""google_cloud_run_v2_service"" ""default"" {
-  name     = ""cloudrun-service""
-  location = ""us-central1""
-
-  deletion_protection = false # set to ""true"" in production
-
-  template {
-    containers {
-      image = ""us-docker.pkg.dev/cloudrun/container/hello""
-    }
-    vpc_access {
-      network_interfaces {
-        network    = ""default""
-        subnetwork = ""default""
-        tags       = [""tag1"", ""tag2"", ""tag3""]
-      }
-    }
-  }
-}"
 "32","Cloud Run","v1","1467104","cloudrun_static_outbound_parent_tag","TERRAFORM","Configure a Cloud Run service with a static IP address","Use Terraform to create the networking setup and configurations to allocate a static IP to a Cloud Run service","https://github.com/terraform-google-modules/terraform-docs-samples/blob/93d1efa41d17e9e22e53a1ae262ae5fcbcf99bac/run/static_outbound/main.tf#L18-L135","terraform-google-modules/terraform-docs-samples","run/static_outbound/main.tf","93d1efa41d17e9e22e53a1ae262ae5fcbcf99bac","L18-L135","resource ""google_project_service"" ""compute_engine_api"" {
   service            = ""compute.googleapis.com""
   disable_on_destroy = false
@@ -209143,6 +209151,18 @@ function filter_composing_interleave(
       PrintRow(*row);
     }
   }"
+"33","Bigtable","v2","613200","bigtable_hw_get_with_filter","CSHARP","Read with a filter","Read the most recent value in a given column using a filter.","https://github.com/GoogleCloudPlatform/dotnet-docs-samples/blob/4248215750ec9d315f718e0bf2d5f07597fe0043/bigtable/api/HelloWorld/HelloWorld.cs#L174-L187","GoogleCloudPlatform/dotnet-docs-samples","bigtable/api/HelloWorld/HelloWorld.cs","4248215750ec9d315f718e0bf2d5f07597fe0043","L174-L187","                // Read from the table.
+                Console.WriteLine(""Read the first row"");
+
+                int rowIndex = 0;
+
+                // Read a specific row. Apply a filter to return latest only cell value accross entire row.
+                Row rowRead = bigtableClient.ReadRow(
+                    tableName, rowKey: rowKeyPrefix + rowIndex, filter: filter);
+                Console.WriteLine(
+                    $""\tRow key: {rowRead.Key.ToStringUtf8()} "" +
+                    $""  -- Value: {rowRead.Families[0].Columns[0].Cells[0].Value.ToStringUtf8(),-16} "" +
+                    $""  -- Time Stamp: {rowRead.Families[0].Columns[0].Cells[0].TimestampMicros}"");"
 "33","Bigtable","v2","1454712","bigtable_reads_filter","CSHARP","Read with a filter","Read a row with a filter.","https://github.com/GoogleCloudPlatform/dotnet-docs-samples/blob/72ec09c7f8d84039e6c4286a5702ceed06e61821/bigtable/api/Snippets/Reads.cs#L186-L211","GoogleCloudPlatform/dotnet-docs-samples","bigtable/api/Snippets/Reads.cs","72ec09c7f8d84039e6c4286a5702ceed06e61821","L186-L211","
         /// <summary>
         /// /// Reads using a filter from an existing table.
@@ -209167,18 +209187,6 @@ function filter_composing_interleave(
 
             return result;
         }"
-"33","Bigtable","v2","613200","bigtable_hw_get_with_filter","CSHARP","Read with a filter","Read the most recent value in a given column using a filter.","https://github.com/GoogleCloudPlatform/dotnet-docs-samples/blob/4248215750ec9d315f718e0bf2d5f07597fe0043/bigtable/api/HelloWorld/HelloWorld.cs#L174-L187","GoogleCloudPlatform/dotnet-docs-samples","bigtable/api/HelloWorld/HelloWorld.cs","4248215750ec9d315f718e0bf2d5f07597fe0043","L174-L187","                // Read from the table.
-                Console.WriteLine(""Read the first row"");
-
-                int rowIndex = 0;
-
-                // Read a specific row. Apply a filter to return latest only cell value accross entire row.
-                Row rowRead = bigtableClient.ReadRow(
-                    tableName, rowKey: rowKeyPrefix + rowIndex, filter: filter);
-                Console.WriteLine(
-                    $""\tRow key: {rowRead.Key.ToStringUtf8()} "" +
-                    $""  -- Value: {rowRead.Families[0].Columns[0].Cells[0].Value.ToStringUtf8(),-16} "" +
-                    $""  -- Time Stamp: {rowRead.Families[0].Columns[0].Cells[0].TimestampMicros}"");"
 "33","Bigtable","v2","1219338","bigtable_reads_filter","GO","Read with a filter","Read a row with a filter.","https://github.com/GoogleCloudPlatform/golang-samples/blob/cadb0c52d86246d354b94ded57e2f6a0c5922f78/bigtable/reads/reads.go#L203-L231","GoogleCloudPlatform/golang-samples","bigtable/reads/reads.go","cadb0c52d86246d354b94ded57e2f6a0c5922f78","L203-L231","func readFilter(w io.Writer, projectID, instanceID string, tableName string) error {
 	// projectID := ""my-project-id""
 	// instanceID := ""my-instance-id""
@@ -209300,14 +209308,6 @@ function read_filter(
         print_row($key, $row);
     }
 }"
-"33","Bigtable","v2","1477393","bigtable_hw_get_with_filter","PYTHON","Read with a filter","Read the most recent value in a given column using a filter.","https://github.com/googleapis/python-bigtable/blob/d354349ccdbdb4e1af94ffe7c762c9d5507e58b2/samples/hello/main.py#L99-L108","googleapis/python-bigtable","samples/hello/main.py","d354349ccdbdb4e1af94ffe7c762c9d5507e58b2","L99-L108","        # [START bigtable_hw_get_by_key]
-        print(""Getting a single greeting by row key."")
-        key = ""greeting0"".encode()
-
-        row = table.read_row(key, row_filter)
-        cell = row.cells[column_family_id][column][0]
-        print(cell.value.decode(""utf-8""))
-        # [END bigtable_hw_get_by_key]"
 "33","Bigtable","v2","1474078","bigtable_reads_filter","PYTHON","Read with a filter","Read a row with a filter.","https://github.com/googleapis/python-bigtable/blob/18650e7a6cd1b4a7c912ba52bf145d711a3f7203/samples/snippets/reads/read_snippets.py#L131-L145","googleapis/python-bigtable","samples/snippets/reads/read_snippets.py","18650e7a6cd1b4a7c912ba52bf145d711a3f7203","L131-L145","def read_filter(project_id, instance_id, table_id):
     from google.cloud import bigtable
     from google.cloud.bigtable import row_filters
@@ -209321,6 +209321,17 @@ function read_filter(
         print_row(row)
 
 "
+"33","Bigtable","v2","1477393","bigtable_hw_get_with_filter","PYTHON","Read with a filter","Read the most recent value in a given column using a filter.","https://github.com/googleapis/python-bigtable/blob/d354349ccdbdb4e1af94ffe7c762c9d5507e58b2/samples/hello/main.py#L99-L108","googleapis/python-bigtable","samples/hello/main.py","d354349ccdbdb4e1af94ffe7c762c9d5507e58b2","L99-L108","        # [START bigtable_hw_get_by_key]
+        print(""Getting a single greeting by row key."")
+        key = ""greeting0"".encode()
+
+        row = table.read_row(key, row_filter)
+        cell = row.cells[column_family_id][column][0]
+        print(cell.value.decode(""utf-8""))
+        # [END bigtable_hw_get_by_key]"
+"33","Bigtable","v2","929280","bigtable_hw_get_with_filter","RUBY","Read with a filter","Read the most recent value in a given column using a filter.","https://github.com/googleapis/google-cloud-ruby/blob/572182b17df70be61a09610d21e53fc3329fdb11/google-cloud-bigtable/samples/hello_world.rb#L71-L75","googleapis/google-cloud-ruby","google-cloud-bigtable/samples/hello_world.rb","572182b17df70be61a09610d21e53fc3329fdb11","L71-L75","  puts ""Reading a single row by row key""
+  row = table.read_row ""greeting0"", filter: filter
+  puts ""Row key: #{row.key}, Value: #{row.cells[column_family].first.value}"""
 "33","Bigtable","v2","970267","bigtable_reads_filter","RUBY","Read with a filter","Read a row with a filter.","https://github.com/googleapis/google-cloud-ruby/blob/572182b17df70be61a09610d21e53fc3329fdb11/google-cloud-bigtable/samples/read_samples.rb#L108-L118","googleapis/google-cloud-ruby","google-cloud-bigtable/samples/read_samples.rb","572182b17df70be61a09610d21e53fc3329fdb11","L108-L118","  # instance_id = ""my-instance""
   # table_id    = ""my-table""
   bigtable = Google::Cloud::Bigtable.new
@@ -209330,9 +209341,6 @@ function read_filter(
   table.read_rows(filter: filter).each do |row|
     print_row row
   end"
-"33","Bigtable","v2","929280","bigtable_hw_get_with_filter","RUBY","Read with a filter","Read the most recent value in a given column using a filter.","https://github.com/googleapis/google-cloud-ruby/blob/572182b17df70be61a09610d21e53fc3329fdb11/google-cloud-bigtable/samples/hello_world.rb#L71-L75","googleapis/google-cloud-ruby","google-cloud-bigtable/samples/hello_world.rb","572182b17df70be61a09610d21e53fc3329fdb11","L71-L75","  puts ""Reading a single row by row key""
-  row = table.read_row ""greeting0"", filter: filter
-  puts ""Row key: #{row.key}, Value: #{row.cells[column_family].first.value}"""
 "33","Bigtable","v2","1255351","bigtable_reads_filter_hbase","JAVA","Read with a filter (HBase)","Read a row with a filter.","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/e97ca11ce87ffd28f3336c8fb675afb423baa6ff/bigtable/hbase/snippets/src/main/java/com/example/bigtable/Reads.java#L288-L321","GoogleCloudPlatform/java-docs-samples","bigtable/hbase/snippets/src/main/java/com/example/bigtable/Reads.java","e97ca11ce87ffd28f3336c8fb675afb423baa6ff","L288-L321","
   /**
    * Example of filtering row contents using filters.
@@ -236057,66 +236065,6 @@ func resizeRegionalDisk(w io.Writer, projectID, region, diskName string, newSize
 	return nil
 }
 "
-"48","Compute Engine","v1","1197450","compute_disk_resize","JAVA","Resize a persistent disk","This sample resizes a persistent disk to a specified size in GB. After you resize the disk, you must also resize the file system so that the operating system can access the additional space.","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/78a94d6000bfa78d61bb5aaae98cc44b9ed98c9e/compute/cloud-client/src/main/java/compute/disks/ResizeDisk.java#L19-L80","GoogleCloudPlatform/java-docs-samples","compute/cloud-client/src/main/java/compute/disks/ResizeDisk.java","78a94d6000bfa78d61bb5aaae98cc44b9ed98c9e","L19-L80","
-import com.google.cloud.compute.v1.DisksClient;
-import com.google.cloud.compute.v1.DisksResizeRequest;
-import com.google.cloud.compute.v1.Operation;
-import com.google.cloud.compute.v1.ResizeDiskRequest;
-import java.io.IOException;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-
-public class ResizeDisk {
-
-  public static void main(String[] args)
-      throws IOException, ExecutionException, InterruptedException, TimeoutException {
-    // TODO(developer): Replace these variables before running the sample.
-    // Project ID or project number of the Cloud project you want to use.
-    String projectId = ""your-project-id"";
-
-    // Zone of the disk to be resized.
-    String diskZone = ""us-central1-a"";
-
-    // Name of the disk that you want to resize.
-    String diskName = ""DISK_NAME"";
-
-    // The new size you want to set for the disk in gigabytes.
-    int newSizeGb = 23;
-
-    resizeDisk(projectId, diskZone, diskName, newSizeGb);
-  }
-
-  // Resizes a persistent disk to a specified size in GB. After you resize the disk, you must
-  // also resize the file system so that the operating system can access the additional space.
-  public static void resizeDisk(String projectId, String diskZone, String diskName, int newSizeGb)
-      throws IOException, ExecutionException, InterruptedException, TimeoutException {
-    // Initialize client that will be used to send requests. This client only needs to be created
-    // once, and can be reused for multiple requests. After completing all of your requests, call
-    // the `disksClient.close()` method on the client to safely
-    // clean up any remaining background resources.
-    try (DisksClient disksClient = DisksClient.create()) {
-
-      ResizeDiskRequest resizeDiskRequest = ResizeDiskRequest.newBuilder()
-          .setZone(diskZone)
-          .setDisksResizeRequestResource(DisksResizeRequest.newBuilder()
-              .setSizeGb(newSizeGb)
-              .build())
-          .setDisk(diskName)
-          .setProject(projectId)
-          .build();
-
-      Operation response = disksClient.resizeAsync(resizeDiskRequest)
-          .get(3, TimeUnit.MINUTES);
-
-      if (response.hasError()) {
-        System.out.println(""Resize disk failed! "" + response);
-        return;
-      }
-      System.out.println(""Resize disk - operation status: "" + response.getStatus());
-    }
-  }
-}"
 "48","Compute Engine","v1","1197449","compute_regional_disk_resize","JAVA","Resize a persistent disk","This sample resizes a persistent disk to a specified size in GB. After you resize the disk, you must also resize the file system so that the operating system can access the additional space.","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/78a94d6000bfa78d61bb5aaae98cc44b9ed98c9e/compute/cloud-client/src/main/java/compute/disks/ResizeRegionalDisk.java#L19-L81","GoogleCloudPlatform/java-docs-samples","compute/cloud-client/src/main/java/compute/disks/ResizeRegionalDisk.java","78a94d6000bfa78d61bb5aaae98cc44b9ed98c9e","L19-L81","
 import com.google.cloud.compute.v1.Operation;
 import com.google.cloud.compute.v1.RegionDisksClient;
@@ -236178,6 +236126,166 @@ public class ResizeRegionalDisk {
     }
   }
 }"
+"48","Compute Engine","v1","1197450","compute_disk_resize","JAVA","Resize a persistent disk","This sample resizes a persistent disk to a specified size in GB. After you resize the disk, you must also resize the file system so that the operating system can access the additional space.","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/78a94d6000bfa78d61bb5aaae98cc44b9ed98c9e/compute/cloud-client/src/main/java/compute/disks/ResizeDisk.java#L19-L80","GoogleCloudPlatform/java-docs-samples","compute/cloud-client/src/main/java/compute/disks/ResizeDisk.java","78a94d6000bfa78d61bb5aaae98cc44b9ed98c9e","L19-L80","
+import com.google.cloud.compute.v1.DisksClient;
+import com.google.cloud.compute.v1.DisksResizeRequest;
+import com.google.cloud.compute.v1.Operation;
+import com.google.cloud.compute.v1.ResizeDiskRequest;
+import java.io.IOException;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
+public class ResizeDisk {
+
+  public static void main(String[] args)
+      throws IOException, ExecutionException, InterruptedException, TimeoutException {
+    // TODO(developer): Replace these variables before running the sample.
+    // Project ID or project number of the Cloud project you want to use.
+    String projectId = ""your-project-id"";
+
+    // Zone of the disk to be resized.
+    String diskZone = ""us-central1-a"";
+
+    // Name of the disk that you want to resize.
+    String diskName = ""DISK_NAME"";
+
+    // The new size you want to set for the disk in gigabytes.
+    int newSizeGb = 23;
+
+    resizeDisk(projectId, diskZone, diskName, newSizeGb);
+  }
+
+  // Resizes a persistent disk to a specified size in GB. After you resize the disk, you must
+  // also resize the file system so that the operating system can access the additional space.
+  public static void resizeDisk(String projectId, String diskZone, String diskName, int newSizeGb)
+      throws IOException, ExecutionException, InterruptedException, TimeoutException {
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests. After completing all of your requests, call
+    // the `disksClient.close()` method on the client to safely
+    // clean up any remaining background resources.
+    try (DisksClient disksClient = DisksClient.create()) {
+
+      ResizeDiskRequest resizeDiskRequest = ResizeDiskRequest.newBuilder()
+          .setZone(diskZone)
+          .setDisksResizeRequestResource(DisksResizeRequest.newBuilder()
+              .setSizeGb(newSizeGb)
+              .build())
+          .setDisk(diskName)
+          .setProject(projectId)
+          .build();
+
+      Operation response = disksClient.resizeAsync(resizeDiskRequest)
+          .get(3, TimeUnit.MINUTES);
+
+      if (response.hasError()) {
+        System.out.println(""Resize disk failed! "" + response);
+        return;
+      }
+      System.out.println(""Resize disk - operation status: "" + response.getStatus());
+    }
+  }
+}"
+"48","Compute Engine","v1","1219803","compute_disk_resize","PYTHON","Resize a persistent disk","This sample resizes a persistent disk to a specified size in GB. After you resize the disk, you must also resize the file system so that the operating system can access the additional space.","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/161448f276cd6fbe697c83e2ec55c4828e9143fa/compute/client_library/snippets/disks/resize_disk.py#L23-L124","GoogleCloudPlatform/python-docs-samples","compute/client_library/snippets/disks/resize_disk.py","161448f276cd6fbe697c83e2ec55c4828e9143fa","L23-L124","from __future__ import annotations
+
+import re
+import sys
+from typing import Any
+
+from google.api_core.extended_operation import ExtendedOperation
+from google.cloud import compute_v1
+
+
+def wait_for_extended_operation(
+    operation: ExtendedOperation, verbose_name: str = ""operation"", timeout: int = 300
+) -> Any:
+    """"""
+    Waits for the extended (long-running) operation to complete.
+
+    If the operation is successful, it will return its result.
+    If the operation ends with an error, an exception will be raised.
+    If there were any warnings during the execution of the operation
+    they will be printed to sys.stderr.
+
+    Args:
+        operation: a long-running operation you want to wait on.
+        verbose_name: (optional) a more verbose name of the operation,
+            used only during error and warning reporting.
+        timeout: how long (in seconds) to wait for operation to finish.
+            If None, wait indefinitely.
+
+    Returns:
+        Whatever the operation.result() returns.
+
+    Raises:
+        This method will raise the exception received from `operation.exception()`
+        or RuntimeError if there is no exception set, but there is an `error_code`
+        set for the `operation`.
+
+        In case of an operation taking longer than `timeout` seconds to complete,
+        a `concurrent.futures.TimeoutError` will be raised.
+    """"""
+    result = operation.result(timeout=timeout)
+
+    if operation.error_code:
+        print(
+            f""Error during {verbose_name}: [Code: {operation.error_code}]: {operation.error_message}"",
+            file=sys.stderr,
+            flush=True,
+        )
+        print(f""Operation ID: {operation.name}"", file=sys.stderr, flush=True)
+        raise operation.exception() or RuntimeError(operation.error_message)
+
+    if operation.warnings:
+        print(f""Warnings during {verbose_name}:\n"", file=sys.stderr, flush=True)
+        for warning in operation.warnings:
+            print(f"" - {warning.code}: {warning.message}"", file=sys.stderr, flush=True)
+
+    return result
+
+
+def resize_disk(project_id: str, disk_link: str, new_size_gb: int) -> None:
+    """"""
+    Resizes a persistent disk to a specified size in GB. After you resize the disk, you must
+    also resize the file system so that the operating system can access the additional space.
+
+    Args:
+        project_id: project ID or project number of the Cloud project you want to use.
+        disk_link: a link to the disk you want to resize.
+            This value uses the following format:
+                * https://www.googleapis.com/compute/v1/projects/{project_name}/zones/{zone}/disks/{disk_name}
+                * projects/{project_name}/zones/{zone}/disks/{disk_name}
+                * projects/{project_name}/regions/{region}/disks/{disk_name}
+        new_size_gb: the new size you want to set for the disk in gigabytes.
+    """"""
+    search_results = re.search(
+        r""/projects/[\w_-]+/(?P<area_type>zones|regions)/""
+        r""(?P<area_name>[\w_-]+)/disks/(?P<disk_name>[\w_-]+)"",
+        disk_link,
+    )
+
+    if search_results[""area_type""] == ""regions"":
+        disk_client = compute_v1.RegionDisksClient()
+        request = compute_v1.ResizeRegionDiskRequest()
+        request.region = search_results[""area_name""]
+        request.region_disks_resize_request_resource = (
+            compute_v1.RegionDisksResizeRequest()
+        )
+        request.region_disks_resize_request_resource.size_gb = new_size_gb
+    else:
+        disk_client = compute_v1.DisksClient()
+        request = compute_v1.ResizeDiskRequest()
+        request.zone = search_results[""area_name""]
+        request.disks_resize_request_resource = compute_v1.DisksResizeRequest()
+        request.disks_resize_request_resource.size_gb = new_size_gb
+
+    request.disk = search_results[""disk_name""]
+    request.project = project_id
+
+    operation = disk_client.resize(request)
+    wait_for_extended_operation(operation, ""disk resize"")
+
+"
 "48","Compute Engine","v1","1219807","compute_regional_disk_resize","PYTHON","Resize a persistent disk","This sample resizes a persistent disk to a specified size in GB. After you resize the disk, you must also resize the file system so that the operating system can access the additional space.","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/161448f276cd6fbe697c83e2ec55c4828e9143fa/compute/client_library/snippets/disks/resize_disk.py#L22-L125","GoogleCloudPlatform/python-docs-samples","compute/client_library/snippets/disks/resize_disk.py","161448f276cd6fbe697c83e2ec55c4828e9143fa","L22-L125","# [START compute_disk_resize]
 from __future__ import annotations
 
@@ -236280,106 +236388,6 @@ def resize_disk(project_id: str, disk_link: str, new_size_gb: int) -> None:
 
 
 # [END compute_disk_resize]"
-"48","Compute Engine","v1","1219803","compute_disk_resize","PYTHON","Resize a persistent disk","This sample resizes a persistent disk to a specified size in GB. After you resize the disk, you must also resize the file system so that the operating system can access the additional space.","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/161448f276cd6fbe697c83e2ec55c4828e9143fa/compute/client_library/snippets/disks/resize_disk.py#L23-L124","GoogleCloudPlatform/python-docs-samples","compute/client_library/snippets/disks/resize_disk.py","161448f276cd6fbe697c83e2ec55c4828e9143fa","L23-L124","from __future__ import annotations
-
-import re
-import sys
-from typing import Any
-
-from google.api_core.extended_operation import ExtendedOperation
-from google.cloud import compute_v1
-
-
-def wait_for_extended_operation(
-    operation: ExtendedOperation, verbose_name: str = ""operation"", timeout: int = 300
-) -> Any:
-    """"""
-    Waits for the extended (long-running) operation to complete.
-
-    If the operation is successful, it will return its result.
-    If the operation ends with an error, an exception will be raised.
-    If there were any warnings during the execution of the operation
-    they will be printed to sys.stderr.
-
-    Args:
-        operation: a long-running operation you want to wait on.
-        verbose_name: (optional) a more verbose name of the operation,
-            used only during error and warning reporting.
-        timeout: how long (in seconds) to wait for operation to finish.
-            If None, wait indefinitely.
-
-    Returns:
-        Whatever the operation.result() returns.
-
-    Raises:
-        This method will raise the exception received from `operation.exception()`
-        or RuntimeError if there is no exception set, but there is an `error_code`
-        set for the `operation`.
-
-        In case of an operation taking longer than `timeout` seconds to complete,
-        a `concurrent.futures.TimeoutError` will be raised.
-    """"""
-    result = operation.result(timeout=timeout)
-
-    if operation.error_code:
-        print(
-            f""Error during {verbose_name}: [Code: {operation.error_code}]: {operation.error_message}"",
-            file=sys.stderr,
-            flush=True,
-        )
-        print(f""Operation ID: {operation.name}"", file=sys.stderr, flush=True)
-        raise operation.exception() or RuntimeError(operation.error_message)
-
-    if operation.warnings:
-        print(f""Warnings during {verbose_name}:\n"", file=sys.stderr, flush=True)
-        for warning in operation.warnings:
-            print(f"" - {warning.code}: {warning.message}"", file=sys.stderr, flush=True)
-
-    return result
-
-
-def resize_disk(project_id: str, disk_link: str, new_size_gb: int) -> None:
-    """"""
-    Resizes a persistent disk to a specified size in GB. After you resize the disk, you must
-    also resize the file system so that the operating system can access the additional space.
-
-    Args:
-        project_id: project ID or project number of the Cloud project you want to use.
-        disk_link: a link to the disk you want to resize.
-            This value uses the following format:
-                * https://www.googleapis.com/compute/v1/projects/{project_name}/zones/{zone}/disks/{disk_name}
-                * projects/{project_name}/zones/{zone}/disks/{disk_name}
-                * projects/{project_name}/regions/{region}/disks/{disk_name}
-        new_size_gb: the new size you want to set for the disk in gigabytes.
-    """"""
-    search_results = re.search(
-        r""/projects/[\w_-]+/(?P<area_type>zones|regions)/""
-        r""(?P<area_name>[\w_-]+)/disks/(?P<disk_name>[\w_-]+)"",
-        disk_link,
-    )
-
-    if search_results[""area_type""] == ""regions"":
-        disk_client = compute_v1.RegionDisksClient()
-        request = compute_v1.ResizeRegionDiskRequest()
-        request.region = search_results[""area_name""]
-        request.region_disks_resize_request_resource = (
-            compute_v1.RegionDisksResizeRequest()
-        )
-        request.region_disks_resize_request_resource.size_gb = new_size_gb
-    else:
-        disk_client = compute_v1.DisksClient()
-        request = compute_v1.ResizeDiskRequest()
-        request.zone = search_results[""area_name""]
-        request.disks_resize_request_resource = compute_v1.DisksResizeRequest()
-        request.disks_resize_request_resource.size_gb = new_size_gb
-
-    request.disk = search_results[""disk_name""]
-    request.project = project_id
-
-    operation = disk_client.resize(request)
-    wait_for_extended_operation(operation, ""disk resize"")
-
-"
 "48","Compute Engine","v1","1438483","compute_resume_instance","GO","Resume a suspended VM","Resume a suspended VM in the specified project and zone.","https://github.com/GoogleCloudPlatform/golang-samples/blob/dd8737fbc60d1ac83da95c98a247bbc1b76bdb40/compute/instances/suspend-resume/resume.go#L17-L80","GoogleCloudPlatform/golang-samples","compute/instances/suspend-resume/resume.go","dd8737fbc60d1ac83da95c98a247bbc1b76bdb40","L17-L80","import (
 	""context""
 	""fmt""
@@ -246558,28 +246566,15 @@ public class SubmitJob {
 
     // Output a success message.
     console.log(`Job finished successfully: ${output}`);"
-"54","Dataproc","v1","1254089","dataproc_submit_job","PYTHON","Submit job","Submits a Spark job to a Dataproc cluster.","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/9b7c9acbb8f17500bbde1a9c2020496e5d39b8ed/dataproc/snippets/submit_job.py#L24-L27,L30-L73","GoogleCloudPlatform/python-docs-samples","dataproc/snippets/submit_job.py","9b7c9acbb8f17500bbde1a9c2020496e5d39b8ed","L24-L27,L30-L73","import re
-
-
-from google.cloud import dataproc_v1 as dataproc
-from google.cloud import storage
-
-
-def submit_job(project_id, region, cluster_name):
-    # Create the job client.
-    job_client = dataproc.JobControllerClient(
+"54","Dataproc","v1","1254090","dataproc_submit_job","PYTHON","Submit job","Submits a Spark job to a Dataproc cluster.","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/9b7c9acbb8f17500bbde1a9c2020496e5d39b8ed/dataproc/snippets/submit_job_to_cluster.py#L112-L142","GoogleCloudPlatform/python-docs-samples","dataproc/snippets/submit_job_to_cluster.py","9b7c9acbb8f17500bbde1a9c2020496e5d39b8ed","L112-L142","    # Create the job client.
+    job_client = dataproc_v1.JobControllerClient(
         client_options={""api_endpoint"": f""{region}-dataproc.googleapis.com:443""}
     )
 
-    # Create the job config. 'main_jar_file_uri' can also be a
-    # Google Cloud Storage URL.
+    # Create the job config.
     job = {
         ""placement"": {""cluster_name"": cluster_name},
-        ""spark_job"": {
-            ""main_class"": ""org.apache.spark.examples.SparkPi"",
-            ""jar_file_uris"": [""file:///usr/lib/spark/examples/jars/spark-examples.jar""],
-            ""args"": [""1000""],
-        },
+        ""pyspark_job"": {""main_python_file_uri"": f""gs://{gcs_bucket}/{spark_filename}""},
     }
 
     operation = job_client.submit_job_as_operation(
@@ -246587,8 +246582,8 @@ def submit_job(project_id, region, cluster_name):
     )
     response = operation.result()
 
-    # Dataproc job output gets saved to the Google Cloud Storage bucket
-    # allocated to the job. Use a regex to obtain the bucket and blob info.
+    # Dataproc job output is saved to the Cloud Storage bucket
+    # allocated to the job. Use regex to obtain the bucket and blob info.
     matches = re.match(""gs://(.*?)/(.*)"", response.driver_output_resource_uri)
 
     output = (
@@ -246599,9 +246594,7 @@ def submit_job(project_id, region, cluster_name):
         .decode(""utf-8"")
     )
 
-    print(f""Job finished successfully: {output}"")
-
-"
+    print(f""Job finished successfully: {output}\r\n"")"
 "54","Dataproc","v1","1122119","dataproc_update_cluster","PYTHON","Update a cluster","This sample walks a user through updating a Cloud Dataproc cluster using the Python client library.","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/43ba3f66be0beb7e179f19977f265d4a337e0555/dataproc/snippets/update_cluster.py#L25-L69","GoogleCloudPlatform/python-docs-samples","dataproc/snippets/update_cluster.py","43ba3f66be0beb7e179f19977f265d4a337e0555","L25-L69","from google.cloud import dataproc_v1 as dataproc
 
 
@@ -255435,48 +255428,6 @@ func languageCodeSearch(w io.Writer, projectID, companyName string, languageCode
 
   puts search_jobs_response.to_json
   search_jobs_response"
-"62","Cloud Talent Solution Job Search","v4","1219908","job_search_list_companies","GO","List companies using client (v4beta1)","List companies using client.","https://github.com/GoogleCloudPlatform/golang-samples/blob/c10ca6f5f2ed0a600f74ab3a1e271a9f345fb787/jobs/v4/howto/list_company_sample.go#L17-L60","GoogleCloudPlatform/golang-samples","jobs/v4/howto/list_company_sample.go","c10ca6f5f2ed0a600f74ab3a1e271a9f345fb787","L17-L60","import (
-	""context""
-	""fmt""
-	""io""
-
-	talent ""cloud.google.com/go/talent/apiv4beta1""
-	""cloud.google.com/go/talent/apiv4beta1/talentpb""
-	""google.golang.org/api/iterator""
-)
-
-// listCompanies lists all companies in the project.
-func listCompanies(w io.Writer, projectID string) error {
-	ctx := context.Background()
-
-	// Initialize a compnayService client.
-	c, err := talent.NewCompanyClient(ctx)
-	if err != nil {
-		return fmt.Errorf(""talent.NewCompanyClient: %w"", err)
-	}
-	defer c.Close()
-
-	// Construct a listCompanies request.
-	req := &talentpb.ListCompaniesRequest{
-		Parent: ""projects/"" + projectID,
-	}
-
-	it := c.ListCompanies(ctx, req)
-
-	for {
-		resp, err := it.Next()
-		if err == iterator.Done {
-			return nil
-		}
-		if err != nil {
-			return fmt.Errorf(""it.Next: %w"", err)
-		}
-		fmt.Fprintf(w, ""Listing company: %q\n"", resp.GetName())
-		fmt.Fprintf(w, ""Display name: %v\n"", resp.GetDisplayName())
-		fmt.Fprintf(w, ""External ID: %v\n"", resp.GetExternalId())
-	}
-}
-"
 "62","Cloud Talent Solution Job Search","v4","1116819","job_search_quick_start_list_companies","GO","List companies using client (v4beta1)","List companies using client.","https://github.com/GoogleCloudPlatform/golang-samples/blob/113b6170743184263ccd94a19935a3878358db8c/jobs/v4/quickstart/main.go#L17-L61","GoogleCloudPlatform/golang-samples","jobs/v4/quickstart/main.go","113b6170743184263ccd94a19935a3878358db8c","L17-L61","import (
 	""context""
 	""fmt""
@@ -255517,6 +255468,48 @@ func main() {
 			return
 		}
 		fmt.Printf(""Company: %v\n"", resp.GetName())
+	}
+}
+"
+"62","Cloud Talent Solution Job Search","v4","1219908","job_search_list_companies","GO","List companies using client (v4beta1)","List companies using client.","https://github.com/GoogleCloudPlatform/golang-samples/blob/c10ca6f5f2ed0a600f74ab3a1e271a9f345fb787/jobs/v4/howto/list_company_sample.go#L17-L60","GoogleCloudPlatform/golang-samples","jobs/v4/howto/list_company_sample.go","c10ca6f5f2ed0a600f74ab3a1e271a9f345fb787","L17-L60","import (
+	""context""
+	""fmt""
+	""io""
+
+	talent ""cloud.google.com/go/talent/apiv4beta1""
+	""cloud.google.com/go/talent/apiv4beta1/talentpb""
+	""google.golang.org/api/iterator""
+)
+
+// listCompanies lists all companies in the project.
+func listCompanies(w io.Writer, projectID string) error {
+	ctx := context.Background()
+
+	// Initialize a compnayService client.
+	c, err := talent.NewCompanyClient(ctx)
+	if err != nil {
+		return fmt.Errorf(""talent.NewCompanyClient: %w"", err)
+	}
+	defer c.Close()
+
+	// Construct a listCompanies request.
+	req := &talentpb.ListCompaniesRequest{
+		Parent: ""projects/"" + projectID,
+	}
+
+	it := c.ListCompanies(ctx, req)
+
+	for {
+		resp, err := it.Next()
+		if err == iterator.Done {
+			return nil
+		}
+		if err != nil {
+			return fmt.Errorf(""it.Next: %w"", err)
+		}
+		fmt.Fprintf(w, ""Listing company: %q\n"", resp.GetName())
+		fmt.Fprintf(w, ""Display name: %v\n"", resp.GetDisplayName())
+		fmt.Fprintf(w, ""External ID: %v\n"", resp.GetExternalId())
 	}
 }
 "
@@ -278621,7 +278614,7 @@ public class FhirStorePatch {
   };
 
   patchFhirStore();"
-"98","Cloud Healthcare API","v1","1219520","healthcare_patch_fhir_store","PYTHON","Patch FHIR store","Patch an FHIR store.","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/5a6587f40a7df2b2b97ad116b8f8396f7aa5eef7/healthcare/api-client/v1/fhir/fhir_stores.py#L225-L267","GoogleCloudPlatform/python-docs-samples","healthcare/api-client/v1/fhir/fhir_stores.py","5a6587f40a7df2b2b97ad116b8f8396f7aa5eef7","L225-L267","def patch_fhir_store(project_id, location, dataset_id, fhir_store_id):
+"98","Cloud Healthcare API","v1","1477866","healthcare_patch_fhir_store","PYTHON","Patch FHIR store","Patch an FHIR store.","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3477e6a6153863c94da2d8e9daa2c296b95e4032/healthcare/api-client/v1/fhir/fhir_stores.py#L225-L271","GoogleCloudPlatform/python-docs-samples","healthcare/api-client/v1/fhir/fhir_stores.py","3477e6a6153863c94da2d8e9daa2c296b95e4032","L225-L271","def patch_fhir_store(project_id, location, dataset_id, fhir_store_id, pubsub_topic):
     """"""Updates the FHIR store.
 
     See https://github.com/GoogleCloudPlatform/python-docs-samples/tree/main/healthcare/api-client/v1/fhir
@@ -278640,24 +278633,28 @@ public class FhirStorePatch {
     # location = 'us-central1'  # replace with the dataset's location
     # dataset_id = 'my-dataset'  # replace with your dataset ID
     # fhir_store_id = 'my-fhir-store'  # replace with the FHIR store's ID
+    # pubsub_topic = 'projects/{project_id}/topics/{topic_id}'  # replace with your Pub/Sub topic
     fhir_store_parent = ""projects/{}/locations/{}/datasets/{}"".format(
         project_id, location, dataset_id
     )
     fhir_store_name = f""{fhir_store_parent}/fhirStores/{fhir_store_id}""
 
-    # TODO(developer): Replace with the full URI of an existing Pub/Sub topic
-    patch = {""notificationConfig"": None}
+    patch = {
+        ""notificationConfigs"": [{""pubsubTopic"": pubsub_topic}] if pubsub_topic else []
+    }
 
     request = (
         client.projects()
         .locations()
         .datasets()
         .fhirStores()
-        .patch(name=fhir_store_name, updateMask=""notificationConfig"", body=patch)
+        .patch(name=fhir_store_name, updateMask=""notificationConfigs"", body=patch)
     )
 
     response = request.execute()
-    print(f""Patched FHIR store {fhir_store_id} with Cloud Pub/Sub topic: None"")
+    print(
+        f""Patched FHIR store {fhir_store_id} with Cloud Pub/Sub topic: {pubsub_topic or 'None'}""
+    )
 
     return response
 
@@ -280241,6 +280238,70 @@ public class DicomWebSearchForInstances {
     return instances
 
 "
+"98","Cloud Healthcare API","v1","1221132","healthcare_search_resources_get","GO","Search FHIR resources","Use a GET request or a POST request to search FHIR resources.","https://github.com/GoogleCloudPlatform/golang-samples/blob/24631fac85c8b445292893719b5abd04fb5e756c/healthcare/fhir_resource_search_get.go#L17-L82","GoogleCloudPlatform/golang-samples","healthcare/fhir_resource_search_get.go","24631fac85c8b445292893719b5abd04fb5e756c","L17-L82","import (
+	""context""
+	""fmt""
+	""io""
+	""io/ioutil""
+	""log""
+	""net/http""
+
+	""golang.org/x/oauth2/google""
+)
+
+// searchFhirResourcesGet uses a GET request to search for FHIR resources in a given FHIR store.
+func searchFHIRResourcesGet(w io.Writer, projectID, location, datasetID, fhirStoreID, resourceType string) error {
+	ctx := context.Background()
+
+	// The Healthcare API endpoint, API version, and request path.
+	name := fmt.Sprintf(""https://healthcare.googleapis.com/v1/projects/%s/locations/%s/datasets/%s/fhirStores/%s/fhir/%s"", projectID, location, datasetID, fhirStoreID, resourceType)
+
+	// DefaultClient returns an HTTP Client that uses the
+	// DefaultTokenSource (Application Default Credentials)
+	// to obtain authentication credentials.
+	client, err := google.DefaultClient(ctx, ""https://www.googleapis.com/auth/cloud-platform"")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// NewRequest takes an io.Reader as its third argument,
+	// but the GET request to search for FHIR resources does
+	// not pass any data in its body.
+	req, err := http.NewRequest(http.MethodGet, name, nil)
+	if err != nil {
+		return fmt.Errorf(""NewRequest: %w"", err)
+	}
+
+	// To set additional parameters for search filtering, append the
+	// search terms as query parameters, then assign the encoded
+	// query string to the request.
+	// For example, to search for a Patient with the family name ""Smith"",
+	// specify a Patient resourceType and then set the following:
+	// q := req.URL.Query()
+	// q.Add(""family:exact"", ""Smith"")
+	// req.URL.RawQuery = q.Encode()
+
+	resp, err := client.Do(req)
+	if err != nil {
+		return fmt.Errorf(""Do: %w"", err)
+	}
+
+	defer resp.Body.Close()
+
+	respBytes, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return fmt.Errorf(""could not read response: %w"", err)
+	}
+
+	if resp.StatusCode > 299 {
+		return fmt.Errorf(""search: status %d %s: %s"", resp.StatusCode, resp.Status, respBytes)
+	}
+
+	fmt.Fprintf(w, ""%s"", respBytes)
+
+	return nil
+}
+"
 "98","Cloud Healthcare API","v1","1221129","healthcare_search_resources_post","GO","Search FHIR resources","Use a GET request or a POST request to search FHIR resources.","https://github.com/GoogleCloudPlatform/golang-samples/blob/24631fac85c8b445292893719b5abd04fb5e756c/healthcare/fhir_resource_search_post.go#L17-L86","GoogleCloudPlatform/golang-samples","healthcare/fhir_resource_search_post.go","24631fac85c8b445292893719b5abd04fb5e756c","L17-L86","import (
 	""context""
 	""fmt""
@@ -280309,160 +280370,6 @@ func searchFHIRResourcesPost(w io.Writer, projectID, location, datasetID, fhirSt
 	return nil
 }
 "
-"98","Cloud Healthcare API","v1","1221132","healthcare_search_resources_get","GO","Search FHIR resources","Use a GET request or a POST request to search FHIR resources.","https://github.com/GoogleCloudPlatform/golang-samples/blob/24631fac85c8b445292893719b5abd04fb5e756c/healthcare/fhir_resource_search_get.go#L17-L82","GoogleCloudPlatform/golang-samples","healthcare/fhir_resource_search_get.go","24631fac85c8b445292893719b5abd04fb5e756c","L17-L82","import (
-	""context""
-	""fmt""
-	""io""
-	""io/ioutil""
-	""log""
-	""net/http""
-
-	""golang.org/x/oauth2/google""
-)
-
-// searchFhirResourcesGet uses a GET request to search for FHIR resources in a given FHIR store.
-func searchFHIRResourcesGet(w io.Writer, projectID, location, datasetID, fhirStoreID, resourceType string) error {
-	ctx := context.Background()
-
-	// The Healthcare API endpoint, API version, and request path.
-	name := fmt.Sprintf(""https://healthcare.googleapis.com/v1/projects/%s/locations/%s/datasets/%s/fhirStores/%s/fhir/%s"", projectID, location, datasetID, fhirStoreID, resourceType)
-
-	// DefaultClient returns an HTTP Client that uses the
-	// DefaultTokenSource (Application Default Credentials)
-	// to obtain authentication credentials.
-	client, err := google.DefaultClient(ctx, ""https://www.googleapis.com/auth/cloud-platform"")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// NewRequest takes an io.Reader as its third argument,
-	// but the GET request to search for FHIR resources does
-	// not pass any data in its body.
-	req, err := http.NewRequest(http.MethodGet, name, nil)
-	if err != nil {
-		return fmt.Errorf(""NewRequest: %w"", err)
-	}
-
-	// To set additional parameters for search filtering, append the
-	// search terms as query parameters, then assign the encoded
-	// query string to the request.
-	// For example, to search for a Patient with the family name ""Smith"",
-	// specify a Patient resourceType and then set the following:
-	// q := req.URL.Query()
-	// q.Add(""family:exact"", ""Smith"")
-	// req.URL.RawQuery = q.Encode()
-
-	resp, err := client.Do(req)
-	if err != nil {
-		return fmt.Errorf(""Do: %w"", err)
-	}
-
-	defer resp.Body.Close()
-
-	respBytes, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return fmt.Errorf(""could not read response: %w"", err)
-	}
-
-	if resp.StatusCode > 299 {
-		return fmt.Errorf(""search: status %d %s: %s"", resp.StatusCode, resp.Status, respBytes)
-	}
-
-	fmt.Fprintf(w, ""%s"", respBytes)
-
-	return nil
-}
-"
-"98","Cloud Healthcare API","v1","1215617","healthcare_search_resources_get","JAVA","Search FHIR resources","Use a GET request or a POST request to search FHIR resources.","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/f24e2c35543bd0da962138a6c079204092b79561/healthcare/v1/src/main/java/snippets/healthcare/fhir/resources/FhirResourceSearchGet.java#L19-L110","GoogleCloudPlatform/java-docs-samples","healthcare/v1/src/main/java/snippets/healthcare/fhir/resources/FhirResourceSearchGet.java","f24e2c35543bd0da962138a6c079204092b79561","L19-L110","import com.google.api.client.http.HttpRequestInitializer;
-import com.google.api.client.http.javanet.NetHttpTransport;
-import com.google.api.client.json.JsonFactory;
-import com.google.api.client.json.gson.GsonFactory;
-import com.google.api.services.healthcare.v1.CloudHealthcare;
-import com.google.api.services.healthcare.v1.CloudHealthcareScopes;
-import com.google.auth.http.HttpCredentialsAdapter;
-import com.google.auth.oauth2.GoogleCredentials;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.Collections;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.client.methods.RequestBuilder;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.HttpClients;
-
-public class FhirResourceSearchGet {
-  private static final String FHIR_NAME =
-      ""projects/%s/locations/%s/datasets/%s/fhirStores/%s/fhir/%s"";
-  // The endpoint URL for the Healthcare API. Required for HttpClient.
-  private static final String API_ENDPOINT = ""https://healthcare.googleapis.com"";
-  private static final JsonFactory JSON_FACTORY = new GsonFactory();
-  private static final NetHttpTransport HTTP_TRANSPORT = new NetHttpTransport();
-
-  public static void fhirResourceSearchGet(String resourceName)
-      throws IOException, URISyntaxException {
-    // String resourceName =
-    //    String.format(
-    //        FHIR_NAME, ""project-id"", ""region-id"", ""dataset-id"", ""fhir-store-id"");
-    // String resourceType = ""Patient"";
-
-    // Instantiate the client, which will be used to interact with the service.
-    HttpClient httpClient = HttpClients.createDefault();
-    String uri = String.format(""%s/v1/%s"", API_ENDPOINT, resourceName);
-    URIBuilder uriBuilder = new URIBuilder(uri).setParameter(""access_token"", getAccessToken());
-    // To set additional parameters for search filtering, add them to the URIBuilder. For
-    // example, to search for a Patient with the family name ""Smith"", specify the following:
-    // uriBuilder.setParameter(""family:exact"", ""Smith"");
-
-    HttpUriRequest request =
-        RequestBuilder.get()
-            .setUri(uriBuilder.build())
-            .build();
-
-    // Execute the request and process the results.
-    HttpResponse response = httpClient.execute(request);
-    HttpEntity responseEntity = response.getEntity();
-    if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
-      System.err.print(
-          String.format(
-              ""Exception searching GET FHIR resources: %s\n"", response.getStatusLine().toString()));
-      responseEntity.writeTo(System.err);
-      throw new RuntimeException();
-    }
-    System.out.println(""FHIR resource GET search results: "");
-    responseEntity.writeTo(System.out);
-  }
-
-  private static CloudHealthcare createClient() throws IOException {
-    // Use Application Default Credentials (ADC) to authenticate the requests
-    // For more information see https://cloud.google.com/docs/authentication/production
-    GoogleCredentials credential =
-        GoogleCredentials.getApplicationDefault()
-            .createScoped(Collections.singleton(CloudHealthcareScopes.CLOUD_PLATFORM));
-    // Create a HttpRequestInitializer, which will provide a baseline configuration to all requests.
-    HttpRequestInitializer requestInitializer =
-        request -> {
-          new HttpCredentialsAdapter(credential).initialize(request);
-          request.setConnectTimeout(60000); // 1 minute connect timeout
-          request.setReadTimeout(60000); // 1 minute read timeout
-        };
-    // Build the client for interacting with the service.
-    return new CloudHealthcare.Builder(HTTP_TRANSPORT, JSON_FACTORY, requestInitializer)
-        .setApplicationName(""your-application-name"")
-        .build();
-  }
-
-  private static String getAccessToken() throws IOException {
-    GoogleCredentials credential =
-        GoogleCredentials.getApplicationDefault()
-            .createScoped(Collections.singleton(CloudHealthcareScopes.CLOUD_PLATFORM));
-
-    return credential.refreshAccessToken().getTokenValue();
-  }
-}"
 "98","Cloud Healthcare API","v1","1215611","healthcare_search_resources_post","JAVA","Search FHIR resources","Use a GET request or a POST request to search FHIR resources.","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/f24e2c35543bd0da962138a6c079204092b79561/healthcare/v1/src/main/java/snippets/healthcare/fhir/resources/FhirResourceSearchPost.java#L19-L119","GoogleCloudPlatform/java-docs-samples","healthcare/v1/src/main/java/snippets/healthcare/fhir/resources/FhirResourceSearchPost.java","f24e2c35543bd0da962138a6c079204092b79561","L19-L119","import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
@@ -280562,6 +280469,124 @@ public class FhirResourceSearchPost {
     return credential.refreshAccessToken().getTokenValue();
   }
 }"
+"98","Cloud Healthcare API","v1","1215617","healthcare_search_resources_get","JAVA","Search FHIR resources","Use a GET request or a POST request to search FHIR resources.","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/f24e2c35543bd0da962138a6c079204092b79561/healthcare/v1/src/main/java/snippets/healthcare/fhir/resources/FhirResourceSearchGet.java#L19-L110","GoogleCloudPlatform/java-docs-samples","healthcare/v1/src/main/java/snippets/healthcare/fhir/resources/FhirResourceSearchGet.java","f24e2c35543bd0da962138a6c079204092b79561","L19-L110","import com.google.api.client.http.HttpRequestInitializer;
+import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.json.JsonFactory;
+import com.google.api.client.json.gson.GsonFactory;
+import com.google.api.services.healthcare.v1.CloudHealthcare;
+import com.google.api.services.healthcare.v1.CloudHealthcareScopes;
+import com.google.auth.http.HttpCredentialsAdapter;
+import com.google.auth.oauth2.GoogleCredentials;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.Collections;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.client.methods.RequestBuilder;
+import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClients;
+
+public class FhirResourceSearchGet {
+  private static final String FHIR_NAME =
+      ""projects/%s/locations/%s/datasets/%s/fhirStores/%s/fhir/%s"";
+  // The endpoint URL for the Healthcare API. Required for HttpClient.
+  private static final String API_ENDPOINT = ""https://healthcare.googleapis.com"";
+  private static final JsonFactory JSON_FACTORY = new GsonFactory();
+  private static final NetHttpTransport HTTP_TRANSPORT = new NetHttpTransport();
+
+  public static void fhirResourceSearchGet(String resourceName)
+      throws IOException, URISyntaxException {
+    // String resourceName =
+    //    String.format(
+    //        FHIR_NAME, ""project-id"", ""region-id"", ""dataset-id"", ""fhir-store-id"");
+    // String resourceType = ""Patient"";
+
+    // Instantiate the client, which will be used to interact with the service.
+    HttpClient httpClient = HttpClients.createDefault();
+    String uri = String.format(""%s/v1/%s"", API_ENDPOINT, resourceName);
+    URIBuilder uriBuilder = new URIBuilder(uri).setParameter(""access_token"", getAccessToken());
+    // To set additional parameters for search filtering, add them to the URIBuilder. For
+    // example, to search for a Patient with the family name ""Smith"", specify the following:
+    // uriBuilder.setParameter(""family:exact"", ""Smith"");
+
+    HttpUriRequest request =
+        RequestBuilder.get()
+            .setUri(uriBuilder.build())
+            .build();
+
+    // Execute the request and process the results.
+    HttpResponse response = httpClient.execute(request);
+    HttpEntity responseEntity = response.getEntity();
+    if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
+      System.err.print(
+          String.format(
+              ""Exception searching GET FHIR resources: %s\n"", response.getStatusLine().toString()));
+      responseEntity.writeTo(System.err);
+      throw new RuntimeException();
+    }
+    System.out.println(""FHIR resource GET search results: "");
+    responseEntity.writeTo(System.out);
+  }
+
+  private static CloudHealthcare createClient() throws IOException {
+    // Use Application Default Credentials (ADC) to authenticate the requests
+    // For more information see https://cloud.google.com/docs/authentication/production
+    GoogleCredentials credential =
+        GoogleCredentials.getApplicationDefault()
+            .createScoped(Collections.singleton(CloudHealthcareScopes.CLOUD_PLATFORM));
+    // Create a HttpRequestInitializer, which will provide a baseline configuration to all requests.
+    HttpRequestInitializer requestInitializer =
+        request -> {
+          new HttpCredentialsAdapter(credential).initialize(request);
+          request.setConnectTimeout(60000); // 1 minute connect timeout
+          request.setReadTimeout(60000); // 1 minute read timeout
+        };
+    // Build the client for interacting with the service.
+    return new CloudHealthcare.Builder(HTTP_TRANSPORT, JSON_FACTORY, requestInitializer)
+        .setApplicationName(""your-application-name"")
+        .build();
+  }
+
+  private static String getAccessToken() throws IOException {
+    GoogleCredentials credential =
+        GoogleCredentials.getApplicationDefault()
+            .createScoped(Collections.singleton(CloudHealthcareScopes.CLOUD_PLATFORM));
+
+    return credential.refreshAccessToken().getTokenValue();
+  }
+}"
+"98","Cloud Healthcare API","v1","580882","healthcare_search_resources_get","NODEJS","Search FHIR resources","Use a GET request or a POST request to search FHIR resources.","https://github.com/GoogleCloudPlatform/nodejs-docs-samples/blob/a0d1c07d92cefa1a509b48a7adcdbe174326eaf3/healthcare/fhir/searchFhirResourcesGet.js#L24-L53","GoogleCloudPlatform/nodejs-docs-samples","healthcare/fhir/searchFhirResourcesGet.js","a0d1c07d92cefa1a509b48a7adcdbe174326eaf3","L24-L53","  // Import google-auth-library for authentication.
+  const {GoogleAuth} = require('google-auth-library');
+
+  const searchFhirResourcesGet = async () => {
+    const auth = new GoogleAuth({
+      scopes: 'https://www.googleapis.com/auth/cloud-platform',
+    });
+    // TODO(developer): uncomment these lines before running the sample
+    // const cloudRegion = 'us-central1';
+    // const projectId = 'adjective-noun-123';
+    // const datasetId = 'my-dataset';
+    // const fhirStoreId = 'my-fhir-store';
+    // const resourceType = 'Patient';
+    const url = `https://healthcare.googleapis.com/v1/projects/${projectId}/locations/${cloudRegion}/datasets/${datasetId}/fhirStores/${fhirStoreId}/fhir/${resourceType}`;
+
+    const params = {};
+    // Specify search filters in a params object. For example, to filter on a
+    // Patient with the last name ""Smith"", set resourceType to ""Patient"" and
+    // specify the following params:
+    // params = {'family:exact' : 'Smith'};
+    const client = await auth.getClient();
+    const response = await client.request({url, method: 'GET', params});
+    const resources = response.data.entry;
+    console.log(`Resources found: ${resources.length}`);
+    console.log(JSON.stringify(resources, null, 2));
+  };
+
+  searchFhirResourcesGet();"
 "98","Cloud Healthcare API","v1","580883","healthcare_search_resources_post","NODEJS","Search FHIR resources","Use a GET request or a POST request to search FHIR resources.","https://github.com/GoogleCloudPlatform/nodejs-docs-samples/blob/a0d1c07d92cefa1a509b48a7adcdbe174326eaf3/healthcare/fhir/searchFhirResourcesPost.js#L24-L55","GoogleCloudPlatform/nodejs-docs-samples","healthcare/fhir/searchFhirResourcesPost.js","a0d1c07d92cefa1a509b48a7adcdbe174326eaf3","L24-L55","  // Import google-auth-library for authentication.
   const {GoogleAuth} = require('google-auth-library');
 
@@ -280592,95 +280617,6 @@ public class FhirResourceSearchPost {
   };
 
   searchFhirResourcesPost();"
-"98","Cloud Healthcare API","v1","580882","healthcare_search_resources_get","NODEJS","Search FHIR resources","Use a GET request or a POST request to search FHIR resources.","https://github.com/GoogleCloudPlatform/nodejs-docs-samples/blob/a0d1c07d92cefa1a509b48a7adcdbe174326eaf3/healthcare/fhir/searchFhirResourcesGet.js#L24-L53","GoogleCloudPlatform/nodejs-docs-samples","healthcare/fhir/searchFhirResourcesGet.js","a0d1c07d92cefa1a509b48a7adcdbe174326eaf3","L24-L53","  // Import google-auth-library for authentication.
-  const {GoogleAuth} = require('google-auth-library');
-
-  const searchFhirResourcesGet = async () => {
-    const auth = new GoogleAuth({
-      scopes: 'https://www.googleapis.com/auth/cloud-platform',
-    });
-    // TODO(developer): uncomment these lines before running the sample
-    // const cloudRegion = 'us-central1';
-    // const projectId = 'adjective-noun-123';
-    // const datasetId = 'my-dataset';
-    // const fhirStoreId = 'my-fhir-store';
-    // const resourceType = 'Patient';
-    const url = `https://healthcare.googleapis.com/v1/projects/${projectId}/locations/${cloudRegion}/datasets/${datasetId}/fhirStores/${fhirStoreId}/fhir/${resourceType}`;
-
-    const params = {};
-    // Specify search filters in a params object. For example, to filter on a
-    // Patient with the last name ""Smith"", set resourceType to ""Patient"" and
-    // specify the following params:
-    // params = {'family:exact' : 'Smith'};
-    const client = await auth.getClient();
-    const response = await client.request({url, method: 'GET', params});
-    const resources = response.data.entry;
-    console.log(`Resources found: ${resources.length}`);
-    console.log(JSON.stringify(resources, null, 2));
-  };
-
-  searchFhirResourcesGet();"
-"98","Cloud Healthcare API","v1","1219511","healthcare_search_resources_get","PYTHON","Search FHIR resources","Use a GET request or a POST request to search FHIR resources.","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/5a6587f40a7df2b2b97ad116b8f8396f7aa5eef7/healthcare/api-client/v1/fhir/fhir_resources.py#L780-L842","GoogleCloudPlatform/python-docs-samples","healthcare/api-client/v1/fhir/fhir_resources.py","5a6587f40a7df2b2b97ad116b8f8396f7aa5eef7","L780-L842","def search_resources_get(
-    project_id,
-    location,
-    dataset_id,
-    fhir_store_id,
-    resource_type,
-):
-    """"""
-    Uses the searchResources GET method to search for resources in the given FHIR store.
-
-    See https://github.com/GoogleCloudPlatform/python-docs-samples/tree/main/healthcare/api-client/v1/fhir
-    before running the sample.""""""
-    # Imports Python's built-in ""os"" module
-    import os
-
-    # Imports the google.auth.transport.requests transport
-    from google.auth.transport import requests
-
-    # Imports a module to allow authentication using a service account
-    from google.oauth2 import service_account
-
-    # Gets credentials from the environment.
-    credentials = service_account.Credentials.from_service_account_file(
-        os.environ[""GOOGLE_APPLICATION_CREDENTIALS""]
-    )
-    scoped_credentials = credentials.with_scopes(
-        [""https://www.googleapis.com/auth/cloud-platform""]
-    )
-    # Creates a requests Session object with the credentials.
-    session = requests.AuthorizedSession(scoped_credentials)
-
-    # URL to the Cloud Healthcare API endpoint and version
-    base_url = ""https://healthcare.googleapis.com/v1""
-
-    # TODO(developer): Uncomment these lines and replace with your values.
-    # project_id = 'my-project'  # replace with your GCP project ID
-    # location = 'us-central1'  # replace with the parent dataset's location
-    # dataset_id = 'my-dataset'  # replace with the parent dataset's ID
-    # fhir_store_id = 'my-fhir-store' # replace with the FHIR store ID
-    # resource_type = 'Patient'  # replace with the FHIR resource type
-    url = f""{base_url}/projects/{project_id}/locations/{location}""
-
-    resource_path = ""{}/datasets/{}/fhirStores/{}/fhir/{}"".format(
-        url, dataset_id, fhir_store_id, resource_type
-    )
-
-    response = session.get(resource_path)
-    response.raise_for_status()
-
-    resources = response.json()
-
-    print(
-        ""Using GET request, found a total of {} {} resources:"".format(
-            resources[""total""], resource_type
-        )
-    )
-    print(json.dumps(resources, indent=2))
-
-    return resources
-
-"
 "98","Cloud Healthcare API","v1","1219414","healthcare_search_resources_post","PYTHON","Search FHIR resources","Use a GET request or a POST request to search FHIR resources.","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/5a6587f40a7df2b2b97ad116b8f8396f7aa5eef7/healthcare/api-client/v1/fhir/fhir_resources.py#L845-L908","GoogleCloudPlatform/python-docs-samples","healthcare/api-client/v1/fhir/fhir_resources.py","5a6587f40a7df2b2b97ad116b8f8396f7aa5eef7","L845-L908","def search_resources_post(project_id, location, dataset_id, fhir_store_id):
     """"""
     Searches for resources in the given FHIR store. Uses the
@@ -280738,6 +280674,67 @@ public class FhirResourceSearchPost {
         )
     )
 
+    print(json.dumps(resources, indent=2))
+
+    return resources
+
+"
+"98","Cloud Healthcare API","v1","1219511","healthcare_search_resources_get","PYTHON","Search FHIR resources","Use a GET request or a POST request to search FHIR resources.","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/5a6587f40a7df2b2b97ad116b8f8396f7aa5eef7/healthcare/api-client/v1/fhir/fhir_resources.py#L780-L842","GoogleCloudPlatform/python-docs-samples","healthcare/api-client/v1/fhir/fhir_resources.py","5a6587f40a7df2b2b97ad116b8f8396f7aa5eef7","L780-L842","def search_resources_get(
+    project_id,
+    location,
+    dataset_id,
+    fhir_store_id,
+    resource_type,
+):
+    """"""
+    Uses the searchResources GET method to search for resources in the given FHIR store.
+
+    See https://github.com/GoogleCloudPlatform/python-docs-samples/tree/main/healthcare/api-client/v1/fhir
+    before running the sample.""""""
+    # Imports Python's built-in ""os"" module
+    import os
+
+    # Imports the google.auth.transport.requests transport
+    from google.auth.transport import requests
+
+    # Imports a module to allow authentication using a service account
+    from google.oauth2 import service_account
+
+    # Gets credentials from the environment.
+    credentials = service_account.Credentials.from_service_account_file(
+        os.environ[""GOOGLE_APPLICATION_CREDENTIALS""]
+    )
+    scoped_credentials = credentials.with_scopes(
+        [""https://www.googleapis.com/auth/cloud-platform""]
+    )
+    # Creates a requests Session object with the credentials.
+    session = requests.AuthorizedSession(scoped_credentials)
+
+    # URL to the Cloud Healthcare API endpoint and version
+    base_url = ""https://healthcare.googleapis.com/v1""
+
+    # TODO(developer): Uncomment these lines and replace with your values.
+    # project_id = 'my-project'  # replace with your GCP project ID
+    # location = 'us-central1'  # replace with the parent dataset's location
+    # dataset_id = 'my-dataset'  # replace with the parent dataset's ID
+    # fhir_store_id = 'my-fhir-store' # replace with the FHIR store ID
+    # resource_type = 'Patient'  # replace with the FHIR resource type
+    url = f""{base_url}/projects/{project_id}/locations/{location}""
+
+    resource_path = ""{}/datasets/{}/fhirStores/{}/fhir/{}"".format(
+        url, dataset_id, fhir_store_id, resource_type
+    )
+
+    response = session.get(resource_path)
+    response.raise_for_status()
+
+    resources = response.json()
+
+    print(
+        ""Using GET request, found a total of {} {} resources:"".format(
+            resources[""total""], resource_type
+        )
+    )
     print(json.dumps(resources, indent=2))
 
     return resources
@@ -317666,37 +317663,6 @@ func unixMillisToTime(m int64) time.Time {
 	return time.Unix(0, m*1e6)
 }
 "
-"359","BigQuery Connection API","v1","1276638","bigqueryconnection_list_connections","JAVA","List connections","List all connection metadata in a project.","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/e080350d88ea6c4cf3f42bfc91f15409aee978d2/bigquery/bigqueryconnection/snippets/src/main/java/com/example/bigqueryconnection/ListConnections.java#L19-L51","GoogleCloudPlatform/java-docs-samples","bigquery/bigqueryconnection/snippets/src/main/java/com/example/bigqueryconnection/ListConnections.java","e080350d88ea6c4cf3f42bfc91f15409aee978d2","L19-L51","import com.google.cloud.bigquery.connection.v1.ListConnectionsRequest;
-import com.google.cloud.bigquery.connection.v1.LocationName;
-import com.google.cloud.bigqueryconnection.v1.ConnectionServiceClient;
-import java.io.IOException;
-
-// Sample to get list of connections
-public class ListConnections {
-
-  public static void main(String[] args) throws IOException {
-    // TODO(developer): Replace these variables before running the sample.
-    String projectId = ""MY_PROJECT_ID"";
-    String location = ""MY_LOCATION"";
-    listConnections(projectId, location);
-  }
-
-  static void listConnections(String projectId, String location) throws IOException {
-    try (ConnectionServiceClient client = ConnectionServiceClient.create()) {
-      LocationName parent = LocationName.of(projectId, location);
-      int pageSize = 10;
-      ListConnectionsRequest request =
-          ListConnectionsRequest.newBuilder()
-              .setParent(parent.toString())
-              .setPageSize(pageSize)
-              .build();
-      client
-          .listConnections(request)
-          .iterateAll()
-          .forEach(con -> System.out.println(""Connection Id :"" + con.getName()));
-    }
-  }
-}"
 "359","BigQuery Connection API","v1","1276634","bigqueryconnection_quickstart","JAVA","List connections","List all connection metadata in a project.","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/e080350d88ea6c4cf3f42bfc91f15409aee978d2/bigquery/bigqueryconnection/snippets/src/main/java/com/example/bigqueryconnection/QuickstartSample.java#L19-L55","GoogleCloudPlatform/java-docs-samples","bigquery/bigqueryconnection/snippets/src/main/java/com/example/bigqueryconnection/QuickstartSample.java","e080350d88ea6c4cf3f42bfc91f15409aee978d2","L19-L55","import com.google.cloud.bigquery.connection.v1.ListConnectionsRequest;
 import com.google.cloud.bigquery.connection.v1.LocationName;
 import com.google.cloud.bigqueryconnection.v1.ConnectionServiceClient;
@@ -317729,6 +317695,37 @@ public class QuickstartSample {
       response
           .iterateAll()
           .forEach(connection -> System.out.println(""Connection Name: "" + connection.getName()));
+    }
+  }
+}"
+"359","BigQuery Connection API","v1","1276638","bigqueryconnection_list_connections","JAVA","List connections","List all connection metadata in a project.","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/e080350d88ea6c4cf3f42bfc91f15409aee978d2/bigquery/bigqueryconnection/snippets/src/main/java/com/example/bigqueryconnection/ListConnections.java#L19-L51","GoogleCloudPlatform/java-docs-samples","bigquery/bigqueryconnection/snippets/src/main/java/com/example/bigqueryconnection/ListConnections.java","e080350d88ea6c4cf3f42bfc91f15409aee978d2","L19-L51","import com.google.cloud.bigquery.connection.v1.ListConnectionsRequest;
+import com.google.cloud.bigquery.connection.v1.LocationName;
+import com.google.cloud.bigqueryconnection.v1.ConnectionServiceClient;
+import java.io.IOException;
+
+// Sample to get list of connections
+public class ListConnections {
+
+  public static void main(String[] args) throws IOException {
+    // TODO(developer): Replace these variables before running the sample.
+    String projectId = ""MY_PROJECT_ID"";
+    String location = ""MY_LOCATION"";
+    listConnections(projectId, location);
+  }
+
+  static void listConnections(String projectId, String location) throws IOException {
+    try (ConnectionServiceClient client = ConnectionServiceClient.create()) {
+      LocationName parent = LocationName.of(projectId, location);
+      int pageSize = 10;
+      ListConnectionsRequest request =
+          ListConnectionsRequest.newBuilder()
+              .setParent(parent.toString())
+              .setPageSize(pageSize)
+              .build();
+      client
+          .listConnections(request)
+          .iterateAll()
+          .forEach(con -> System.out.println(""Connection Id :"" + con.getName()));
     }
   }
 }"
@@ -319391,6 +319388,24 @@ else:
     return: ""Sorry, URL wasn't found""
 - auth_problem:
     return: ""Authentication error"""
+"371","Workflows","v1","1220317","workflows_step_conditional_weekend","YAML","Conditional jump to a specific step","Jumps to a specific step depending on the day of the week returned by the first step of the workflow.","https://github.com/GoogleCloudPlatform/workflows-samples/blob/361db8220031fb87cdf0451f20b599bf7547f8b4/src/step_conditional_weekend.workflows.yaml#L15-L34","GoogleCloudPlatform/workflows-samples","src/step_conditional_weekend.workflows.yaml","361db8220031fb87cdf0451f20b599bf7547f8b4","L15-L34","- getCurrentTime:
+    call: http.get
+    args:
+      url: https://timeapi.io/api/Time/current/zone?timeZone=Europe/Amsterdam
+    result: currentTime
+- conditionalSwitch:
+    switch:
+      - condition: ${currentTime.body.dayOfWeek == ""Friday""}
+        next: friday
+      - condition: ${currentTime.body.dayOfWeek == ""Saturday"" or currentTime.body.dayOfWeek == ""Sunday""}
+        next: weekend
+    next: workWeek
+- friday:
+    return: ""It's Friday! Almost the weekend!""
+- weekend:
+    return: ""It's the weekend!""
+- workWeek:
+    return: ""It's the work week."""
 "371","Workflows","v1","1953","workflows_step_conditional_jump","YAML","Conditional jump to a specific step","Jumps to a specific step depending on the value returned by the first step of the workflow.","https://github.com/GoogleCloudPlatform/workflows-samples/blob/eb5015f450848f2d52343740dcd32e6a68c7f3f1/src/step_conditional_jump.workflows.yaml#L15-L43","GoogleCloudPlatform/workflows-samples","src/step_conditional_jump.workflows.yaml","eb5015f450848f2d52343740dcd32e6a68c7f3f1","L15-L43","- first_step:
     call: http.get
     args:
@@ -319418,24 +319433,6 @@ else:
     args:
       url: https://www.example.com/LargeFunc
     next: end"
-"371","Workflows","v1","1220317","workflows_step_conditional_weekend","YAML","Conditional jump to a specific step","Jumps to a specific step depending on the day of the week returned by the first step of the workflow.","https://github.com/GoogleCloudPlatform/workflows-samples/blob/361db8220031fb87cdf0451f20b599bf7547f8b4/src/step_conditional_weekend.workflows.yaml#L15-L34","GoogleCloudPlatform/workflows-samples","src/step_conditional_weekend.workflows.yaml","361db8220031fb87cdf0451f20b599bf7547f8b4","L15-L34","- getCurrentTime:
-    call: http.get
-    args:
-      url: https://timeapi.io/api/Time/current/zone?timeZone=Europe/Amsterdam
-    result: currentTime
-- conditionalSwitch:
-    switch:
-      - condition: ${currentTime.body.dayOfWeek == ""Friday""}
-        next: friday
-      - condition: ${currentTime.body.dayOfWeek == ""Saturday"" or currentTime.body.dayOfWeek == ""Sunday""}
-        next: weekend
-    next: workWeek
-- friday:
-    return: ""It's Friday! Almost the weekend!""
-- weekend:
-    return: ""It's the weekend!""
-- workWeek:
-    return: ""It's the work week."""
 "371","Workflows","v1","630765","workflows_connector_ml","YAML","Connector for AI Platform Training and Prediction","Workflows connector that defines the built-in function used to access VertexAI (AI Platform) within a workflow.
 ","https://github.com/GoogleCloudPlatform/workflows-samples/blob/6395b7ca0735b164c41eda85bdd01df059082bc1/src/connectors/connector_ml.workflows.yaml#L15-L40","GoogleCloudPlatform/workflows-samples","src/connectors/connector_ml.workflows.yaml","6395b7ca0735b164c41eda85bdd01df059082bc1","L15-L40","# This workflow expects following items to be provided through input argument for execution:
 #   - projectID (string)
@@ -328819,7 +328816,7 @@ function client_from_json_credentials(string $credentialsJsonPath)
 "406","Analytics Data API","v1beta","909422","analyticsdata_initialize","PHP","Initialize the client library using default credentials","Google Analytics Data API client library Initialization code that uses default credentials.","https://github.com/GoogleCloudPlatform/php-docs-samples/blob/156b850f152ba4fc525fdcd85f93668681260bff/analyticsdata/quickstart.php#L45-L49","GoogleCloudPlatform/php-docs-samples","analyticsdata/quickstart.php","156b850f152ba4fc525fdcd85f93668681260bff","L45-L49","// Using a default constructor instructs the client to use the credentials
 // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
 $client = new BetaAnalyticsDataClient();"
-"406","Analytics Data API","v1beta","1150462","analyticsdata_print_get_metadata_response","PHP","Print dimensions and metrics metadata","Code that prints dimension and metrics metadata returned by GetMetadata() method.","https://github.com/GoogleCloudPlatform/php-docs-samples/blob/4126e730880bac8bf77dfd625e698cdec719df14/analyticsdata/src/get_metadata_by_property_id.php#L68-L112","GoogleCloudPlatform/php-docs-samples","analyticsdata/src/get_metadata_by_property_id.php","4126e730880bac8bf77dfd625e698cdec719df14","L68-L112","    foreach ($response->getDimensions() as $dimension) {
+"406","Analytics Data API","v1beta","1150463","analyticsdata_print_get_metadata_response","PHP","Print dimensions and metrics metadata","Code that prints dimension and metrics metadata returned by GetMetadata() method.","https://github.com/GoogleCloudPlatform/php-docs-samples/blob/4126e730880bac8bf77dfd625e698cdec719df14/analyticsdata/src/get_common_metadata.php#L68-L112","GoogleCloudPlatform/php-docs-samples","analyticsdata/src/get_common_metadata.php","4126e730880bac8bf77dfd625e698cdec719df14","L68-L112","    foreach ($response->getDimensions() as $dimension) {
         print('DIMENSION' . PHP_EOL);
         printf(
             '%s (%s): %s' . PHP_EOL,
@@ -328829,7 +328826,7 @@ $client = new BetaAnalyticsDataClient();"
         );
         printf(
             'custom definition: %s' . PHP_EOL,
-            $dimension->getCustomDefinition() ? 'true' : 'false'
+            $dimension->getCustomDefinition()? 'true' : 'false'
         );
         if ($dimension->getDeprecatedApiNames()->count() > 0) {
             print('Deprecated API names: ');
@@ -328851,7 +328848,7 @@ $client = new BetaAnalyticsDataClient();"
         );
         printf(
             'custom definition: %s' . PHP_EOL,
-            $metric->getCustomDefinition() ? 'true' : 'false'
+            $metric->getCustomDefinition()? 'true' : 'false'
         );
         if ($metric->getDeprecatedApiNames()->count() > 0) {
             print('Deprecated API names: ');
@@ -353124,6 +353121,41 @@ public class CreatePipelineJobModelTuningSample {
   }
 }
 "
+"419","Vertex AI","v1","1251742","aiplatform_list_tuned_models","NODEJS","Tune language foundation model (Generative AI)","Tune language foundation models with a tuning dataset.","https://github.com/GoogleCloudPlatform/nodejs-docs-samples/blob/62b70e8bdd7876149e781542eed03d4a2656840e/ai-platform/snippets/list-tuned-models.js#L19-L55","GoogleCloudPlatform/nodejs-docs-samples","ai-platform/snippets/list-tuned-models.js","62b70e8bdd7876149e781542eed03d4a2656840e","L19-L55","  /**
+   * TODO(developer): Uncomment these variables before running the sample.\
+   * (Not necessary if passing values as arguments)
+   */
+  // const project = 'YOUR_PROJECT_ID';
+  // const location = 'YOUR_PROJECT_LOCATION';
+  // const model = 'text-bison@001';
+  const aiplatform = require('@google-cloud/aiplatform');
+
+  const {ModelServiceClient} = aiplatform.v1;
+  const clientOptions = {
+    apiEndpoint: 'us-central1-aiplatform.googleapis.com',
+  };
+
+  // Instantiate the service client.
+  const modelServiceClient = new ModelServiceClient(clientOptions);
+
+  async function listTunedModels() {
+    // Configure the parent resource
+    const parent = `projects/${project}/locations/${location}`;
+    const filter = `labels.google-vertex-llm-tuning-base-model-id=${model}`;
+
+    const request = {
+      parent,
+      filter,
+    };
+
+    const [response] = await modelServiceClient.listModels(request);
+    console.log('List Tuned Models response');
+    for (const model of response) {
+      console.log(`\tModel name: ${model.name}`);
+      console.log(`\tDisplay name: ${model.displayName}`);
+    }
+  }
+  await listTunedModels();"
 "419","Vertex AI","v1","1455843","aiplatform_model_tuning","NODEJS","Tune language foundation model (Generative AI)","Tune language foundation models with a tuning dataset.","https://github.com/GoogleCloudPlatform/nodejs-docs-samples/blob/24829aa2e5649c8fea0aa9028e2fac6695980fbf/ai-platform/snippets/tuning.js#L28-L100","GoogleCloudPlatform/nodejs-docs-samples","ai-platform/snippets/tuning.js","24829aa2e5649c8fea0aa9028e2fac6695980fbf","L28-L100","  // [START generativeaionvertexai_model_tuning]
   /**
    * TODO(developer): Uncomment these variables before running the sample.\
@@ -353195,41 +353227,6 @@ public class CreatePipelineJobModelTuningSample {
   }
 
   await tuneLLM();"
-"419","Vertex AI","v1","1251742","aiplatform_list_tuned_models","NODEJS","Tune language foundation model (Generative AI)","Tune language foundation models with a tuning dataset.","https://github.com/GoogleCloudPlatform/nodejs-docs-samples/blob/62b70e8bdd7876149e781542eed03d4a2656840e/ai-platform/snippets/list-tuned-models.js#L19-L55","GoogleCloudPlatform/nodejs-docs-samples","ai-platform/snippets/list-tuned-models.js","62b70e8bdd7876149e781542eed03d4a2656840e","L19-L55","  /**
-   * TODO(developer): Uncomment these variables before running the sample.\
-   * (Not necessary if passing values as arguments)
-   */
-  // const project = 'YOUR_PROJECT_ID';
-  // const location = 'YOUR_PROJECT_LOCATION';
-  // const model = 'text-bison@001';
-  const aiplatform = require('@google-cloud/aiplatform');
-
-  const {ModelServiceClient} = aiplatform.v1;
-  const clientOptions = {
-    apiEndpoint: 'us-central1-aiplatform.googleapis.com',
-  };
-
-  // Instantiate the service client.
-  const modelServiceClient = new ModelServiceClient(clientOptions);
-
-  async function listTunedModels() {
-    // Configure the parent resource
-    const parent = `projects/${project}/locations/${location}`;
-    const filter = `labels.google-vertex-llm-tuning-base-model-id=${model}`;
-
-    const request = {
-      parent,
-      filter,
-    };
-
-    const [response] = await modelServiceClient.listModels(request);
-    console.log('List Tuned Models response');
-    for (const model of response) {
-      console.log(`\tModel name: ${model.name}`);
-      console.log(`\tDisplay name: ${model.displayName}`);
-    }
-  }
-  await listTunedModels();"
 "419","Vertex AI","v1","1149958","aiplatform_upload_model_sample","JAVA","Upload a model","Uploads a model using the upload_model method.","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/24b693d5516d268283a4cd5f747e5037dcd97c38/aiplatform/src/main/java/aiplatform/UploadModelSample.java#L19-L89","GoogleCloudPlatform/java-docs-samples","aiplatform/src/main/java/aiplatform/UploadModelSample.java","24b693d5516d268283a4cd5f747e5037dcd97c38","L19-L89","
 import com.google.api.gax.longrunning.OperationFuture;
 import com.google.cloud.aiplatform.v1.LocationName;
@@ -377256,13 +377253,13 @@ async function countTokens(
     # Candidates Token Count: 315
     # Total Token Count: 321
 "
-"697","Generative AI on Vertex AI","v1","1474436","generativeaionvertexai_sdk_embedding","JAVA","Create an embedding using Generative AI on Vertex AI","Use Generative AI to build an embedding","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/d295d370464b0ac236f84e69f53cc8342689d16e/aiplatform/src/main/java/aiplatform/PredictTextEmbeddingsSamplePreview.java#L19-L127","GoogleCloudPlatform/java-docs-samples","aiplatform/src/main/java/aiplatform/PredictTextEmbeddingsSamplePreview.java","d295d370464b0ac236f84e69f53cc8342689d16e","L19-L127","import static java.util.stream.Collectors.toList;
+"697","Generative AI on Vertex AI","v1","1474435","generativeaionvertexai_sdk_embedding","JAVA","Create an embedding using Generative AI on Vertex AI","Use Generative AI to build an embedding","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/d295d370464b0ac236f84e69f53cc8342689d16e/aiplatform/src/main/java/aiplatform/PredictTextEmbeddingsSample.java#L20-L115","GoogleCloudPlatform/java-docs-samples","aiplatform/src/main/java/aiplatform/PredictTextEmbeddingsSample.java","d295d370464b0ac236f84e69f53cc8342689d16e","L20-L115","import static java.util.stream.Collectors.toList;
 
-import com.google.cloud.aiplatform.v1beta1.EndpointName;
-import com.google.cloud.aiplatform.v1beta1.PredictRequest;
-import com.google.cloud.aiplatform.v1beta1.PredictResponse;
-import com.google.cloud.aiplatform.v1beta1.PredictionServiceClient;
-import com.google.cloud.aiplatform.v1beta1.PredictionServiceSettings;
+import com.google.cloud.aiplatform.v1.EndpointName;
+import com.google.cloud.aiplatform.v1.PredictRequest;
+import com.google.cloud.aiplatform.v1.PredictResponse;
+import com.google.cloud.aiplatform.v1.PredictionServiceClient;
+import com.google.cloud.aiplatform.v1.PredictionServiceSettings;
 import com.google.protobuf.Struct;
 import com.google.protobuf.Value;
 import java.io.IOException;
@@ -377272,34 +377269,20 @@ import java.util.OptionalInt;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PredictTextEmbeddingsSamplePreview {
+public class PredictTextEmbeddingsSample {
   public static void main(String[] args) throws IOException {
     // TODO(developer): Replace these variables before running the sample.
-    // Details about text embedding request structure and supported models are
-    // available in:
+    // Details about text embedding request structure and supported models are available in:
     // https://cloud.google.com/vertex-ai/docs/generative-ai/embeddings/get-text-embeddings
-    String endpoint = ""us-central1-aiplatform.googleapis.com"";
+    String endpoint = ""us-central1-aiplatform.googleapis.com:443"";
     String project = ""YOUR_PROJECT_ID"";
     String model = ""text-embedding-005"";
-    // Calculate the embedding for a code retrieval query. Using 'CODE_RETRIEVAL_QUERY' for query.
     predictTextEmbeddings(
         endpoint,
         project,
         model,
-        List.of(""Retrieve a function that adds two numbers""),
-        ""CODE_RETRIEVAL_QUERY"",
-        OptionalInt.of(256));
-
-    // Calculate the embedding for code blocks. Using 'RETRIEVAL_DOCUMENT' for corpus.
-    predictTextEmbeddings(
-        endpoint,
-        project,
-        model,
-        List.of(
-            ""def func(a, b): return a + b"",
-            ""def func(a, b): return a - b"",
-            ""def func(a, b): return (a ** 2 + b ** 2) ** 0.5""),
-        ""RETRIEVAL_DOCUMENT"",
+        List.of(""banana bread?"", ""banana muffins?""),
+        ""QUESTION_ANSWERING"",
         OptionalInt.of(256));
   }
 
@@ -377362,29 +377345,34 @@ public class PredictTextEmbeddingsSamplePreview {
   private static Value valueOf(int n) {
     return Value.newBuilder().setNumberValue(n).build();
   }
-}"
-"697","Generative AI on Vertex AI","v1","1474637","generativeaionvertexai_sdk_embedding","NODEJS","Create an embedding using Generative AI on Vertex AI","Use Generative AI to build an embedding","https://github.com/GoogleCloudPlatform/nodejs-docs-samples/blob/5bd0c38f525271fd223ddebabe50dff28c25e132/ai-platform/snippets/predict-text-embeddings.js#L20-L58","GoogleCloudPlatform/nodejs-docs-samples","ai-platform/snippets/predict-text-embeddings.js","5bd0c38f525271fd223ddebabe50dff28c25e132","L20-L58","async function main(
-  project,
-  model = 'text-embedding-005',
-  texts = 'banana bread?;banana muffins?',
-  task = 'QUESTION_ANSWERING',
-  dimensionality = 0,
-  apiEndpoint = 'us-central1-aiplatform.googleapis.com'
-) {
+}
+// [END aiplatform_sdk_embedding]"
+"697","Generative AI on Vertex AI","v1","1474633","generativeaionvertexai_sdk_embedding","NODEJS","Create an embedding using Generative AI on Vertex AI","Use Generative AI to build an embedding","https://github.com/GoogleCloudPlatform/nodejs-docs-samples/blob/5bd0c38f525271fd223ddebabe50dff28c25e132/ai-platform/snippets/predict-text-embeddings-preview.js#L20-L59","GoogleCloudPlatform/nodejs-docs-samples","ai-platform/snippets/predict-text-embeddings-preview.js","5bd0c38f525271fd223ddebabe50dff28c25e132","L20-L59","
+  // TODO(developer): Update the following for your own use case.
+  const project = 'long-door-651';
+  const model = 'text-embedding-005';
+  const location = 'us-central1';
+  // Calculate the embedding for code blocks. Using 'RETRIEVAL_DOCUMENT' for corpus.
+  // Specify the task type as 'CODE_RETRIEVAL_QUERY' for query, e.g. 'Retrieve a function that adds two numbers'.
+  const texts =
+    'def func(a, b): return a + b;def func(a, b): return a - b;def func(a, b): return (a ** 2 + b ** 2) ** 0.5';
+  const task = 'RETRIEVAL_DOCUMENT';
+  const dimensionality = 3;
+  const apiEndpoint = 'us-central1-aiplatform.googleapis.com';
+
   const aiplatform = require('@google-cloud/aiplatform');
   const {PredictionServiceClient} = aiplatform.v1;
   const {helpers} = aiplatform; // helps construct protobuf.Value objects.
   const clientOptions = {apiEndpoint: apiEndpoint};
-  const location = 'us-central1';
   const endpoint = `projects/${project}/locations/${location}/publishers/google/models/${model}`;
+  const parameters = helpers.toValue({
+    outputDimensionality: parseInt(dimensionality),
+  });
 
   async function callPredict() {
     const instances = texts
       .split(';')
       .map(e => helpers.toValue({content: e, task_type: task}));
-    const parameters = helpers.toValue(
-      dimensionality > 0 ? {outputDimensionality: parseInt(dimensionality)} : {}
-    );
     const request = {endpoint, instances, parameters};
     const client = new PredictionServiceClient(clientOptions);
     const [response] = await client.predict(request);
@@ -377396,10 +377384,7 @@ public class PredictTextEmbeddingsSamplePreview {
     });
     console.log('Got embeddings: \n' + JSON.stringify(embeddings));
   }
-
-  callPredict();
-}
-// [END aiplatform_sdk_embedding]"
+  await callPredict();"
 "697","Generative AI on Vertex AI","v1","1467402","generativeaionvertexai_rag_create_corpus","PYTHON","Create an index","This sample demonstrates how to create an index to import or upload documents.","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbd4f4ff488016dc2d0c2ad5fd02a9bf0b35fd89/generative_ai/rag/create_corpus_example.py#L27-L56","GoogleCloudPlatform/python-docs-samples","generative_ai/rag/create_corpus_example.py","cbd4f4ff488016dc2d0c2ad5fd02a9bf0b35fd89","L27-L56","
     from vertexai.preview import rag
     import vertexai
@@ -379771,6 +379756,43 @@ func generateMultimodalContent(w io.Writer, projectID, location, modelName strin
 	return nil
 }
 "
+"697","Generative AI on Vertex AI","v1","1462462","generativeaionvertexai_gemini_get_started","JAVA","Generate text from an image","This sample demonstrates how to use the Gemini model to generate text from an image.","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/649530acd951a560ca238c9088f06f556261c73b/vertexai/snippets/src/main/java/vertexai/gemini/Quickstart.java#L19-L57","GoogleCloudPlatform/java-docs-samples","vertexai/snippets/src/main/java/vertexai/gemini/Quickstart.java","649530acd951a560ca238c9088f06f556261c73b","L19-L57","import com.google.cloud.vertexai.VertexAI;
+import com.google.cloud.vertexai.api.GenerateContentResponse;
+import com.google.cloud.vertexai.generativeai.ContentMaker;
+import com.google.cloud.vertexai.generativeai.GenerativeModel;
+import com.google.cloud.vertexai.generativeai.PartMaker;
+import java.io.IOException;
+
+public class Quickstart {
+
+  public static void main(String[] args) throws IOException {
+    // TODO(developer): Replace these variables before running the sample.
+    String projectId = ""your-google-cloud-project-id"";
+    String location = ""us-central1"";
+    String modelName = ""gemini-1.5-flash-001"";
+
+    String output = quickstart(projectId, location, modelName);
+    System.out.println(output);
+  }
+
+  // Analyzes the provided Multimodal input.
+  public static String quickstart(String projectId, String location, String modelName)
+      throws IOException {
+    // Initialize client that will be used to send requests. This client only needs
+    // to be created once, and can be reused for multiple requests.
+    try (VertexAI vertexAI = new VertexAI(projectId, location)) {
+      String imageUri = ""gs://generativeai-downloads/images/scones.jpg"";
+
+      GenerativeModel model = new GenerativeModel(modelName, vertexAI);
+      GenerateContentResponse response = model.generateContent(ContentMaker.fromMultiModalData(
+          PartMaker.fromMimeTypeAndData(""image/png"", imageUri),
+          ""What's in this photo""
+      ));
+
+      return response.toString();
+    }
+  }
+}"
 "697","Generative AI on Vertex AI","v1","1462476","generativeaionvertexai_gemini_pro_example","JAVA","Generate text from an image","Prompt the Gemini model with an image and a text prompt, and returns the generated text.","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/649530acd951a560ca238c9088f06f556261c73b/vertexai/snippets/src/main/java/vertexai/gemini/MultimodalQuery.java#L19-L63","GoogleCloudPlatform/java-docs-samples","vertexai/snippets/src/main/java/vertexai/gemini/MultimodalQuery.java","649530acd951a560ca238c9088f06f556261c73b","L19-L63","import com.google.cloud.vertexai.VertexAI;
 import com.google.cloud.vertexai.api.GenerateContentResponse;
 import com.google.cloud.vertexai.generativeai.ContentMaker;
@@ -379811,43 +379833,6 @@ public class MultimodalQuery {
 
       output = ResponseHandler.getText(response);
       return output;
-    }
-  }
-}"
-"697","Generative AI on Vertex AI","v1","1462462","generativeaionvertexai_gemini_get_started","JAVA","Generate text from an image","This sample demonstrates how to use the Gemini model to generate text from an image.","https://github.com/GoogleCloudPlatform/java-docs-samples/blob/649530acd951a560ca238c9088f06f556261c73b/vertexai/snippets/src/main/java/vertexai/gemini/Quickstart.java#L19-L57","GoogleCloudPlatform/java-docs-samples","vertexai/snippets/src/main/java/vertexai/gemini/Quickstart.java","649530acd951a560ca238c9088f06f556261c73b","L19-L57","import com.google.cloud.vertexai.VertexAI;
-import com.google.cloud.vertexai.api.GenerateContentResponse;
-import com.google.cloud.vertexai.generativeai.ContentMaker;
-import com.google.cloud.vertexai.generativeai.GenerativeModel;
-import com.google.cloud.vertexai.generativeai.PartMaker;
-import java.io.IOException;
-
-public class Quickstart {
-
-  public static void main(String[] args) throws IOException {
-    // TODO(developer): Replace these variables before running the sample.
-    String projectId = ""your-google-cloud-project-id"";
-    String location = ""us-central1"";
-    String modelName = ""gemini-1.5-flash-001"";
-
-    String output = quickstart(projectId, location, modelName);
-    System.out.println(output);
-  }
-
-  // Analyzes the provided Multimodal input.
-  public static String quickstart(String projectId, String location, String modelName)
-      throws IOException {
-    // Initialize client that will be used to send requests. This client only needs
-    // to be created once, and can be reused for multiple requests.
-    try (VertexAI vertexAI = new VertexAI(projectId, location)) {
-      String imageUri = ""gs://generativeai-downloads/images/scones.jpg"";
-
-      GenerativeModel model = new GenerativeModel(modelName, vertexAI);
-      GenerateContentResponse response = model.generateContent(ContentMaker.fromMultiModalData(
-          PartMaker.fromMimeTypeAndData(""image/png"", imageUri),
-          ""What's in this photo""
-      ));
-
-      return response.toString();
     }
   }
 }"
@@ -379901,30 +379886,6 @@ async function createNonStreamingMultipartContent(
 
   console.log(fullTextResponse);
 }"
-"697","Generative AI on Vertex AI","v1","1468223","generativeaionvertexai_gemini_pro_example","PYTHON","Generate text from an image","Prompt the Gemini model with an image and a text prompt, and returns the generated text.","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/6ae0b7e9e5a0a58e2960301ef4528d502d730d9e/generative_ai/image/image_example02.py#L20-L45","GoogleCloudPlatform/python-docs-samples","generative_ai/image/image_example02.py","6ae0b7e9e5a0a58e2960301ef4528d502d730d9e","L20-L45","    import vertexai
-
-    from vertexai.generative_models import GenerativeModel, Part
-
-    # TODO(developer): Update and un-comment below line
-    # PROJECT_ID = ""your-project-id""
-    vertexai.init(project=PROJECT_ID, location=""us-central1"")
-
-    model = GenerativeModel(""gemini-1.5-flash-002"")
-
-    image_file = Part.from_uri(
-        ""gs://cloud-samples-data/generative-ai/image/scones.jpg"", ""image/jpeg""
-    )
-
-    # Query the model
-    response = model.generate_content([image_file, ""what is this image?""])
-    print(response.text)
-    # Example response:
-    # That's a lovely overhead flatlay photograph of blueberry scones.
-    # The image features:
-    # * **Several blueberry scones:** These are the main focus,
-    # arranged on parchment paper with some blueberry juice stains.
-    # ...
-"
 "697","Generative AI on Vertex AI","v1","1468245","generativeaionvertexai_gemini_get_started","PYTHON","Generate text from an image","This sample demonstrates how to use the Gemini model to generate text from an image.","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/6ae0b7e9e5a0a58e2960301ef4528d502d730d9e/generative_ai/image/image_example01.py#L20-L48","GoogleCloudPlatform/python-docs-samples","generative_ai/image/image_example01.py","6ae0b7e9e5a0a58e2960301ef4528d502d730d9e","L20-L48","    import vertexai
 
     from vertexai.generative_models import GenerativeModel, Part
@@ -379950,6 +379911,30 @@ async function createNonStreamingMultipartContent(
     # Here's what's in the image:
     # * **Blueberry scones:** Several freshly baked blueberry scones are arranged on parchment paper.
     # They look crumbly and delicious.
+    # ...
+"
+"697","Generative AI on Vertex AI","v1","1468223","generativeaionvertexai_gemini_pro_example","PYTHON","Generate text from an image","Prompt the Gemini model with an image and a text prompt, and returns the generated text.","https://github.com/GoogleCloudPlatform/python-docs-samples/blob/6ae0b7e9e5a0a58e2960301ef4528d502d730d9e/generative_ai/image/image_example02.py#L20-L45","GoogleCloudPlatform/python-docs-samples","generative_ai/image/image_example02.py","6ae0b7e9e5a0a58e2960301ef4528d502d730d9e","L20-L45","    import vertexai
+
+    from vertexai.generative_models import GenerativeModel, Part
+
+    # TODO(developer): Update and un-comment below line
+    # PROJECT_ID = ""your-project-id""
+    vertexai.init(project=PROJECT_ID, location=""us-central1"")
+
+    model = GenerativeModel(""gemini-1.5-flash-002"")
+
+    image_file = Part.from_uri(
+        ""gs://cloud-samples-data/generative-ai/image/scones.jpg"", ""image/jpeg""
+    )
+
+    # Query the model
+    response = model.generate_content([image_file, ""what is this image?""])
+    print(response.text)
+    # Example response:
+    # That's a lovely overhead flatlay photograph of blueberry scones.
+    # The image features:
+    # * **Several blueberry scones:** These are the main focus,
+    # arranged on parchment paper with some blueberry juice stains.
     # ...
 "
 "697","Generative AI on Vertex AI","v1","1456352","generativeaionvertexai_gemini_safety_settings","CSHARP","Generate text from an image with safety settings","This sample demonstrates how to use the Gemini model with safety settings to generate text from an image.","https://github.com/GoogleCloudPlatform/dotnet-docs-samples/blob/b7ee90a9ec99707af4964228c2ba7ce39fb14289/aiplatform/api/AIPlatform.Samples/WithSafetySettings.cs#L17-L92","GoogleCloudPlatform/dotnet-docs-samples","aiplatform/api/AIPlatform.Samples/WithSafetySettings.cs","b7ee90a9ec99707af4964228c2ba7ce39fb14289","L17-L92","

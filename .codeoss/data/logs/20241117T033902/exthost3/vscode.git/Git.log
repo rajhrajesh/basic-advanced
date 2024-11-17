@@ -1,0 +1,214 @@
+2024-11-17 03:40:49.452 [info] Log level: Info
+2024-11-17 03:40:49.452 [info] Validating found git in: "git"
+2024-11-17 03:40:49.452 [info] Using git "2.43.0" from "git"
+2024-11-17 03:40:49.475 [info] > git rev-parse --show-toplevel [35ms]
+2024-11-17 03:40:49.489 [info] > git rev-parse --git-dir --git-common-dir [3ms]
+2024-11-17 03:40:49.523 [info] Open repository: /home/penurajeshitsd
+2024-11-17 03:40:50.228 [info] > git check-ignore -v -z --stdin [15ms]
+2024-11-17 03:40:50.230 [info] > git rev-parse --show-toplevel [676ms]
+2024-11-17 03:40:50.243 [info] > git config --get commit.template [698ms]
+2024-11-17 03:40:53.550 [info] > git check-ignore -v -z --stdin [34ms]
+2024-11-17 03:40:53.552 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3279ms]
+2024-11-17 03:40:53.553 [info] > git fetch [4030ms]
+2024-11-17 03:40:53.553 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+2024-11-17 03:40:53.554 [info] > git rev-parse --show-toplevel [3297ms]
+2024-11-17 03:40:53.571 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:40:53.673 [info] > git config --get commit.template [85ms]
+2024-11-17 03:40:53.674 [info] > git rev-parse refs/remotes/react-18/importants [103ms]
+2024-11-17 03:40:53.807 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [92ms]
+2024-11-17 03:40:53.808 [info] > git config --get commit.template [110ms]
+2024-11-17 03:40:53.885 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:40:53.962 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [103ms]
+2024-11-17 03:40:53.989 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:40:54.114 [info] > git rev-parse refs/remotes/react-18/importants [229ms]
+2024-11-17 03:40:54.164 [info] > git rev-parse refs/remotes/react-18/importants [176ms]
+2024-11-17 03:41:34.582 [info] > git show --textconv :react_18/hacker-stories/README.md [37ms]
+2024-11-17 03:41:34.589 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/README.md [10ms]
+2024-11-17 03:41:34.622 [info] > git cat-file -s f768e33fc946e6074d6bd3ce5d454853adb3615e [9ms]
+2024-11-17 03:41:47.746 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [57ms]
+2024-11-17 03:41:47.757 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [15ms]
+2024-11-17 03:41:47.806 [info] > git cat-file -s 6583757c0f9295b286b3c574aa543447a07da071 [8ms]
+2024-11-17 03:42:05.918 [info] > git status -z -uall [71728ms]
+2024-11-17 03:42:05.980 [info] > git merge-base refs/heads/importants refs/remotes/react-18/importants [32ms]
+2024-11-17 03:42:06.004 [info] > git rev-list --count --left-right refs/heads/importants...refs/remotes/react-18/importants [4ms]
+2024-11-17 03:42:06.053 [info] > git diff --name-status -z --diff-filter=ADMR 5b524f06a963450eeda0757e52730fb02ac2170d...refs/remotes/react-18/importants [28ms]
+2024-11-17 03:42:08.778 [info] > git config --get commit.template [23ms]
+2024-11-17 03:42:08.778 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [6ms]
+2024-11-17 03:42:08.798 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:42:08.801 [info] > git rev-parse refs/remotes/react-18/importants [3ms]
+2024-11-17 03:42:08.995 [info] > git status -z -uall [172ms]
+2024-11-17 03:43:36.535 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [4ms]
+2024-11-17 03:43:36.536 [info] > git config --get commit.template [32ms]
+2024-11-17 03:43:36.559 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:43:36.561 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:43:36.764 [info] > git status -z -uall [178ms]
+2024-11-17 03:43:37.124 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/src/App.jsx [3ms]
+2024-11-17 03:43:37.153 [info] > git cat-file -s 6583757c0f9295b286b3c574aa543447a07da071 [3ms]
+2024-11-17 03:43:37.471 [info] > git show --textconv :react_18/hacker-stories/src/App.jsx [4ms]
+2024-11-17 03:43:39.983 [info] > git show --textconv :react_18/hacker-stories/README.md [23ms]
+2024-11-17 03:43:39.986 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/README.md [6ms]
+2024-11-17 03:43:40.008 [info] > git cat-file -s f768e33fc946e6074d6bd3ce5d454853adb3615e [3ms]
+2024-11-17 03:43:41.800 [info] > git config --get commit.template [5ms]
+2024-11-17 03:43:41.825 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [5ms]
+2024-11-17 03:43:41.845 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:43:41.847 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:43:42.045 [info] > git status -z -uall [179ms]
+2024-11-17 03:43:47.092 [info] > git config --get commit.template [22ms]
+2024-11-17 03:43:47.094 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [4ms]
+2024-11-17 03:43:47.112 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:43:47.114 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:43:47.296 [info] > git status -z -uall [164ms]
+2024-11-17 03:43:52.815 [info] > git config --get commit.template [3ms]
+2024-11-17 03:43:52.837 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3ms]
+2024-11-17 03:43:52.856 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:43:52.857 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:43:53.041 [info] > git status -z -uall [165ms]
+2024-11-17 03:43:54.732 [info] > git fetch [593ms]
+2024-11-17 03:43:54.732 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-17 03:43:54.777 [info] > git config --get commit.template [24ms]
+2024-11-17 03:43:54.780 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [8ms]
+2024-11-17 03:43:54.799 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:43:54.801 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:43:54.991 [info] > git status -z -uall [168ms]
+2024-11-17 03:43:56.179 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/README.md [2ms]
+2024-11-17 03:43:56.200 [info] > git cat-file -s f768e33fc946e6074d6bd3ce5d454853adb3615e [2ms]
+2024-11-17 03:43:56.278 [info] > git show --textconv :react_18/hacker-stories/README.md [3ms]
+2024-11-17 03:43:58.088 [info] > git config --get commit.template [20ms]
+2024-11-17 03:43:58.090 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3ms]
+2024-11-17 03:43:58.108 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:43:58.110 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:43:58.296 [info] > git status -z -uall [168ms]
+2024-11-17 03:44:03.346 [info] > git config --get commit.template [21ms]
+2024-11-17 03:44:03.347 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3ms]
+2024-11-17 03:44:03.366 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:44:03.368 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:44:03.563 [info] > git status -z -uall [173ms]
+2024-11-17 03:44:08.609 [info] > git config --get commit.template [21ms]
+2024-11-17 03:44:08.610 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3ms]
+2024-11-17 03:44:08.630 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:44:08.631 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:44:08.812 [info] > git status -z -uall [161ms]
+2024-11-17 03:44:12.656 [info] > git merge-base refs/heads/importants refs/remotes/react-18/importants [3ms]
+2024-11-17 03:44:12.678 [info] > git rev-list --count --left-right refs/heads/importants...refs/remotes/react-18/importants [3ms]
+2024-11-17 03:44:13.636 [info] > git check-ignore -v -z --stdin [4ms]
+2024-11-17 03:44:13.860 [info] > git config --get commit.template [21ms]
+2024-11-17 03:44:13.862 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3ms]
+2024-11-17 03:44:13.883 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:44:13.885 [info] > git rev-parse refs/remotes/react-18/importants [3ms]
+2024-11-17 03:44:14.070 [info] > git status -z -uall [166ms]
+2024-11-17 03:44:19.104 [info] > git config --get commit.template [3ms]
+2024-11-17 03:44:19.130 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3ms]
+2024-11-17 03:44:19.152 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:44:19.154 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:44:19.343 [info] > git status -z -uall [170ms]
+2024-11-17 03:44:24.412 [info] > git config --get commit.template [33ms]
+2024-11-17 03:44:24.413 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3ms]
+2024-11-17 03:44:24.439 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:44:24.441 [info] > git rev-parse refs/remotes/react-18/importants [3ms]
+2024-11-17 03:44:24.645 [info] > git status -z -uall [180ms]
+2024-11-17 03:44:29.684 [info] > git config --get commit.template [4ms]
+2024-11-17 03:44:29.712 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [4ms]
+2024-11-17 03:44:29.736 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:44:29.738 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:44:29.945 [info] > git status -z -uall [180ms]
+2024-11-17 03:45:11.697 [info] > git config --get commit.template [20ms]
+2024-11-17 03:45:11.699 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3ms]
+2024-11-17 03:45:11.717 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:45:11.719 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:45:11.918 [info] > git status -z -uall [179ms]
+2024-11-17 03:45:16.966 [info] > git config --get commit.template [21ms]
+2024-11-17 03:45:16.968 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [4ms]
+2024-11-17 03:45:16.989 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:45:16.991 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:45:17.186 [info] > git status -z -uall [173ms]
+2024-11-17 03:45:22.220 [info] > git config --get commit.template [3ms]
+2024-11-17 03:45:22.247 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3ms]
+2024-11-17 03:45:22.271 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:45:22.273 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:45:22.476 [info] > git status -z -uall [177ms]
+2024-11-17 03:45:27.507 [info] > git config --get commit.template [3ms]
+2024-11-17 03:45:27.531 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [5ms]
+2024-11-17 03:45:27.551 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:45:27.553 [info] > git rev-parse refs/remotes/react-18/importants [1ms]
+2024-11-17 03:45:27.756 [info] > git status -z -uall [184ms]
+2024-11-17 03:45:32.801 [info] > git config --get commit.template [23ms]
+2024-11-17 03:45:32.803 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [4ms]
+2024-11-17 03:45:32.821 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:45:32.823 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:45:33.011 [info] > git status -z -uall [169ms]
+2024-11-17 03:45:36.559 [info] > git remote add https-//github.com/rajhrajesh/hackers_stories.git react_18 [4ms]
+2024-11-17 03:45:36.559 [info] fatal: 'https-//github.com/rajhrajesh/hackers_stories.git' is not a valid remote name
+2024-11-17 03:45:36.600 [info] > git config --get commit.template [20ms]
+2024-11-17 03:45:36.602 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3ms]
+2024-11-17 03:45:36.620 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:45:36.622 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:45:36.815 [info] > git status -z -uall [174ms]
+2024-11-17 03:45:38.061 [info] > git config --get commit.template [22ms]
+2024-11-17 03:45:38.063 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3ms]
+2024-11-17 03:45:38.082 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:45:38.084 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:45:38.270 [info] > git status -z -uall [167ms]
+2024-11-17 03:45:43.326 [info] > git config --get commit.template [26ms]
+2024-11-17 03:45:43.328 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3ms]
+2024-11-17 03:45:43.352 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:45:43.354 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:45:43.557 [info] > git status -z -uall [178ms]
+2024-11-17 03:45:48.615 [info] > git config --get commit.template [27ms]
+2024-11-17 03:45:48.618 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [5ms]
+2024-11-17 03:45:48.642 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:45:48.645 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:45:48.850 [info] > git status -z -uall [181ms]
+2024-11-17 03:45:53.899 [info] > git config --get commit.template [21ms]
+2024-11-17 03:45:53.901 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3ms]
+2024-11-17 03:45:53.921 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:45:53.922 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:45:54.116 [info] > git status -z -uall [175ms]
+2024-11-17 03:45:56.630 [info] > git remote add react_18 https://github.com/rajhrajesh/hackers_stories.git [4ms]
+2024-11-17 03:45:56.671 [info] > git config --get commit.template [21ms]
+2024-11-17 03:45:56.672 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3ms]
+2024-11-17 03:45:56.691 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:45:56.693 [info] > git rev-parse refs/remotes/react-18/importants [1ms]
+2024-11-17 03:45:56.884 [info] > git status -z -uall [170ms]
+2024-11-17 03:45:57.488 [info] > git fetch react_18 [573ms]
+2024-11-17 03:45:57.488 [info] Auto packing the repository in background for optimum performance.
+See "git help gc" for manual housekeeping.
+warning: The last gc run reported the following. Please correct the root cause
+and remove .git/gc.log
+Automatic cleanup will not be performed until the file is removed.
+
+warning: There are too many unreachable loose objects; run 'git prune' to remove them.
+2024-11-17 03:45:57.528 [info] > git config --get commit.template [20ms]
+2024-11-17 03:45:57.530 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3ms]
+2024-11-17 03:45:57.548 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:45:57.550 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:45:57.734 [info] > git status -z -uall [165ms]
+2024-11-17 03:45:58.294 [info] > git ls-files --stage -- /home/penurajeshitsd/react_18/hacker-stories/README.md [3ms]
+2024-11-17 03:45:58.326 [info] > git cat-file -s f768e33fc946e6074d6bd3ce5d454853adb3615e [5ms]
+2024-11-17 03:45:58.408 [info] > git show --textconv :react_18/hacker-stories/README.md [4ms]
+2024-11-17 03:45:59.166 [info] > git config --get commit.template [21ms]
+2024-11-17 03:45:59.167 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3ms]
+2024-11-17 03:45:59.188 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:45:59.189 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:45:59.371 [info] > git status -z -uall [161ms]
+2024-11-17 03:46:04.416 [info] > git config --get commit.template [20ms]
+2024-11-17 03:46:04.418 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3ms]
+2024-11-17 03:46:04.438 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:46:04.441 [info] > git rev-parse refs/remotes/react-18/importants [3ms]
+2024-11-17 03:46:04.624 [info] > git status -z -uall [164ms]
+2024-11-17 03:46:09.669 [info] > git config --get commit.template [20ms]
+2024-11-17 03:46:09.671 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [4ms]
+2024-11-17 03:46:09.689 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:46:09.691 [info] > git rev-parse refs/remotes/react-18/importants [2ms]
+2024-11-17 03:46:09.876 [info] > git status -z -uall [165ms]
+2024-11-17 03:46:14.904 [info] > git config --get commit.template [3ms]
+2024-11-17 03:46:14.926 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/importants refs/remotes/importants [3ms]
+2024-11-17 03:46:14.944 [warning] ENOENT: no such file or directory, open '/home/penurajeshitsd/.git/refs/remotes/react-18/importants'
+2024-11-17 03:46:14.946 [info] > git rev-parse refs/remotes/react-18/importants [1ms]
+2024-11-17 03:46:15.129 [info] > git status -z -uall [164ms]
